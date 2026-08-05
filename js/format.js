@@ -27,7 +27,7 @@ export function formatText(str) {
     } else if (token.startsWith("[")) {
       const labelEnd = token.indexOf("](");
       const label = token.slice(1, labelEnd);
-      const url = match[1];
+      const url = token.slice(labelEnd + 2, -1);
       parts.push(
         `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${formatPlain(label)}</a>`
       );
