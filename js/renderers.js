@@ -315,7 +315,7 @@ function renderGrid(slide) {
             <span class="builtin-icon">${icon(item.icon, 30)}</span>
             <h3>${escapeHtml(item.name)}</h3>
           </div>
-          <p>${escapeHtml(item.desc)}</p>
+          <p>${formatText(item.desc)}</p>
           <code class="builtin-example">${escapeHtml(item.example)}</code>
           ${
             showRun
