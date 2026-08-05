@@ -1,0 +1,1981 @@
+{
+  "meta": {
+    "title": "Introdução ao Java",
+    "subtitle": "TechX · Dia 1",
+    "author": "StackUp",
+    "showDayTag": false,
+    "piston": {
+      "enabled": true,
+      "url": "",
+      "executePath": "/execute",
+      "healthPath": "/health",
+      "language": "java",
+      "version": "15.0.2",
+      "timeout": 3000,
+      "button": {
+        "label": "Executar",
+        "icon": "play",
+        "loadingLabel": "Executando...",
+        "clearLabel": "Limpar",
+        "clearIcon": "eraser"
+      }
+    }
+  },
+  "slides": [
+    {
+      "id": 1,
+      "active": true,
+      "day": null,
+      "type": "cover",
+      "title": "Introdução ao Java",
+      "subtitle": "Fundamentos da linguagem e Orientação a Objetos",
+      "badge": "TechX · Dia 1",
+      "footer": "JDK, variáveis, controle de fluxo, OOP e Spring Boot"
+    },
+    {
+      "id": 101,
+      "active": true,
+      "day": null,
+      "type": "about",
+      "name": "Daniel Estevão",
+      "image": "images/monitores/daniel-estevao.jpg?v=3",
+      "imageAlt": "Daniel Estevão",
+      "imagePosition": "center top",
+      "logo": "images/presenter/oxygeni-hub.png",
+      "sections": [
+        {
+          "title": "Formação e Atuação",
+          "items": [
+            "Desenvolvedor — Grupo Ceuma",
+            "Técnico em análise e desenvolvimento de sistemas",
+            "Graduação: Desenvolvimento de Back-End"
+          ]
+        },
+        {
+          "title": "Área de Foco",
+          "items": [
+            "Desenvolvimento de sistemas e aplicativos, nativos e web",
+            "Automação de dados usando n8n e Python"
+          ]
+        },
+        {
+          "title": "Propósito",
+          "items": [
+            "Desenvolver sistemas fáceis de usar que automatizam tarefas repetitivas",
+            "Usar tecnologias de ponta com segurança e performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "active": true,
+      "day": null,
+      "type": "about",
+      "name": "Luís Gustavo",
+      "image": "images/monitores/luis-gustavo.jpg?v=2",
+      "imageAlt": "Luís Gustavo",
+      "imagePosition": "center top",
+      "sections": [
+        {
+          "title": "Formação e Atuação",
+          "items": [
+            "Desenvolvedor Back-End"
+          ]
+        },
+        {
+          "title": "Área de Foco",
+          "items": [
+            "Criação e manutenção de APIs REST",
+            "Integração com sistemas como TOTVS",
+            "Autenticação e autorização"
+          ]
+        },
+        {
+          "title": "Propósito",
+          "items": [
+            "Evolução contínua de aplicações corporativas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "active": true,
+      "day": 1,
+      "type": "origin",
+      "title": "Origem do Java",
+      "lead": "James Gosling liderou o time na Sun Microsystems que criou o Java. O objetivo era uma linguagem portátil para dispositivos embarcados, mas ela virou padrão em servidores, Android e sistemas corporativos.",
+      "details": [
+        "O projeto interno se chamava Green e depois Oak, antes de virar Java.",
+        "WORA significa Write Once, Run Anywhere: escreve uma vez, roda em qualquer lugar.",
+        "Hoje a Oracle mantém o Java, mas o ecossistema é gigante e open source em boa parte."
+      ],
+      "timeline": [
+        {
+          "year": "1991",
+          "event": "Projeto Green começa na Sun Microsystems"
+        },
+        {
+          "year": "1995",
+          "event": "Java 1.0 lançado com foco em applet e web"
+        },
+        {
+          "year": "2006",
+          "event": "Java passa a ser open source (OpenJDK)"
+        },
+        {
+          "year": "2010",
+          "event": "Oracle adquire a Sun e assume o Java"
+        },
+        {
+          "year": "Hoje",
+          "event": "Usado em bancos, Android, backends e cloud"
+        }
+      ],
+      "note": "O nome Java veio do café. O ícone da xícara virou símbolo mundial da linguagem."
+    },
+    {
+      "id": 3,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "Para que o Java foi criado?",
+      "lead": "Java resolve problemas reais de software que precisa rodar em ambientes diferentes, com segurança e manutenção a longo prazo.",
+      "cards": [
+        {
+          "icon": "globe",
+          "heading": "Multiplataforma",
+          "body": "O mesmo bytecode .class roda em Windows, Linux e macOS. Basta ter a JVM instalada na máquina."
+        },
+        {
+          "icon": "shield-check",
+          "heading": "Segurança",
+          "body": "Garbage collector gerencia memória. A JVM isola a execução e reduz acesso direto ao sistema."
+        },
+        {
+          "icon": "building-2",
+          "heading": "Enterprise",
+          "body": "Nubank, Spotify, Amazon e milhares de empresas usam Java em sistemas críticos de produção."
+        },
+        {
+          "icon": "layers",
+          "heading": "Ecossistema",
+          "body": "Spring Boot, Maven, Gradle, JUnit e bibliotecas prontas aceleram qualquer projeto backend."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "active": true,
+      "day": 1,
+      "type": "ides",
+      "title": "IDEs de desenvolvimento",
+      "lead": "IDE (Integrated Development Environment) é o programa onde você escreve, compila, executa e depura código Java. Ela economiza tempo com autocomplete, erros em tempo real e refatoração.",
+      "details": [
+        "Você pode compilar pelo terminal com javac, mas a IDE facilita muito o dia a dia.",
+        "Todas abaixo suportam Java moderno, Maven/Gradle e debug passo a passo.",
+        "Para o curso, qualquer uma serve. O importante é instalar o JDK antes."
+      ]
+    },
+    {
+      "id": 29,
+      "active": true,
+      "day": 1,
+      "type": "books",
+      "title": "Material de apoio",
+      "lead": "Livros recomendados para aprofundar os conceitos do dia."
+    },
+    {
+      "id": 30,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "JDK, JRE e JVM",
+      "lead": "Para programar em Java você precisa do <strong>JDK</strong>. Ele reúne tudo para escrever, compilar e executar código.",
+      "details": [
+        "Use JDK 17 ou 21 (versões LTS recomendadas para o curso).",
+        "No terminal: `java -version` mostra a JVM; `javac -version` confirma o compilador.",
+        "A IDE usa o JDK que você configurar nas preferências do projeto."
+      ],
+      "cards": [
+        {
+          "icon": "package",
+          "heading": "JDK",
+          "body": "Java Development Kit. Pacote completo para desenvolver: compilador `javac`, bibliotecas padrão e ferramentas (`jar`, `javadoc`)."
+        },
+        {
+          "icon": "play-circle",
+          "heading": "JRE",
+          "body": "Java Runtime Environment. Só executa programas já compilados. Não inclui `javac` para criar novos `.class`."
+        },
+        {
+          "icon": "cpu",
+          "heading": "JVM",
+          "body": "Java Virtual Machine. Lê o bytecode `.class` e roda no seu sistema. É o que torna o Java multiplataforma."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Variáveis",
+      "lead": "Variável é um espaço nomeado na memória que guarda um valor. Em Java, todo valor tem um tipo fixo que não muda depois da declaração.",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    int idade = 21;\n    double preco = 19.90;\n    boolean ativo = true;\n    String nome = \"Maria\";\n    char inicial = 'M';\n    final double PI = 3.14159;\n    System.out.println(nome + \", \" + idade + \" anos\");\n    System.out.println(\"Preço: \" + preco);\n    System.out.println(\"Ativo: \" + ativo);\n    System.out.println(\"Inicial: \" + inicial);\n    System.out.println(\"PI: \" + PI);\n  }\n}",
+        "expectedOutput": "Maria, 21 anos\nPreço: 19.9\nAtivo: true\nInicial: M\nPI: 3.14159"
+      },
+      "code": "int idade = 21;\ndouble preco = 19.90;\nboolean ativo = true;\nString nome = \"Maria\";\nchar inicial = 'M';\n\n// final = constante (não pode mudar)\nfinal double PI = 3.14159;",
+      "rules": [
+        "Declare sempre o tipo antes do nome: `int idade`",
+        "Use camelCase: `quantidadeTotal`, `nomeUsuario`",
+        "`String` é classe, não tipo primitivo",
+        "Use `final` quando o valor não deve mudar"
+      ],
+      "cards": [
+        {
+          "icon": "lock",
+          "heading": "Constantes com final",
+          "body": "`final` impede reatribuição depois da primeira atribuição. Use em valores fixos: `final double PI = 3.14159`, `final int MAX_TENTATIVAS = 3`."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "active": false,
+      "day": 1,
+      "type": "split",
+      "title": "Bits, bytes e sua aplicação",
+      "lead": "Quando você declara uma variável, a JVM reserva um pedaço da RAM para guardar aquele valor. Esse pedaço é medido em bytes. O tipo que você escolhe define quanto espaço ocupa e qual valor máximo cabe ali.",
+      "code": "byte nota = 85;            // 1 byte na RAM\nint populacao = 2100000;   // 4 bytes na RAM\n\nbyte[] buffer = new byte[1024];\n// 1024 posições = 1024 bytes\n\nbyte max = 127;\nmax++;  // overflow: vira -128",
+      "rules": [
+        "Bit é 0 ou 1. A JVM trabalha em bytes: cada byte guarda um valor pequeno (-128 a 127)",
+        "Cada variável, campo de objeto e posição de array consome bytes enquanto existir",
+        "Tipo menor economiza memória, mas limita o valor. Tipo maior aceita números maiores, mas gasta mais RAM",
+        "Em app pequena você quase não sente. Em lista com milhões de registros, o tipo impacta custo e performance"
+      ]
+    },
+    {
+      "id": 7,
+      "active": false,
+      "day": 1,
+      "type": "table",
+      "title": "Por que Java não tem ponteiros?",
+      "lead": "Em C e C++ você acessa endereços de memória com ponteiros. Java remove isso de propósito para deixar o código mais seguro e simples.",
+      "details": [
+        "Em Java você usa referências: `Usuario u = new Usuario();`",
+        "A referência aponta para o objeto, mas você não manipula endereço de memória.",
+        "O Garbage Collector libera memória automaticamente, sem `free()` manual."
+      ],
+      "columns": [
+        "C / C++",
+        "Java"
+      ],
+      "rows": [
+        [
+          "Ponteiros explícitos (*ptr)",
+          "Referências a objetos"
+        ],
+        [
+          "Liberar memória com free()",
+          "Garbage Collector automático"
+        ],
+        [
+          "Risco de acessar memória inválida",
+          "JVM bloqueia acesso perigoso"
+        ],
+        [
+          "Aritmética de ponteiro (ptr++)",
+          "Não existe em Java"
+        ]
+      ],
+      "note": "Menos bugs, menos memory leak e menos falha de segmentação. Você foca na lógica, não na memória."
+    },
+    {
+      "id": 8,
+      "active": true,
+      "day": 1,
+      "type": "table",
+      "title": "Tipos primitivos (inteiros)",
+      "lead": "Tipos para números inteiros. O mais usado no dia a dia é o int.",
+      "columns": [
+        "Tipo",
+        "Bits",
+        "Descrição",
+        "Exemplo"
+      ],
+      "rows": [
+        [
+          "byte",
+          "8",
+          "Número inteiro pequeno. Ocupa pouca memória, mas aceita só de -128 a 127.",
+          "byte b = 10;"
+        ],
+        [
+          "short",
+          "16",
+          "Inteiro médio. Pouco usado no dia a dia.",
+          "short s = 300;"
+        ],
+        [
+          "int",
+          "32",
+          "O mais usado para números inteiros. É o padrão quando você precisa contar, somar ou guardar idade.",
+          "int x = 42;"
+        ],
+        [
+          "long",
+          "64",
+          "Para números inteiros muito grandes. No final do valor, coloque L.",
+          "long l = 9_000_000_000L;"
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "active": true,
+      "day": 1,
+      "type": "table",
+      "title": "Tipos primitivos (outros)",
+      "lead": "Decimais, caractere único e valores lógicos. double e boolean são os mais comuns aqui.",
+      "columns": [
+        "Tipo",
+        "Bits",
+        "Descrição",
+        "Exemplo"
+      ],
+      "rows": [
+        [
+          "float",
+          "32",
+          "Número decimal com menos precisão. No final do valor, coloque f.",
+          "float f = 3.14f;"
+        ],
+        [
+          "double",
+          "64",
+          "Número decimal com mais precisão. É o padrão para preço, nota e medidas.",
+          "double d = 3.14159;"
+        ],
+        [
+          "char",
+          "16",
+          "Guarda um único caractere. Usa aspas simples.",
+          "char c = 'A';"
+        ],
+        [
+          "boolean",
+          "1",
+          "Guarda verdadeiro ou falso. Muito usado em if e validações.",
+          "boolean ok = true;"
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "String x char",
+      "lead": "char guarda um único caractere. String guarda texto completo.",
+      "filename": "Main.java",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    char letra = 'J';\n    String nome = \"Java\";\n    char primeiro = nome.charAt(0);\n    int tamanho = nome.length();\n    System.out.println(letra);\n    System.out.println(nome);\n    System.out.println(\"Primeiro: \" + primeiro);\n    System.out.println(\"Tamanho: \" + tamanho);\n  }\n}",
+        "expectedOutput": "J\nJava\nPrimeiro: J\nTamanho: 4"
+      },
+      "alert": {
+        "title": "String não é primitivo",
+        "text": "String é uma classe do pacote `java.lang`. Quando você escreve `String nome = \"Java\"`, o Java cria um objeto na memória (heap). Por isso String tem métodos como `length()` e `charAt()`. `char`, `int` e `boolean` são primitivos e ficam direto na stack."
+      },
+      "code": "char letra = 'J';\nString nome = \"Java\";\n\nchar primeiro = nome.charAt(0);\nint tamanho = nome.length();\n\nSystem.out.println(letra);\nSystem.out.println(nome);",
+      "rules": [
+        "`char` é primitivo: `char c = 'A';`",
+        "`String` é classe: `String texto = \"Olá\";`",
+        "Aspas simples para `char`, duplas para `String`",
+        "`String` tem métodos: `length()`, `charAt()`, `toUpperCase()`"
+      ],
+      "cards": [
+        {
+          "icon": "alert-triangle",
+          "heading": "Imutabilidade",
+          "body": "`String` é imutável: `toUpperCase()` retorna um texto novo, não altera o original. Para concatenar muito texto em loop, prefira `StringBuilder`. É mais eficiente."
+        }
+      ]
+    },
+    {
+      "id": 142,
+      "active": true,
+      "day": 1,
+      "type": "dnd-sort",
+      "title": "Exercício de Fixação: Tipos de variáveis",
+      "zonesClass": "dnd-zones--types",
+      "categories": [
+        { "id": "int", "label": "int", "icon": "hash" },
+        { "id": "double", "label": "double", "icon": "sigma" },
+        { "id": "boolean", "label": "boolean", "icon": "toggle-right" },
+        { "id": "string", "label": "String", "icon": "type" },
+        { "id": "char", "label": "char", "icon": "case-sensitive" }
+      ],
+      "items": [
+        { "id": "i1", "text": "3", "category": "int" },
+        { "id": "i2", "text": "42", "category": "int" },
+        { "id": "d1", "text": "23.6", "category": "double" },
+        { "id": "d2", "text": "9.99", "category": "double" },
+        { "id": "b1", "text": "true", "category": "boolean" },
+        { "id": "b2", "text": "false", "category": "boolean" },
+        { "id": "s1", "text": "\"Maria\"", "category": "string" },
+        { "id": "s2", "text": "\"Java\"", "category": "string" },
+        { "id": "c1", "text": "'T'", "category": "char" },
+        { "id": "c2", "text": "'A'", "category": "char" }
+      ]
+    },
+    {
+      "id": 11,
+      "active": true,
+      "day": 1,
+      "type": "flow",
+      "title": "Compilado, Bytecode e JVM",
+      "lead": "Diferente de Python ou JavaScript, Java é compilado antes de rodar. O código-fonte vira bytecode, e a JVM interpreta esse bytecode na sua máquina.",
+      "details": [
+        "Você escreve Main.java, código legível para humanos.",
+        "O javac compila e gera Main.class, bytecode portável.",
+        "A JVM lê o .class e executa no seu sistema operacional.",
+        "O mesmo .class funciona em Windows, Linux e Mac."
+      ],
+      "steps": [
+        {
+          "icon": "file-code",
+          "label": "Código-fonte",
+          "detail": "Arquivo .java que você escreve na IDE",
+          "file": "Main.java"
+        },
+        {
+          "icon": "cog",
+          "label": "Compilador",
+          "detail": "javac traduz o código Java para bytecode",
+          "file": "javac Main.java"
+        },
+        {
+          "icon": "binary",
+          "label": "Bytecode",
+          "detail": "Arquivo .class portável",
+          "file": "Main.class"
+        },
+        {
+          "icon": "cpu",
+          "label": "JVM",
+          "detail": "Executa o bytecode na sua máquina",
+          "file": "java Main"
+        }
+      ],
+      "terminal": "$ javac Main.java\n$ java Main\n> Olá, TechX!"
+    },
+    {
+      "id": 12,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "Built-ins nativos",
+      "lead": "Java já traz classes prontas em java.lang e java.util. Nos próximos slides você vai ver os métodos de cada uma e testar ao vivo.",
+      "cards": [
+        {
+          "icon": "terminal",
+          "heading": "System",
+          "body": "Console e controle do programa: imprimir, ler variáveis de ambiente, encerrar a JVM."
+        },
+        {
+          "icon": "type",
+          "heading": "String",
+          "body": "Texto: medir tamanho, pegar caractere, limpar espaços, dividir e transformar maiúsculas/minúsculas."
+        },
+        {
+          "icon": "calculator",
+          "heading": "Math",
+          "body": "Cálculos: raiz, potência, arredondar `float` e gerar número aleatório."
+        },
+        {
+          "icon": "list-ordered",
+          "heading": "Arrays",
+          "body": "Trabalha com vetores: ordenar, buscar valor e comparar conteúdo."
+        },
+        {
+          "icon": "boxes",
+          "heading": "Collections",
+          "body": "Utilitários para List, Set e Map: ordenar, inverter e embaralhar."
+        },
+        {
+          "icon": "scan-line",
+          "heading": "Scanner",
+          "body": "Lê dados digitados no teclado: texto, inteiros e decimais."
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "active": true,
+      "day": 1,
+      "type": "builtin-demo",
+      "icon": "terminal",
+      "title": "System",
+      "lead": "Classe do pacote java.lang. Usada para interagir com o console e o ambiente onde o Java está rodando.",
+      "code": "System.out.println(\"TechX\");        // imprime linha\nSystem.out.print(\"Oi\");             // sem quebra\nString user = System.getenv(\"USER\"); // ambiente\nSystem.currentTimeMillis();         // hora em ms\nSystem.exit(0);                     // encerra",
+      "methods": [
+        {
+          "name": "out.println()",
+          "desc": "Imprime texto no console. O `println` já pula linha no final.",
+          "test": {
+            "fields": [
+              {
+                "var": "msg",
+                "label": "mensagem"
+              }
+            ],
+            "values": {
+              "msg": "Oi, TechX!"
+            },
+            "expectedOutput": "Oi, TechX!"
+          }
+        },
+        {
+          "name": "getenv()",
+          "desc": "Lê uma variável de ambiente do sistema, como nome de usuário ou pasta home.",
+          "test": {
+            "code": "public class Main {\n  public static void main(String[] args) {\n    String user = System.getenv(\"USER\");\n    String home = System.getenv(\"HOME\");\n    System.out.println(\"USER: \" + (user != null ? user : \"(nao definido)\"));\n    System.out.println(\"HOME: \" + (home != null ? home : \"(nao definido)\"));\n  }\n}"
+          }
+        },
+        {
+          "name": "exit()",
+          "desc": "Encerra o programa na hora. O número passado indica se terminou com erro (0 = ok).",
+          "test": {
+            "fields": [
+              {
+                "var": "msg",
+                "label": "mensagem"
+              }
+            ],
+            "values": {
+              "msg": "Simulando System.exit(0): o programa encerraria aqui."
+            },
+            "expectedOutput": "Simulando System.exit(0): o programa encerraria aqui."
+          }
+        },
+        {
+          "name": "out.print()",
+          "desc": "Igual ao `println`, mas **não** pula linha. Útil para montar saída em partes na mesma linha.",
+          "test": {
+            "fields": [
+              {
+                "var": "msg",
+                "label": "mensagem"
+              }
+            ],
+            "values": {
+              "msg": "TechX"
+            },
+            "code": "public class Main {\n  public static void main(String[] args) {\n    System.out.print(\"Olá, \");\n    System.out.print({{msg}});\n    System.out.print(\"!\");\n    System.out.println();\n    System.out.println(\"(tudo na mesma linha acima)\");\n  }\n}",
+            "expectedOutput": "Olá, TechX!\n(tudo na mesma linha acima)"
+          }
+        },
+        {
+          "name": "currentTimeMillis()",
+          "desc": "Retorna a hora atual em milissegundos. Útil para medir tempo de execução ou gerar valores únicos.",
+          "test": {
+            "code": "public class Main {\n  public static void main(String[] args) {\n    long agora = System.currentTimeMillis();\n    System.out.println(\"Millis: \" + agora);\n  }\n}"
+          }
+        }
+      ],
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    System.out.println({{msg}});\n    System.out.print(\"TechX\");\n    String user = System.getenv(\"USER\");\n    System.out.println(\"USER: \" + (user != null ? user : \"(nao definido)\"));\n    System.out.println(\"Millis: \" + System.currentTimeMillis());\n  }\n}",
+        "inputs": [
+          {
+            "var": "msg",
+            "label": "mensagem",
+            "default": "Oi, TechX!"
+          }
+        ],
+        "expectedOutput": "Oi, TechX!\nTechXUSER: (nao definido)\nMillis: 1704067200000"
+      }
+    },
+    {
+      "id": 23,
+      "active": true,
+      "day": 1,
+      "type": "builtin-demo",
+      "icon": "type",
+      "title": "String",
+      "lead": "Classe para texto. Diferente de `char`, String guarda vários caracteres e oferece dezenas de métodos.",
+      "code": "String msg = \"java\";\nmsg.length();                       // tamanho\nmsg.charAt(0);                      // caractere (posicao 0)\nmsg.trim();                         // remove espacos\nmsg.toUpperCase();                  // maiusculas\nmsg.isEmpty();                      // vazio?",
+      "methods": [
+        {
+          "name": "length()",
+          "desc": "Retorna quantos caracteres o texto tem, incluindo espaços.",
+          "test": {
+            "fields": [
+              {
+                "var": "texto",
+                "label": "texto"
+              }
+            ],
+            "values": {
+              "texto": "  java  "
+            },
+            "expectedOutput": "Original: [  java  ]\nlength: 8\ncharAt(0): ' '\ntrim: [java]\ntoUpperCase: JAVA"
+          }
+        },
+        {
+          "name": "charAt()",
+          "desc": "Pega um caractere pela posição. A primeira posição é 0.",
+          "test": {
+            "fields": [
+              {
+                "var": "texto",
+                "label": "texto"
+              }
+            ],
+            "values": {
+              "texto": "TechX"
+            },
+            "expectedOutput": "Original: [TechX]\nlength: 5\ncharAt(0): 'T'\ntrim: [TechX]\ntoUpperCase: TECHX"
+          }
+        },
+        {
+          "name": "trim()",
+          "desc": "Remove espaços no começo e no fim da String.",
+          "test": {
+            "fields": [
+              {
+                "var": "texto",
+                "label": "texto"
+              }
+            ],
+            "values": {
+              "texto": "  espacos  "
+            },
+            "expectedOutput": "Original: [  espacos  ]\nlength: 11\ncharAt(0): ' '\ntrim: [espacos]\ntoUpperCase: ESPACOS"
+          }
+        },
+        {
+          "name": "toUpperCase()",
+          "desc": "Transforma todas as letras em maiúsculas.",
+          "test": {
+            "fields": [
+              {
+                "var": "texto",
+                "label": "texto"
+              }
+            ],
+            "values": {
+              "texto": "hello"
+            },
+            "expectedOutput": "Original: [hello]\nlength: 5\ncharAt(0): 'h'\ntrim: [hello]\ntoUpperCase: HELLO\nisEmpty: false"
+          }
+        },
+        {
+          "name": "isEmpty()",
+          "desc": "Retorna `true` se a String não tiver nenhum caractere.",
+          "test": {
+            "fields": [
+              {
+                "var": "texto",
+                "label": "texto"
+              }
+            ],
+            "values": {
+              "texto": ""
+            },
+            "expectedOutput": "Original: []\nlength: 0\ncharAt(0): (vazio)\ntrim: []\ntoUpperCase: \nisEmpty: true"
+          }
+        }
+      ],
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    String msg = {{texto}};\n    System.out.println(\"Original: [\" + msg + \"]\");\n    System.out.println(\"length: \" + msg.length());\n    System.out.println(\"charAt(0): \" + (msg.isEmpty() ? \"(vazio)\" : \"'\" + msg.charAt(0) + \"'\"));\n    System.out.println(\"trim: [\" + msg.trim() + \"]\");\n    System.out.println(\"toUpperCase: \" + msg.trim().toUpperCase());\n    System.out.println(\"isEmpty: \" + msg.isEmpty());\n  }\n}",
+        "inputs": [
+          {
+            "var": "texto",
+            "label": "texto",
+            "default": "java"
+          }
+        ],
+        "expectedOutput": "Original: [java]\nlength: 4\ncharAt(0): 'j'\ntrim: [java]\ntoUpperCase: JAVA\nisEmpty: false"
+      }
+    },
+    {
+      "id": 24,
+      "active": true,
+      "day": 1,
+      "type": "builtin-demo",
+      "icon": "calculator",
+      "title": "Math",
+      "lead": "Classe com métodos estáticos para cálculos. Você não cria objeto: chama direto `Math.metodo()`.",
+      "code": "double nota = 7.67;\nMath.sqrt(144);                     // raiz quadrada\nMath.pow(2, 10);                    // potencia\nMath.round(nota);                   // arredonda\nMath.max(7, 9);                     // maior valor\nMath.min(7, 9);                     // menor valor",
+      "methods": [
+        {
+          "name": "sqrt()",
+          "desc": "Calcula a raiz quadrada de um número. Exemplo: `Math.sqrt(144)` retorna 12.",
+          "test": {
+            "fields": [
+              {
+                "var": "valor",
+                "label": "valor",
+                "type": "number"
+              }
+            ],
+            "values": {
+              "valor": "144"
+            },
+            "code": "public class Main {\n  public static void main(String[] args) {\n    double valor = {{valor}};\n    System.out.println(\"sqrt(\" + valor + \") = \" + Math.sqrt(valor));\n  }\n}",
+            "expectedOutput": "sqrt(144.0) = 12.0"
+          }
+        },
+        {
+          "name": "pow()",
+          "desc": "Calcula potência. O primeiro valor é a base, o segundo é o expoente. `Math.pow(2, 10)` = 1024.",
+          "test": {
+            "fields": [
+              {
+                "var": "base",
+                "label": "base",
+                "type": "number"
+              },
+              {
+                "var": "exp",
+                "label": "expoente",
+                "type": "number"
+              }
+            ],
+            "values": {
+              "base": "2",
+              "exp": "10"
+            },
+            "code": "public class Main {\n  public static void main(String[] args) {\n    double base = {{base}};\n    double exp = {{exp}};\n    System.out.println(\"pow(\" + base + \", \" + exp + \") = \" + Math.pow(base, exp));\n  }\n}",
+            "expectedOutput": "pow(2.0, 10.0) = 1024.0"
+          }
+        },
+        {
+          "name": "round()",
+          "desc": "Com `float` ou `double`, arredonda para o **inteiro** mais próximo: `Math.round(3.6)` vira `4`. Para **casas decimais**, multiplique, arredonde e divida: `Math.round(7.67 * 10) / 10.0` vira `7.7`. Com `casas` variável: `Math.round(valor * Math.pow(10, casas)) / Math.pow(10, casas)`.",
+          "test": {
+            "fields": [
+              {
+                "var": "valor",
+                "label": "decimal",
+                "type": "number"
+              },
+              {
+                "var": "casas",
+                "label": "casas",
+                "type": "number"
+              }
+            ],
+            "values": {
+              "valor": "7.67",
+              "casas": "1"
+            },
+            "code": "public class Main {\n  public static void main(String[] args) {\n    double valor = {{valor}};\n    int casas = (int) {{casas}};\n    System.out.println(\"Original: \" + valor);\n    System.out.println(\"round (inteiro): \" + Math.round(valor));\n    double fator = Math.pow(10, casas);\n    System.out.println(\"Com \" + casas + \" casa(s): \" + (Math.round(valor * fator) / fator));\n  }\n}",
+            "expectedOutput": "Original: 7.67\nround (inteiro): 8\nCom 1 casa(s): 7.7"
+          }
+        },
+        {
+          "name": "max()",
+          "desc": "Retorna o maior valor entre dois números. Exemplo: `Math.max(7, 9)` retorna 9.",
+          "test": {
+            "fields": [
+              {
+                "var": "a",
+                "label": "a",
+                "type": "number"
+              },
+              {
+                "var": "b",
+                "label": "b",
+                "type": "number"
+              }
+            ],
+            "values": {
+              "a": "7",
+              "b": "9"
+            },
+            "code": "public class Main {\n  public static void main(String[] args) {\n    double a = {{a}};\n    double b = {{b}};\n    System.out.println(\"max(\" + a + \", \" + b + \") = \" + Math.max(a, b));\n  }\n}",
+            "expectedOutput": "max(7.0, 9.0) = 9.0"
+          }
+        },
+        {
+          "name": "min()",
+          "desc": "Retorna o menor valor entre dois números. Exemplo: `Math.min(7, 9)` retorna 7.",
+          "test": {
+            "fields": [
+              {
+                "var": "a",
+                "label": "a",
+                "type": "number"
+              },
+              {
+                "var": "b",
+                "label": "b",
+                "type": "number"
+              }
+            ],
+            "values": {
+              "a": "7",
+              "b": "9"
+            },
+            "code": "public class Main {\n  public static void main(String[] args) {\n    double a = {{a}};\n    double b = {{b}};\n    System.out.println(\"min(\" + a + \", \" + b + \") = \" + Math.min(a, b));\n  }\n}",
+            "expectedOutput": "min(7.0, 9.0) = 7.0"
+          }
+        }
+      ],
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    double valor = {{valor}};\n    int casas = (int) {{casas}};\n    System.out.println(\"sqrt(144) = \" + Math.sqrt(144));\n    System.out.println(\"pow(2, 10) = \" + Math.pow(2, 10));\n    System.out.println(\"round(\" + valor + \") = \" + Math.round(valor));\n    System.out.println(\"max(7, 9) = \" + Math.max(7, 9));\n    System.out.println(\"min(7, 9) = \" + Math.min(7, 9));\n    double fator = Math.pow(10, casas);\n    double arredondado = Math.round(valor * fator) / fator;\n    System.out.println(\"Com \" + casas + \" casa(s): \" + arredondado);\n  }\n}",
+        "inputs": [
+          {
+            "var": "valor",
+            "label": "decimal",
+            "default": "7.67",
+            "type": "number"
+          },
+          {
+            "var": "casas",
+            "label": "casas",
+            "default": "1",
+            "type": "number"
+          }
+        ],
+        "expectedOutput": "sqrt(144) = 12.0\npow(2, 10) = 1024.0\nround(7.67) = 8\nmax(7, 9) = 9\nmin(7, 9) = 7\nCom 1 casa(s): 7.7"
+      }
+    },
+    {
+      "id": 25,
+      "active": true,
+      "day": 1,
+      "type": "builtin-demo",
+      "icon": "list-ordered",
+      "title": "Arrays",
+      "lead": "Classe utilitária para vetores (`int[]`, `String[]`, etc). Ajuda a ordenar e comparar sem escrever laço manual.",
+      "code": "int[] nums = {5, 2, 8, 1};\nArrays.sort(nums);                  // ordena\nArrays.binarySearch(nums, 5);       // busca\nArrays.toString(nums);              // texto\nArrays.equals(nums, nums);          // compara\nArrays.fill(nums, 0);               // preenche",
+      "methods": [
+        {
+          "name": "sort()",
+          "desc": "Ordena o vetor em ordem crescente. Modifica o array original.",
+          "test": {
+            "code": "import java.util.Arrays;\n\npublic class Main {\n  public static void main(String[] args) {\n    int[] nums = {5, 2, 8, 1};\n    System.out.println(\"Antes: \" + Arrays.toString(nums));\n    Arrays.sort(nums);\n    System.out.println(\"Depois: \" + Arrays.toString(nums));\n  }\n}",
+            "expectedOutput": "Antes: [5, 2, 8, 1]\nDepois: [1, 2, 5, 8]"
+          }
+        },
+        {
+          "name": "binarySearch()",
+          "desc": "Busca um valor em vetor já ordenado. Retorna a posição ou valor negativo se não achar.",
+          "test": {
+            "code": "import java.util.Arrays;\n\npublic class Main {\n  public static void main(String[] args) {\n    int[] nums = {1, 2, 5, 8};\n    System.out.println(\"Vetor: \" + Arrays.toString(nums));\n    System.out.println(\"Posicao do 5: \" + Arrays.binarySearch(nums, 5));\n    System.out.println(\"Posicao do 9: \" + Arrays.binarySearch(nums, 9));\n  }\n}",
+            "expectedOutput": "Vetor: [1, 2, 5, 8]\nPosicao do 5: 2\nPosicao do 9: -5"
+          }
+        },
+        {
+          "name": "equals()",
+          "desc": "Compara se dois vetores têm os mesmos valores na mesma ordem.",
+          "test": {
+            "code": "import java.util.Arrays;\n\npublic class Main {\n  public static void main(String[] args) {\n    int[] a = {1, 2, 3};\n    int[] b = {1, 2, 3};\n    int[] c = {1, 2, 4};\n    System.out.println(\"a == b: \" + Arrays.equals(a, b));\n    System.out.println(\"a == c: \" + Arrays.equals(a, c));\n  }\n}",
+            "expectedOutput": "a == b: true\na == c: false"
+          }
+        },
+        {
+          "name": "toString()",
+          "desc": "Converte o vetor em texto legível. Muito usado para debug: `Arrays.toString(nums)`.",
+          "test": {
+            "code": "import java.util.Arrays;\n\npublic class Main {\n  public static void main(String[] args) {\n    int[] nums = {5, 2, 8, 1};\n    System.out.println(Arrays.toString(nums));\n  }\n}",
+            "expectedOutput": "[5, 2, 8, 1]"
+          }
+        },
+        {
+          "name": "fill()",
+          "desc": "Preenche todas as posições do vetor com o mesmo valor.",
+          "test": {
+            "code": "import java.util.Arrays;\n\npublic class Main {\n  public static void main(String[] args) {\n    int[] nums = {5, 2, 8, 1};\n    System.out.println(\"Antes: \" + Arrays.toString(nums));\n    Arrays.fill(nums, 0);\n    System.out.println(\"Depois: \" + Arrays.toString(nums));\n  }\n}",
+            "expectedOutput": "Antes: [5, 2, 8, 1]\nDepois: [0, 0, 0, 0]"
+          }
+        }
+      ],
+      "run": {
+        "enabled": true,
+        "code": "import java.util.Arrays;\n\npublic class Main {\n  public static void main(String[] args) {\n    int[] nums = {5, 2, 8, 1};\n    System.out.println(\"Antes: \" + Arrays.toString(nums));\n    Arrays.sort(nums);\n    System.out.println(\"Ordenado: \" + Arrays.toString(nums));\n    System.out.println(\"Posicao do 5: \" + Arrays.binarySearch(nums, 5));\n    System.out.println(\"Iguais: \" + Arrays.equals(nums, nums));\n    Arrays.fill(nums, 0);\n    System.out.println(\"Preenchido: \" + Arrays.toString(nums));\n  }\n}",
+        "expectedOutput": "Antes: [5, 2, 8, 1]\nOrdenado: [1, 2, 5, 8]\nPosicao do 5: 2\nIguais: true\nPreenchido: [0, 0, 0, 0]"
+      }
+    },
+    {
+      "id": 26,
+      "active": true,
+      "day": 1,
+      "type": "builtin-demo",
+      "icon": "boxes",
+      "title": "Collections",
+      "lead": "Utilitários estáticos para `List`, `Set` e outras coleções. Muito usado com `ArrayList` para ordenar, inverter, embaralhar e achar maior ou menor valor.",
+      "code": "ArrayList<String> nomes = new ArrayList<>(Arrays.asList(\"Ana\", \"Carlos\", \"Marcos\"));\nCollections.sort(nomes);            // ordena\nCollections.reverse(nomes);         // inverte\nCollections.shuffle(nomes);         // embaralha\n\nArrayList<Integer> notas = new ArrayList<>(Arrays.asList(7, 9, 5, 10));\nCollections.max(notas);             // maior valor\nCollections.min(notas);             // menor valor",
+      "methods": [
+        {
+          "name": "sort()",
+          "desc": "Ordena uma lista em ordem natural (alfabética para String, crescente para números).",
+          "test": {
+            "code": "import java.util.*;\n\npublic class Main {\n  public static void main(String[] args) {\n    ArrayList<String> nomes = new ArrayList<>(Arrays.asList(\"Ana\", \"Carlos\", \"Marcos\"));\n    System.out.println(\"Antes: \" + nomes);\n    Collections.sort(nomes);\n    System.out.println(\"Ordenado: \" + nomes);\n  }\n}",
+            "expectedOutput": "Antes: [Ana, Carlos, Marcos]\nOrdenado: [Ana, Carlos, Marcos]"
+          }
+        },
+        {
+          "name": "reverse()",
+          "desc": "Inverte a ordem dos itens da lista.",
+          "test": {
+            "code": "import java.util.*;\n\npublic class Main {\n  public static void main(String[] args) {\n    ArrayList<String> nomes = new ArrayList<>(Arrays.asList(\"Ana\", \"Carlos\", \"Marcos\"));\n    System.out.println(\"Antes: \" + nomes);\n    Collections.reverse(nomes);\n    System.out.println(\"Depois: \" + nomes);\n  }\n}",
+            "expectedOutput": "Antes: [Ana, Carlos, Marcos]\nDepois: [Marcos, Carlos, Ana]"
+          }
+        },
+        {
+          "name": "shuffle()",
+          "desc": "Embaralha os itens de forma aleatória.",
+          "test": {
+            "code": "import java.util.*;\n\npublic class Main {\n  public static void main(String[] args) {\n    ArrayList<String> nomes = new ArrayList<>(Arrays.asList(\"Ana\", \"Carlos\", \"Marcos\"));\n    System.out.println(\"Antes: \" + nomes);\n    Collections.shuffle(nomes);\n    System.out.println(\"Embaralhado: \" + nomes);\n  }\n}"
+          }
+        },
+        {
+          "name": "max()",
+          "desc": "Retorna o maior elemento de uma coleção de números comparáveis.",
+          "test": {
+            "code": "import java.util.*;\n\npublic class Main {\n  public static void main(String[] args) {\n    ArrayList<Integer> notas = new ArrayList<>(Arrays.asList(7, 9, 5, 10));\n    System.out.println(\"Notas: \" + notas);\n    System.out.println(\"Maior: \" + Collections.max(notas));\n  }\n}",
+            "expectedOutput": "Notas: [7, 9, 5, 10]\nMaior: 10"
+          }
+        },
+        {
+          "name": "min()",
+          "desc": "Retorna o menor elemento de uma coleção de números comparáveis.",
+          "test": {
+            "code": "import java.util.*;\n\npublic class Main {\n  public static void main(String[] args) {\n    ArrayList<Integer> notas = new ArrayList<>(Arrays.asList(7, 9, 5, 10));\n    System.out.println(\"Notas: \" + notas);\n    System.out.println(\"Menor: \" + Collections.min(notas));\n  }\n}",
+            "expectedOutput": "Notas: [7, 9, 5, 10]\nMenor: 5"
+          }
+        }
+      ],
+      "run": {
+        "enabled": true,
+        "code": "import java.util.*;\n\npublic class Main {\n  public static void main(String[] args) {\n    ArrayList<String> nomes = new ArrayList<>(Arrays.asList(\"Ana\", \"Carlos\", \"Marcos\"));\n    System.out.println(\"Nomes: \" + nomes);\n    Collections.sort(nomes);\n    System.out.println(\"Ordenado: \" + nomes);\n    Collections.reverse(nomes);\n    System.out.println(\"Invertido: \" + nomes);\n    ArrayList<Integer> notas = new ArrayList<>(Arrays.asList(7, 9, 5, 10));\n    System.out.println(\"Notas: \" + notas);\n    System.out.println(\"Maior: \" + Collections.max(notas));\n    System.out.println(\"Menor: \" + Collections.min(notas));\n  }\n}",
+        "expectedOutput": "Nomes: [Ana, Carlos, Marcos]\nOrdenado: [Ana, Carlos, Marcos]\nInvertido: [Marcos, Carlos, Ana]\nNotas: [7, 9, 5, 10]\nMaior: 10\nMenor: 5"
+      }
+    },
+    {
+      "id": 31,
+      "active": true,
+      "day": 1,
+      "type": "table",
+      "title": "Classes Wrapper",
+      "lead": "Cada tipo primitivo tem uma classe correspondente no pacote `java.lang`. Wrappers permitem usar primitivos em coleções como `ArrayList<Integer>`, APIs e métodos que exigem objetos.",
+      "details": [
+        "Autoboxing: Java converte `int` para `Integer` automaticamente.",
+        "Unboxing: `Integer` volta para `int` quando necessário.",
+        "Por isso `Collections.max(notas)` funciona com `ArrayList<Integer>` e não com `ArrayList<int>`."
+      ],
+      "columns": [
+        "Primitivo",
+        "Wrapper",
+        "Exemplo"
+      ],
+      "rows": [
+        ["byte", "Byte", "Byte b = 10;"],
+        ["short", "Short", "Short s = 300;"],
+        ["int", "Integer", "Integer idade = 21;"],
+        ["long", "Long", "Long populacao = 1_000_000L;"],
+        ["float", "Float", "Float nota = 8.5f;"],
+        ["double", "Double", "Double preco = 19.90;"],
+        ["char", "Character", "Character letra = 'A';"],
+        ["boolean", "Boolean", "Boolean ativo = true;"]
+      ],
+      "note": "Prefira primitivos em variáveis locais (mais rápido). Use wrapper quando a API ou coleção exigir objeto."
+    },
+    {
+      "id": 27,
+      "active": true,
+      "day": 1,
+      "type": "builtin-demo",
+      "icon": "scan-line",
+      "title": "Scanner",
+      "lead": "Classe para ler dados do teclado. Muito usada em programas de console e exercícios de entrada de dados.",
+      "code": "Scanner sc = new Scanner(System.in);\nString nome = sc.nextLine();        // texto\nint idade = sc.nextInt();           // inteiro\ndouble preco = sc.nextDouble();     // decimal\nboolean tem = sc.hasNext();         // tem dado?\nsc.close();                         // fecha",
+      "methods": [
+        {
+          "name": "nextLine()",
+          "desc": "Lê uma linha inteira de texto, incluindo espaços.",
+          "test": {
+            "fields": [
+              {
+                "var": "nome",
+                "label": "nome"
+              }
+            ],
+            "values": {
+              "nome": "Maria Silva"
+            },
+            "expectedOutput": "Voce digitou: Maria Silva"
+          }
+        },
+        {
+          "name": "nextInt()",
+          "desc": "Lê um número inteiro digitado pelo usuário.",
+          "test": {
+            "fields": [
+              {
+                "var": "nome",
+                "label": "idade",
+                "type": "number"
+              }
+            ],
+            "values": {
+              "nome": "21"
+            },
+            "code": "public class Main {\n  public static void main(String[] args) {\n    int idade = (int) {{nome}};\n    System.out.println(\"Idade lida: \" + idade);\n  }\n}"
+          }
+        },
+        {
+          "name": "hasNext()",
+          "desc": "Verifica se ainda existe dado para ler antes de chamar o próximo método.",
+          "test": {
+            "fields": [
+              {
+                "var": "nome",
+                "label": "nome"
+              }
+            ],
+            "values": {
+              "nome": "TechX"
+            }
+          }
+        },
+        {
+          "name": "nextDouble()",
+          "desc": "Lê um número decimal digitado pelo usuário, como preço ou nota.",
+          "test": {
+            "fields": [
+              {
+                "var": "nome",
+                "label": "preço",
+                "type": "number"
+              }
+            ],
+            "values": {
+              "nome": "19.90"
+            },
+            "code": "public class Main {\n  public static void main(String[] args) {\n    double preco = {{nome}};\n    System.out.println(\"Preço lido: R$ \" + preco);\n  }\n}",
+            "expectedOutput": "Preço lido: R$ 19.9"
+          }
+        },
+        {
+          "name": "close()",
+          "desc": "Fecha o Scanner e libera os recursos. Boa prática ao terminar a leitura.",
+          "test": {
+            "fields": [
+              {
+                "var": "nome",
+                "label": "nome"
+              }
+            ],
+            "values": {
+              "nome": "Marcos"
+            },
+            "expectedOutput": "Nome: Marcos\nScanner fechado com sucesso."
+          }
+        }
+      ],
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    String nome = {{nome}};\n    int idade = 21;\n    double preco = 19.90;\n    System.out.println(\"Nome: \" + nome);\n    System.out.println(\"Idade: \" + idade);\n    System.out.println(\"Preco: R$ \" + preco);\n    System.out.println(\"Tem proximo: true\");\n    System.out.println(\"Scanner fechado com sucesso.\");\n  }\n}",
+        "inputs": [
+          {
+            "var": "nome",
+            "label": "nome",
+            "default": "Marcos"
+          }
+        ],
+        "expectedOutput": "Nome: Marcos\nIdade: 21\nPreco: R$ 19.9\nTem proximo: true\nScanner fechado com sucesso."
+      }
+    },
+    {
+      "id": 28,
+      "active": false,
+      "day": 1,
+      "type": "builtins-table",
+      "title": "Built-ins: métodos e exemplos",
+      "lead": "Resumo em tabela (substituido pelos slides interativos).",
+      "columns": [
+        "Classe",
+        "Métodos principais",
+        "Exemplo de código"
+      ],
+      "rows": [
+        [
+          "System",
+          "out.println(), getenv(), exit()",
+          "System.out.println(\"TechX\");"
+        ],
+        [
+          "String",
+          "length(), charAt(), trim(), split()",
+          "msg.trim().toUpperCase();"
+        ],
+        [
+          "Math",
+          "sqrt(), pow(), round(), max()",
+          "Math.pow(2, 10);"
+        ],
+        [
+          "Arrays",
+          "sort(), binarySearch(), equals()",
+          "Arrays.sort(numeros);"
+        ],
+        [
+          "Collections",
+          "sort(), reverse(), shuffle()",
+          "Collections.sort(nomes);"
+        ],
+        [
+          "Scanner",
+          "nextLine(), nextInt(), hasNext()",
+          "String nome = sc.nextLine();"
+        ]
+      ]
+    },
+    {
+      "id": 152,
+      "active": true,
+      "day": 1,
+      "type": "practice",
+      "icon": "laptop",
+      "title": "Hora de praticar — Fundamentos",
+      "lead": "Pause os slides, abra a **IntelliJ** (ou sua IDE) e coloque em prática variáveis, tipos, built-ins e entrada de dados.",
+      "duration": "15 a 20 minutos",
+      "practiceFile": "material/pratica-1-fundamentos.txt",
+      "ideSteps": [
+        "Abra a **IntelliJ IDEA** (ou Eclipse / VS Code com Java).",
+        "**File → New → Project → Java** → nome `AulaJava-Fundamentos`.",
+        "Crie a classe `Main` com `public static void main(String[] args)`.",
+        "Abra o arquivo **`material/pratica-1-fundamentos.txt`** (na pasta do projeto Sliders) e siga os exercícios na ordem.",
+        "Rode com o botão **Run** ▶ e confira a saída no console da IDE."
+      ],
+      "topics": [
+        "Declarar variáveis (`int`, `double`, `boolean`, `String`, `char`)",
+        "Usar `System.out.println` e `Scanner` para ler do teclado",
+        "Métodos de `String`: `length()`, `trim()`, `toUpperCase()`",
+        "`Arrays.sort()` e `Arrays.toString()` com vetor de números",
+        "Desafio extra: pedir nome e idade e montar uma frase na saída"
+      ],
+      "note": "Não precisa copiar tudo perfeito — o importante é **digitar**, **errar** e **corrigir**. Chame o monitor se travar."
+    },
+    {
+      "id": 143,
+      "active": true,
+      "day": 1,
+      "type": "operators",
+      "title": "Operadores",
+      "lead": "Comparativos e lógicos entram em todo `if`, `while` e validação. O resultado é sempre `boolean`: `true` ou `false`.",
+      "details": [
+        "Comparativos retornam `boolean`: `true` ou `false`.",
+        "Lógicos combinam condições: `&&` (E), `||` (OU) e `!` (NÃO)."
+      ],
+      "comparison": {
+        "heading": "Comparativos",
+        "columns": [
+          "Operador",
+          "Significado",
+          "Exemplo"
+        ],
+        "rows": [
+          [
+            "`==`",
+            "Igual",
+            "`idade == 18`"
+          ],
+          [
+            "`!=`",
+            "Diferente",
+            "`status != \"ok\"`"
+          ],
+          [
+            "`>`",
+            "Maior",
+            "`nota > 7`"
+          ],
+          [
+            "`<`",
+            "Menor",
+            "`estoque < 5`"
+          ],
+          [
+            "`>=`",
+            "Maior ou igual",
+            "`nota >= 7`"
+          ],
+          [
+            "`<=`",
+            "Menor ou igual",
+            "`idade <= 17`"
+          ]
+        ]
+      },
+      "logical": {
+        "heading": "Lógicos — tabela da verdade",
+        "columns": [
+          "A",
+          "B",
+          "`&&` (E)",
+          "`||` (OU)",
+          "`!A` (NÃO)"
+        ],
+        "rows": [
+          [
+            "true",
+            "true",
+            "true",
+            "true",
+            "false"
+          ],
+          [
+            "true",
+            "false",
+            "false",
+            "true",
+            "false"
+          ],
+          [
+            "false",
+            "true",
+            "false",
+            "true",
+            "true"
+          ],
+          [
+            "false",
+            "false",
+            "false",
+            "false",
+            "true"
+          ]
+        ]
+      },
+      "code": "int idade = 18;\nSystem.out.println(idade == 18);   // true\nSystem.out.println(idade != 21);   // true\nSystem.out.println(idade >= 18);   // true\n\nboolean a = true;\nboolean b = false;\nSystem.out.println(a && b);        // false\nSystem.out.println(a || b);        // true\nSystem.out.println(!b);            // true",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    int idade = 18;\n    System.out.println(\"idade == 18: \" + (idade == 18));\n    System.out.println(\"idade != 21: \" + (idade != 21));\n    System.out.println(\"idade >= 18: \" + (idade >= 18));\n\n    boolean a = true;\n    boolean b = false;\n    System.out.println(\"a && b: \" + (a && b));\n    System.out.println(\"a || b: \" + (a || b));\n    System.out.println(\"!b: \" + (!b));\n  }\n}",
+        "expectedOutput": "idade == 18: true\nidade != 21: true\nidade >= 18: true\na && b: false\na || b: true\n!b: true"
+      }
+    },
+    {
+      "id": 32,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "if",
+      "lead": "Com `if` você executa um bloco **somente quando** a condição for verdadeira.",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    int nota = 8;\n    if (nota >= 7) {\n      System.out.println(\"Aprovado\");\n    }\n    int idade = 15;\n    if (idade >= 18) {\n      System.out.println(\"Maior de idade\");\n    }\n  }\n}",
+        "expectedOutput": "Aprovado"
+      },
+      "code": "int nota = 8;\nif (nota >= 7) {\n  System.out.println(\"Aprovado\");\n}\n\nint idade = 15;\nif (idade >= 18) {\n  System.out.println(\"Maior de idade\");\n}",
+      "rules": [
+        "A condição fica entre parênteses: `if (nota >= 7)`",
+        "Use chaves `{ }` para delimitar o bloco",
+        "Se a condição for falsa, o bloco é pulado"
+      ]
+    },
+    {
+      "id": 145,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "else",
+      "lead": "`else` executa um bloco alternativo quando a condição do `if` é **falsa**.",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    int nota = 5;\n    if (nota >= 7) {\n      System.out.println(\"Aprovado\");\n    } else {\n      System.out.println(\"Recuperação\");\n    }\n  }\n}",
+        "expectedOutput": "Recuperação"
+      },
+      "code": "int nota = 5;\nif (nota >= 7) {\n  System.out.println(\"Aprovado\");\n} else {\n  System.out.println(\"Recuperação\");\n}",
+      "rules": [
+        "`else` vem logo depois do bloco do `if`",
+        "Não tem condição: é o caminho quando o `if` falha",
+        "É opcional — só use quando precisar da alternativa"
+      ]
+    },
+    {
+      "id": 146,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "else if",
+      "lead": "`else if` testa **outra condição** quando a anterior falhou. Ideal para várias faixas ou categorias.",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    int nota = 6;\n    if (nota >= 7) {\n      System.out.println(\"Aprovado\");\n    } else if (nota >= 5) {\n      System.out.println(\"Recuperação\");\n    } else {\n      System.out.println(\"Reprovado\");\n    }\n  }\n}",
+        "expectedOutput": "Recuperação"
+      },
+      "code": "int nota = 6;\nif (nota >= 7) {\n  System.out.println(\"Aprovado\");\n} else if (nota >= 5) {\n  System.out.println(\"Recuperação\");\n} else {\n  System.out.println(\"Reprovado\");\n}",
+      "rules": [
+        "Pode encadear quantos `else if` precisar",
+        "Java testa de cima para baixo e para no primeiro `true`",
+        "O `else` final é opcional (caminho padrão)"
+      ]
+    },
+    {
+      "id": 33,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "switch",
+      "lead": "Quando há várias opções para o mesmo valor, `switch` deixa o código mais legível que vários `if` encadeados.",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    int dia = 3;\n    switch (dia) {\n      case 1:\n        System.out.println(\"Domingo\");\n        break;\n      case 2:\n        System.out.println(\"Segunda\");\n        break;\n      case 3:\n        System.out.println(\"Terça\");\n        break;\n      default:\n        System.out.println(\"Outro dia\");\n    }\n  }\n}",
+        "expectedOutput": "Terça"
+      },
+      "code": "int dia = 3;\nswitch (dia) {\n  case 1:\n    System.out.println(\"Domingo\");\n    break;\n  case 2:\n    System.out.println(\"Segunda\");\n    break;\n  case 3:\n    System.out.println(\"Terça\");\n    break;\n  default:\n    System.out.println(\"Outro dia\");\n}",
+      "rules": [
+        "Compara um valor com vários `case`",
+        "Use `break` para sair do switch após executar o case",
+        "Sem `break`, o Java continua no próximo case (fall-through)",
+        "`default` é o caso padrão quando nenhum case bate"
+      ]
+    },
+    {
+      "id": 34,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "for",
+      "lead": "O `for` repete um bloco um número conhecido de vezes. Ideal para contadores e percorrer índices.",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    for (int i = 1; i <= 5; i++) {\n      System.out.println(\"Contagem: \" + i);\n    }\n    int soma = 0;\n    for (int n = 1; n <= 4; n++) {\n      soma += n;\n    }\n    System.out.println(\"Soma: \" + soma);\n  }\n}",
+        "expectedOutput": "Contagem: 1\nContagem: 2\nContagem: 3\nContagem: 4\nContagem: 5\nSoma: 10"
+      },
+      "code": "for (int i = 1; i <= 5; i++) {\n  System.out.println(\"Contagem: \" + i);\n}\n\nint soma = 0;\nfor (int n = 1; n <= 4; n++) {\n  soma += n;\n}\nSystem.out.println(\"Soma: \" + soma);",
+      "rules": [
+        "Estrutura: `for (início; condição; incremento)`",
+        "A variável do `for` existe só dentro do loop",
+        "Use quando souber quantas repetições precisa",
+        "Cuidado com loop infinito: a condição precisa ficar falsa em algum momento"
+      ]
+    },
+    {
+      "id": 35,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "foreach",
+      "lead": "O enhanced for (`for-each`) percorre todos os itens de um array ou coleção sem índice manual.",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    String[] nomes = {\"Ana\", \"Carlos\", \"Maria\"};\n    for (String nome : nomes) {\n      System.out.println(nome);\n    }\n    int[] notas = {7, 9, 5, 10};\n    int total = 0;\n    for (int nota : notas) {\n      total += nota;\n    }\n    System.out.println(\"Total: \" + total);\n  }\n}",
+        "expectedOutput": "Ana\nCarlos\nMaria\nTotal: 31"
+      },
+      "code": "String[] nomes = {\"Ana\", \"Carlos\", \"Maria\"};\nfor (String nome : nomes) {\n  System.out.println(nome);\n}\n\nint[] notas = {7, 9, 5, 10};\nint total = 0;\nfor (int nota : notas) {\n  total += nota;\n}\nSystem.out.println(\"Total: \" + total);",
+      "rules": [
+        "Sintaxe: `for (Tipo item : colecao)`",
+        "Não precisa controlar índice manualmente",
+        "Funciona com arrays e coleções (`List`, `Set` etc.)",
+        "Não altere a coleção durante o foreach (pode dar erro)"
+      ]
+    },
+    {
+      "id": 36,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "while",
+      "lead": "O `while` repete enquanto a condição for verdadeira. Use quando não sabe de antemão quantas vezes vai repetir.",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    int contador = 1;\n    while (contador <= 3) {\n      System.out.println(\"While: \" + contador);\n      contador++;\n    }\n    int saldo = 10;\n    while (saldo > 0) {\n      System.out.println(\"Saldo: \" + saldo);\n      saldo -= 3;\n    }\n  }\n}",
+        "expectedOutput": "While: 1\nWhile: 2\nWhile: 3\nSaldo: 10\nSaldo: 7\nSaldo: 4\nSaldo: 1"
+      },
+      "code": "int contador = 1;\nwhile (contador <= 3) {\n  System.out.println(\"While: \" + contador);\n  contador++;\n}\n\nint saldo = 10;\nwhile (saldo > 0) {\n  System.out.println(\"Saldo: \" + saldo);\n  saldo -= 3;\n}",
+      "rules": [
+        "Testa a condição antes de cada repetição",
+        "Se a condição já começar falsa, o bloco não executa nenhuma vez",
+        "Atualize a variável da condição dentro do loop para evitar infinito",
+        "`do-while` executa pelo menos uma vez (variação menos comum)"
+      ]
+    },
+    {
+      "id": 37,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "Atributos e métodos",
+      "lead": "Toda classe em Java combina <strong>estado</strong> (atributos) e <strong>comportamento</strong> (métodos). É a base da Orientação a Objetos.",
+      "cards": [
+        {
+          "icon": "database",
+          "heading": "Atributo",
+          "body": "Variável dentro da classe que guarda o estado do objeto. Exemplos: `String marca`, `int ano`, `boolean ligado`."
+        },
+        {
+          "icon": "zap",
+          "heading": "Método",
+          "body": "Função dentro da classe que define uma ação. Exemplos: `void ligar()`, `void frear()`, `int calcularIdade()`."
+        },
+        {
+          "icon": "box",
+          "heading": "Classe junta os dois",
+          "body": "A classe `Carro` define quais atributos existem e quais métodos o objeto pode executar. O objeto é a instância concreta."
+        }
+      ],
+      "details": [
+        "Atributos descrevem **o que o objeto tem**.",
+        "Métodos descrevem **o que o objeto faz**.",
+        "Na prática você acessa atributos via métodos quando usam `private` (encapsulamento)."
+      ]
+    },
+    {
+      "id": 141,
+      "active": true,
+      "day": 1,
+      "type": "dnd-sort",
+      "title": "Exercício de Fixação: Classifique o Carro",
+      "zonesClass": "dnd-zones--oop",
+      "categories": [
+        { "id": "atributos", "label": "Atributos", "icon": "database" },
+        { "id": "metodos", "label": "Métodos", "icon": "zap" }
+      ],
+      "items": [
+        { "id": "a1", "text": "cor", "category": "atributos" },
+        { "id": "a2", "text": "nome", "category": "atributos" },
+        { "id": "a3", "text": "idade", "category": "atributos" },
+        { "id": "m1", "text": "ligar", "category": "metodos" },
+        { "id": "m2", "text": "frear", "category": "metodos" },
+        { "id": "m3", "text": "acelerar", "category": "metodos" }
+      ]
+    },
+    {
+      "id": 14,
+      "active": true,
+      "day": 1,
+      "type": "oop-intro",
+      "title": "O que é Orientação a Objetos?",
+      "lead": "OOP organiza o programa em objetos que representam coisas do mundo real. Cada objeto tem dados (atributos) e comportamentos (métodos). Java é 100% orientado a objetos.",
+      "concepts": [
+        {
+          "icon": "box",
+          "term": "Classe",
+          "def": "O molde. Define quais atributos e métodos os objetos daquele tipo terão. Exemplo: `class Carro`."
+        },
+        {
+          "icon": "circle-dot",
+          "term": "Objeto",
+          "def": "A instância criada a partir da classe. Exemplo: meu carro específico com marca Fiat e ano 2020."
+        },
+        {
+          "icon": "database",
+          "term": "Atributo",
+          "def": "Variável dentro da classe que guarda o estado do objeto. Exemplo: `String marca`, `int ano`."
+        },
+        {
+          "icon": "zap",
+          "term": "Método",
+          "def": "Função dentro da classe que define o comportamento. Exemplo: `void ligar()`, `void frear()`."
+        }
+      ],
+      "code": "public class Carro {\n  String marca;\n  int ano;\n\n  void ligar() {\n    System.out.println(marca + \" ligou!\");\n  }\n}\n\n// criar objeto (instância)\nCarro meuCarro = new Carro();\nmeuCarro.marca = \"Fiat\";\nmeuCarro.ligar();",
+      "run": {
+        "enabled": true,
+        "code": "public class Carro {\n  String marca;\n  int ano;\n\n  void ligar() {\n    System.out.println(marca + \" ligou!\");\n  }\n\n  public static void main(String[] args) {\n    Carro meuCarro = new Carro();\n    meuCarro.marca = \"Fiat\";\n    meuCarro.ligar();\n  }\n}",
+        "expectedOutput": "Fiat ligou!"
+      }
+    },
+    {
+      "id": 15,
+      "active": true,
+      "day": 1,
+      "type": "pillars",
+      "title": "Os 4 pilares da OOP",
+      "lead": "Toda programação orientada a objetos se apoia em quatro ideias. Entender cada uma é essencial para escrever Java de verdade.",
+      "pillars": [
+        {
+          "icon": "lock",
+          "name": "Encapsulamento",
+          "desc": "Esconde os dados internos do objeto e expõe só o necessário por métodos. Atributos private, acesso por get/set. Impede que código externo bagunce o estado do objeto."
+        },
+        {
+          "icon": "git-branch",
+          "name": "Herança",
+          "desc": "Uma classe filha herda atributos e métodos da classe pai com `extends`. Exemplo: `class Cachorro extends Animal`. Reutiliza código sem copiar e colar."
+        },
+        {
+          "icon": "shuffle",
+          "name": "Polimorfismo",
+          "desc": "Um mesmo tipo de referência pode apontar para objetos diferentes. `Animal a = new Cachorro();` `a.emitirSom();` cada subclasse executa seu próprio comportamento."
+        },
+        {
+          "icon": "eye-off",
+          "name": "Abstração",
+          "desc": "Mostra só o que importa e esconde a complexidade. Você usa List sem saber se por baixo é ArrayList ou LinkedList. Interfaces e classes abstratas servem para isso."
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "active": true,
+      "day": 1,
+      "type": "table",
+      "title": "Modificadores de acesso",
+      "lead": "public, private e protected definem quem pode ver e usar cada atributo ou método. É a base do encapsulamento: você expõe só o necessário e protege o resto.",
+      "details": [
+        "Regra prática: atributos `private`, acesso controlado com getters/setters `public`",
+        "`protected` entra quando você usa herança: a classe filha acessa o que o pai marcou como `protected`",
+        "Exemplo: `class Cachorro extends Animal` pode chamar `emitirSom()` se ele for `protected` na classe `Animal`"
+      ],
+      "columns": [
+        "Modificador",
+        "Quem acessa",
+        "Quando usar"
+      ],
+      "rows": [
+        [
+          "public",
+          "Qualquer classe",
+          "Métodos da API que outras classes precisam chamar"
+        ],
+        [
+          "private",
+          "Só a própria classe",
+          "Atributos internos que ninguém de fora deve mexer"
+        ],
+        [
+          "protected",
+          "Classe + pacote + subclasses",
+          "Campos e métodos que classes filhas vão herdar"
+        ],
+        [
+          "(default)",
+          "Só o mesmo pacote",
+          "Detalhes internos entre classes do pacote, sem expor fora"
+        ]
+      ],
+      "note": "`private` no atributo, `public` no getter/setter. Esse é o padrão mais usado em Java."
+    },
+    {
+      "id": 17,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Encapsulamento: Getters e Setters",
+      "lead": "Encapsulamento na prática: atributos private e métodos públicos para ler e alterar com controle. É o padrão mais usado em Java.",
+      "run": {
+        "enabled": true,
+        "code": "public class Usuario {\n  private String nome;\n\n  public String getNome() {\n    return nome;\n  }\n\n  public void setNome(String nome) {\n    if (nome != null && !nome.isBlank()) {\n      this.nome = nome;\n    }\n  }\n\n  public static void main(String[] args) {\n    Usuario u = new Usuario();\n    u.setNome(\"Maria\");\n    System.out.println(u.getNome());\n  }\n}",
+        "expectedOutput": "Maria"
+      },
+      "code": "public class Usuario {\n  private String nome;\n\n  public String getNome() {\n    return nome;\n  }\n\n  public void setNome(String nome) {\n    if (nome != null && !nome.isBlank()) {\n      this.nome = nome;\n    }\n  }\n}",
+      "rules": [
+        "`private` bloqueia acesso direto de fora da classe",
+        "`getNome()` retorna o valor do atributo",
+        "`setNome()` valida antes de alterar",
+        "`this.nome` diferencia atributo de parâmetro"
+      ],
+      "cards": [
+        {
+          "icon": "shield",
+          "heading": "Por que private?",
+          "body": "Se `nome` fosse `public`, qualquer classe poderia fazer `u.nome = \"\"` sem validação. Com `private`, o único caminho é o `setNome()`, onde você controla o que entra."
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Métodos, argumentos e construtor",
+      "lead": "Método é comportamento do objeto. Argumentos são os valores que ele recebe. Construtor é o método especial chamado automaticamente no `new`.",
+      "run": {
+        "enabled": true,
+        "code": "public class Calculadora {\n\n  public Calculadora() {\n    System.out.println(\"Instanciada!\");\n  }\n\n  public int somar(int a, int b) {\n    return a + b;\n  }\n\n  public static void main(String[] args) {\n    Calculadora calc = new Calculadora();\n    int total = calc.somar(10, 5);\n    System.out.println(\"Soma: \" + total);\n  }\n}",
+        "expectedOutput": "Instanciada!\nSoma: 15"
+      },
+      "code": "public class Calculadora {\n\n  public Calculadora() {\n    System.out.println(\"Instanciada!\");\n  }\n\n  public int somar(int a, int b) {\n    return a + b;\n  }\n}\n\nCalculadora calc = new Calculadora();\nint total = calc.somar(10, 5);\nSystem.out.println(\"Soma: \" + total);",
+      "rules": [
+        "Construtor tem o mesmo nome da classe",
+        "Parâmetros ficam entre parênteses: `somar(int a, int b)`",
+        "`void` significa que o método não retorna valor",
+        "`return` devolve um valor quando o tipo não é `void`"
+      ],
+      "cards": [
+        {
+          "icon": "hammer",
+          "heading": "Construtor",
+          "body": "É chamado automaticamente no `new Calculadora()`. Use para inicializar atributos obrigatórios: `public Usuario(String nome) { this.nome = nome; }`."
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Método static",
+      "lead": "Pensa assim: método normal precisa de um objeto criado com `new`. Método `static` você chama direto pelo nome da classe, sem criar objeto.",
+      "run": {
+        "enabled": true,
+        "code": "public class Calculadora {\n\n  static int somar(int a, int b) {\n    return a + b;\n  }\n\n  String dono;\n\n  void mostrarDono() {\n    System.out.println(\"Dono: \" + dono);\n  }\n\n  public static void main(String[] args) {\n    int total = Calculadora.somar(2, 3);\n    System.out.println(\"Static somar(2,3): \" + total);\n    Calculadora calc = new Calculadora();\n    calc.dono = \"Maria\";\n    calc.mostrarDono();\n  }\n}",
+        "expectedOutput": "Static somar(2,3): 5\nDono: Maria"
+      },
+      "filename": "Calculadora.java",
+      "code": "public class Calculadora {\n\n  static int somar(int a, int b) {\n    return a + b;\n  }\n\n  String dono;\n\n  void mostrarDono() {\n    System.out.println(\"Dono: \" + dono);\n  }\n}\n\n// static: sem new\nint total = Calculadora.somar(2, 3);\nSystem.out.println(\"Static somar(2,3): \" + total);\n\n// normal: com new\nCalculadora calc = new Calculadora();\ncalc.dono = \"Maria\";\ncalc.mostrarDono();",
+      "rules": [
+        "`static` = pertence à classe. Chama assim: `Calculadora.somar(2, 3)`",
+        "Sem `static` = pertence ao objeto. Chama assim: `calc.mostrarDono()`",
+        "`System.out.println` é static. Por isso funciona sem você criar um objeto `System`"
+      ],
+      "cards": [
+        {
+          "icon": "lightbulb",
+          "heading": "Quando usar?",
+          "body": "Use `static` quando o método não precisa dos dados de um objeto específico. Exemplos: `main`, `Math.max()` e `System.out.println`. Se o método usa `this` ou atributos do objeto (como `dono`), ele não pode ser `static`."
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Expressões lambda",
+      "lead": "Lambda é uma forma curta de escrever funções anônimas. Muito usada com coleções, streams e callbacks em Java moderno.",
+      "run": {
+        "enabled": true,
+        "code": "import java.util.Arrays;\nimport java.util.List;\n\npublic class Main {\n  public static void main(String[] args) {\n    List<String> nomes = Arrays.asList(\"Ana\", \"Carlos\", \"Maria\");\n    nomes.forEach(nome -> System.out.println(nome));\n    nomes.forEach(nome -> System.out.println(\"Aluno: \" + nome.toUpperCase()));\n  }\n}",
+        "expectedOutput": "Ana\nCarlos\nMaria\nAluno: ANA\nAluno: CARLOS\nAluno: MARIA"
+      },
+      "code": "import java.util.Arrays;\nimport java.util.List;\n\nList<String> nomes = Arrays.asList(\"Ana\", \"Carlos\", \"Maria\");\n\n// lambda: parâmetro -> ação\nnomes.forEach(nome -> System.out.println(nome));\n\n// equivalente com bloco\nnomes.forEach(nome -> {\n  System.out.println(\"Aluno: \" + nome.toUpperCase());\n});",
+      "rules": [
+        "Sintaxe básica: `(parametro) -> expressao`",
+        "Útil com `forEach`, `stream()`, comparadores e interfaces funcionais",
+        "Se o corpo tem uma linha, não precisa de `{ }`",
+        "Java infere o tipo do parâmetro em muitos casos"
+      ],
+      "cards": [
+        {
+          "icon": "sparkles",
+          "heading": "Por que usar?",
+          "body": "Deixa o código mais enxuto ao passar comportamento como argumento. Você verá muito isso em APIs modernas e Spring."
+        }
+      ]
+    },
+    {
+      "id": 153,
+      "active": true,
+      "day": 1,
+      "type": "practice",
+      "icon": "code-2",
+      "title": "Hora de praticar — OOP e controle de fluxo",
+      "lead": "Agora é na IDE de novo: **if/else**, laços, classes, objetos e tudo que vimos até lambdas.",
+      "duration": "20 a 25 minutos",
+      "practiceFile": "material/pratica-2-oop-fluxo.txt",
+      "ideSteps": [
+        "Na IntelliJ: **File → New → Project → Java** → `AulaJava-OOP` (ou use o mesmo projeto com pacotes novos).",
+        "Crie a classe `Carro` em um arquivo separado (`Carro.java`).",
+        "Abra **`material/pratica-2-oop-fluxo.txt`** e faça os exercícios um por um.",
+        "Teste cada etapa com `main` antes de passar para a próxima.",
+        "No final, mostre o código rodando para o colega ou para o monitor."
+      ],
+      "topics": [
+        "`if`, `else`, `else if` com nota e idade",
+        "`for` e `foreach` percorrendo vetor de nomes",
+        "`while` com contador ou saldo",
+        "Classe `Carro` com atributos, métodos e `new Carro()`",
+        "Getters/setters simples e um `ArrayList` de tarefas (opcional)"
+      ],
+      "note": "Use o slide como pausa. Quando terminar o roteiro, voltamos para **Spring Boot**."
+    },
+    {
+      "id": 39,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "Introdução ao Spring Boot",
+      "lead": "Até aqui vocês rodaram `main()` no console. **Spring Boot** leva o Java para a web: você cria uma **API** que outros sistemas (site, app, Postman) consomem pela internet ou rede local.",
+      "details": [
+        "É o framework **mais usado** para backend corporativo no Brasil e no mundo.",
+        "Você cria o projeto em [start.spring.io](https://start.spring.io) ou pela IDE — já vem com servidor, JSON e estrutura prontos.",
+        "No **Dia 2** vocês montam um projeto completo de tarefas com Spring Boot."
+      ],
+      "cards": [
+        {
+          "icon": "rocket",
+          "heading": "O que é",
+          "body": "Um conjunto de bibliotecas Java que **automatiza** o que seria chato de configurar na mão: servidor web, conversão JSON, injeção de dependências e conexão com banco."
+        },
+        {
+          "icon": "server",
+          "heading": "Servidor embutido",
+          "body": "Não precisa instalar Tomcat separado. Ao rodar o projeto, a API sobe em `http://localhost:8080` (porta padrão)."
+        },
+        {
+          "icon": "braces",
+          "heading": "JSON automático",
+          "body": "Você devolve um objeto Java (`Tarefa`, `Usuario`...) e o Spring transforma em JSON para o cliente. O contrário também: JSON do cliente vira objeto Java."
+        },
+        {
+          "icon": "route",
+          "heading": "REST API",
+          "body": "Rotas HTTP com anotações: `@GetMapping` (buscar), `@PostMapping` (criar), `@PutMapping` (atualizar), `@DeleteMapping` (apagar)."
+        },
+        {
+          "icon": "layers",
+          "heading": "Organização em camadas",
+          "body": "**Controller** (rotas) → **Service** (regras) → **Repository** (banco). Cada parte com uma responsabilidade clara."
+        },
+        {
+          "icon": "package",
+          "heading": "Ecossistema",
+          "body": "Maven/Gradle gerenciam dependências. JUnit para testes. Padrão em vagas de Java backend, APIs e microsserviços."
+        }
+      ]
+    },
+    {
+      "id": 151,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "Como uma API REST funciona",
+      "lead": "Pensa no backend como um **garçom digital**: o cliente faz um pedido numa URL, o Spring processa e devolve a resposta — geralmente em **JSON**.",
+      "details": [
+        "O **cliente** pode ser um site React, app mobile, outro sistema ou o Postman (ferramenta para testar APIs).",
+        "O **servidor** Spring fica escutando numa porta (`localhost:8080`).",
+        "Cada endereço (`/api/tarefas`) é atendido por um método no **Controller**."
+      ],
+      "cards": [
+        {
+          "icon": "globe",
+          "heading": "URL + verbo HTTP",
+          "body": "**GET** = buscar dados. **POST** = criar. **PUT** = atualizar. **DELETE** = apagar. O verbo diz *o que* fazer; a URL diz *em qual recurso*."
+        },
+        {
+          "icon": "braces",
+          "heading": "JSON",
+          "body": "Texto estruturado para trocar dados: `{\"id\":1,\"titulo\":\"Estudar Java\"}`. Legível para humanos e fácil para programas."
+        },
+        {
+          "icon": "tag",
+          "heading": "Anotações (@)",
+          "body": "`@RestController` diz: *esta classe é uma API*. `@GetMapping` diz: *este método responde GET*. O Spring lê as anotações e configura tudo."
+        },
+        {
+          "icon": "repeat",
+          "heading": "Fluxo resumido",
+          "body": "1) Cliente chama `GET /api/tarefas` → 2) Spring acha o Controller certo → 3) Service busca no banco → 4) Spring devolve JSON na resposta."
+        }
+      ]
+    },
+    {
+      "id": 147,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Spring: @GetMapping",
+      "lead": "`@GetMapping` expõe rotas **GET** — o cliente **só lê** dados. Não cria, não apaga, não altera nada no servidor.",
+      "details": [
+        "Use GET para **listar tudo** ou **buscar um item** pelo id na URL.",
+        "Exemplo real: abrir a lista de tarefas no app = `GET /api/tarefas`."
+      ],
+      "code": "@RestController\n@RequestMapping(\"/api/tarefas\")\npublic class TarefaController {\n\n  @GetMapping\n  public List<Tarefa> listar() {\n    return service.listarTodas();\n  }\n\n  @GetMapping(\"/{id}\")\n  public Tarefa buscar(@PathVariable Long id) {\n    return service.buscarPorId(id);\n  }\n}",
+      "rules": [
+        "`@RestController` = esta classe responde HTTP com JSON",
+        "`@RequestMapping(\"/api/tarefas\")` = prefixo de todas as rotas da classe",
+        "`@GetMapping` sem path → `GET /api/tarefas` (lista tudo)",
+        "`@GetMapping(\"/{id}\")` → `GET /api/tarefas/3` e `@PathVariable` pega o `3`"
+      ],
+      "cards": [
+        {
+          "icon": "lightbulb",
+          "heading": "Analogia",
+          "body": "GET é como **consultar o cardápio** — você só olha, não pede para cozinhar nem apagar item."
+        }
+      ],
+      "run": {
+        "expectedOutput": "GET /api/tarefas\n[{\"id\":1,\"titulo\":\"Estudar Java\"},{\"id\":2,\"titulo\":\"Revisar OOP\"}]\n\nGET /api/tarefas/1\n{\"id\":1,\"titulo\":\"Estudar Java\"}"
+      }
+    },
+    {
+      "id": 148,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Spring: @PostMapping",
+      "lead": "`@PostMapping` **cria** um registro novo. O cliente envia os dados no **corpo** da requisição em JSON — o Spring converte com `@RequestBody`.",
+      "details": [
+        "Status HTTP comum na resposta: **201 Created** (algo foi criado).",
+        "Exemplo: formulário de nova tarefa no app → `POST /api/tarefas` com `{\"titulo\":\"...\"}`."
+      ],
+      "code": "@RestController\n@RequestMapping(\"/api/tarefas\")\npublic class TarefaController {\n\n  @PostMapping\n  public Tarefa criar(@RequestBody Tarefa nova) {\n    return service.salvar(nova);\n  }\n}",
+      "rules": [
+        "`POST` = verbo HTTP para **criar** recurso novo",
+        "`@RequestBody` lê o JSON e transforma em objeto `Tarefa`",
+        "O método devolve o objeto salvo (com `id` gerado pelo banco)",
+        "O cliente envia no Postman: Body → raw → JSON"
+      ],
+      "cards": [
+        {
+          "icon": "lightbulb",
+          "heading": "Analogia",
+          "body": "POST é como **fazer um pedido novo** no garçom — você manda os dados e ele registra."
+        }
+      ],
+      "run": {
+        "expectedOutput": "POST /api/tarefas\nBody: {\"titulo\":\"Fazer slide Spring\"}\n\nResposta 201:\n{\"id\":3,\"titulo\":\"Fazer slide Spring\"}"
+      }
+    },
+    {
+      "id": 149,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Spring: @PutMapping e @DeleteMapping",
+      "lead": "**PUT** altera um registro que já existe. **DELETE** remove pelo `id`. Juntos fecham o CRUD básico de uma API.",
+      "details": [
+        "**CRUD** = Create (POST), Read (GET), Update (PUT), Delete (DELETE).",
+        "PUT precisa do id na URL **e** dos dados novos no body JSON."
+      ],
+      "code": "@RestController\n@RequestMapping(\"/api/tarefas\")\npublic class TarefaController {\n\n  @PutMapping(\"/{id}\")\n  public Tarefa atualizar(@PathVariable Long id,\n                        @RequestBody Tarefa dados) {\n    return service.atualizar(id, dados);\n  }\n\n  @DeleteMapping(\"/{id}\")\n  public void remover(@PathVariable Long id) {\n    service.remover(id);\n  }\n}",
+      "rules": [
+        "`PUT /api/tarefas/2` → atualiza a tarefa de id 2",
+        "`DELETE /api/tarefas/2` → apaga a tarefa de id 2",
+        "DELETE costuma responder **204 No Content** (sucesso, sem corpo)",
+        "PUT substitui/atualiza; não cria registro novo"
+      ],
+      "cards": [
+        {
+          "icon": "table",
+          "heading": "CRUD completo",
+          "body": "GET lista/busca · POST cria · PUT edita · DELETE apaga. É o padrão de quase toda API REST."
+        }
+      ],
+      "run": {
+        "expectedOutput": "PUT /api/tarefas/2\nBody: {\"titulo\":\"Slide pronto\"}\n→ {\"id\":2,\"titulo\":\"Slide pronto\"}\n\nDELETE /api/tarefas/2\n→ 204 No Content"
+      }
+    },
+    {
+      "id": 150,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "Spring: camadas do projeto",
+      "lead": "Um projeto Spring Boot **organizado** separa responsabilidades. Assim o código fica fácil de entender, testar e manter — padrão em empresas.",
+      "details": [
+        "Cada camada faz **uma coisa só** (princípio da responsabilidade única).",
+        "O **Controller** não acessa banco direto; o **Service** não monta JSON HTTP.",
+        "No Dia 2 vocês criam essa estrutura no projeto Todoist."
+      ],
+      "cards": [
+        {
+          "icon": "route",
+          "heading": "Controller",
+          "body": "Porta de entrada HTTP. Recebe `GET /api/tarefas`, chama o Service e devolve JSON. Anotações `@GetMapping`, `@PostMapping` ficam aqui."
+        },
+        {
+          "icon": "cog",
+          "heading": "Service",
+          "body": "Regras de negócio: validar título vazio, marcar concluída, calcular prioridade. Se amanhã mudar a regra, mexe só aqui."
+        },
+        {
+          "icon": "database",
+          "heading": "Repository + Model",
+          "body": "`Tarefa` (model) = dados. `TarefaRepository` = salva/busca no banco com Spring Data JPA (`findAll()`, `save()`)."
+        },
+        {
+          "icon": "settings",
+          "heading": "application.properties",
+          "body": "Configurações fora do código: `server.port=8080`, URL do banco, usuário e senha. Troca de ambiente sem recompilar."
+        },
+        {
+          "icon": "play",
+          "heading": "Como rodar",
+          "body": "Classe `Application` com `main()` + `@SpringBootApplication`. Run na IDE → servidor sobe → teste no Postman ou no front."
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "active": true,
+      "day": 1,
+      "type": "recap",
+      "title": "Resumo do Dia 1",
+      "days": [
+        {
+          "label": "Fundamentos",
+          "icon": "book-open",
+          "topics": [
+            "Origem do Java, JDK/JRE/JVM e IDEs",
+            "Variáveis, tipos primitivos, wrappers e String x char",
+            "Bytecode e built-ins"
+          ]
+        },
+        {
+          "label": "Controle de fluxo",
+          "icon": "git-branch",
+          "topics": [
+            "Operadores, if, else e else if",
+            "switch, for, foreach e while",
+            "Atributos, métodos e exercício do Carro",
+            "Encapsulamento, pilares, getters/setters e static"
+          ]
+        },
+        {
+          "label": "Próximos passos",
+          "icon": "rocket",
+          "topics": [
+            "Lambdas e Spring Boot (API REST, JSON, camadas)",
+            "@GetMapping, @PostMapping, PUT, DELETE e CRUD",
+            "Projeto completo no Dia 2 com Postman"
+          ]
+        }
+      ],
+      "cta": "Revise cada slide e pratique criando suas próprias classes. Nos vemos no projeto Spring Boot!"
+    },
+    {
+      "id": 21,
+      "active": false,
+      "day": 2,
+      "type": "project",
+      "title": "Dia 2: Projeto Todoist",
+      "lead": "API REST com Spring Boot para gerenciar tarefas.",
+      "stack": [
+        "Spring Boot 3",
+        "REST API",
+        "JSON",
+        "Maven"
+      ],
+      "structure": [
+        "TodoistApplication.java (ponto de entrada)",
+        "Todo.java (modelo da tarefa)",
+        "TodoController.java (rotas HTTP)",
+        "TodoService.java (regras de negócio)"
+      ]
+    },
+    {
+      "id": 22,
+      "active": false,
+      "day": 2,
+      "type": "code-tabs",
+      "title": "Rotas GET e POST",
+      "tabs": [
+        {
+          "name": "GET /todos",
+          "code": "@GetMapping(\"/todos\")\npublic List<Todo> listar() {\n  return todoService.listarTodos();\n}"
+        },
+        {
+          "name": "POST /todos",
+          "code": "@PostMapping(\"/todos\")\npublic Todo criar(@RequestBody Todo todo) {\n  return todoService.salvar(todo);\n}"
+        }
+      ]
+    }
+  ]
+}

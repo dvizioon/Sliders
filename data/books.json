@@ -1,0 +1,36 @@
+{
+  "books": [
+    {
+      "title": "Código Limpo",
+      "subtitle": "Habilidades Práticas do Agile Software",
+      "author": "Robert C. Martin",
+      "cover": "images/books/codigoLimpo.jpg",
+      "description": "Robert C. Martin mostra como escrever código legível, testável e fácil de manter. Um clássico para elevar a qualidade do software no dia a dia.",
+      "url": "https://www.amazon.com.br/dp/8576082675"
+    },
+    {
+      "title": "Java Efetivo",
+      "subtitle": "As melhores práticas para a plataforma Java",
+      "author": "Joshua Bloch",
+      "cover": "images/books/javaEfetivo.jpg",
+      "description": "Joshua Bloch reúne 90 dicas práticas para usar Java com segurança e clareza. Indispensável para dominar a plataforma além da sintaxe.",
+      "url": "https://www.amazon.com.br/dp/8550804622"
+    },
+    {
+      "title": "O Programador Pragmático",
+      "subtitle": "De Aprendiz a Mestre",
+      "author": "Andrew Hunt, David Thomas",
+      "cover": "images/books/programadorPragmatico.jpg",
+      "description": "Ilustra as melhores práticas e armadilhas do desenvolvimento de software. Lições diretas para ganhar produtividade, precisão e satisfação profissional.",
+      "url": "https://www.amazon.com.br/dp/B019HM0H90"
+    },
+    {
+      "title": "Programação Utilizando IA",
+      "subtitle": "Otimizando planejamento, programação, testes e implantação",
+      "author": "Tom Taulli",
+      "cover": "images/books/programacaoUsandoAI.jpg",
+      "description": "Tom Taulli mostra como usar IA em planejamento, código, testes e implantação. Inclui ChatGPT, Copilot, Cursor e engenharia de prompts.",
+      "url": "https://www.amazon.com.br/dp/8575229257"
+    }
+  ]
+}

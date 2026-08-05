@@ -1,0 +1,7 @@
+node_modules/
+.env
+.DS_Store
+Thumbs.db
+
+# Roteiros de prática — só uso local na aula
+material/

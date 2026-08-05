@@ -1,0 +1,28 @@
+{
+  "ides": [
+    {
+      "name": "IntelliJ IDEA",
+      "cover": "images/ides/intellij.png",
+      "description": "Autocomplete inteligente, refatoração avançada e integração nativa com Spring e Maven. A versão Community é gratuita.",
+      "url": "https://www.jetbrains.com/idea/"
+    },
+    {
+      "name": "Eclipse",
+      "cover": "images/ides/eclipse.png",
+      "description": "Open source, muito usada em faculdades e empresas. Ecossistema enorme de plugins para qualquer necessidade.",
+      "url": "https://www.eclipse.org/downloads/"
+    },
+    {
+      "name": "VS Code",
+      "cover": "images/ides/vscode.png",
+      "description": "Editor leve com a extensão Extension Pack for Java. Boa opção se você já usa o VS Code para outras linguagens.",
+      "url": "https://code.visualstudio.com/"
+    },
+    {
+      "name": "Apache NetBeans",
+      "cover": "images/ides/netbeans.png",
+      "description": "IDE oficial da Apache, popular em cursos e projetos Java. Suporte a Maven, Gradle e construção visual de interfaces.",
+      "url": "https://netbeans.apache.org/front/main/download/"
+    }
+  ]
+}

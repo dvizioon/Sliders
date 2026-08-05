@@ -1,0 +1,17 @@
+{
+  "name": "java-techx-sliders",
+  "version": "1.0.0",
+  "description": "Apresentação Java TechX com Reveal.js e execução via Piston",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "dev:static": "npx --yes serve . -p 3000"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0"
+  }
+}
