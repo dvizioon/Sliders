@@ -488,52 +488,13 @@ function renderPillars(slide) {
 }
 
 function renderPractice(slide) {
-  const steps = (slide.ideSteps || [])
-    .map(
-      (step, i) => `
-        <li class="practice-step">
-          <span class="practice-step-num">${i + 1}</span>
-          <span>${formatText(step)}</span>
-        </li>`
-    )
-    .join("");
-
-  const topics = (slide.topics || [])
-    .map((t) => `<li>${formatText(t)}</li>`)
-    .join("");
-
-  const filePath = slide.practiceFile || "";
-  const fileLink = filePath
-    ? `<a class="practice-file-link" href="${escapeHtml(filePath)}" target="_blank" rel="noopener noreferrer">
-        ${icon("file-text", 20)}
-        <span>Abrir roteiro: ${escapeHtml(filePath.split("/").pop())}</span>
-        ${icon("external-link", 16)}
-      </a>`
-    : "";
-
-  const main = `
-      <div class="slide-main slide-main--practice">
-        <div class="practice-hero">
-          <div class="practice-hero-icon">${icon(slide.icon || "laptop", 48)}</div>
-          <h2 class="slide-title practice-title">${escapeHtml(slide.title)}</h2>
-          <p class="slide-lead practice-lead">${formatText(slide.lead)}</p>
-          ${slide.duration ? `<p class="practice-duration">${icon("clock", 20)} ${escapeHtml(slide.duration)}</p>` : ""}
-        </div>
-        <div class="practice-layout">
-          <div class="practice-panel">
-            <h3>${icon("list-checks", 24)} Na IDE agora</h3>
-            <ol class="practice-steps">${steps}</ol>
-            ${fileLink}
-          </div>
-          <div class="practice-panel">
-            <h3>${icon("check-circle", 24)} O que praticar</h3>
-            <ul class="practice-topics">${topics}</ul>
-            ${slide.note ? `<p class="practice-note">${formatText(slide.note)}</p>` : ""}
-          </div>
-        </div>
-      </div>`;
-
-  return `<div class="slide-shell slide-shell--practice">${header(slide)}${layout(slide, main)}</div>`;
+  const title = slide.title || "Hora de praticar";
+  return `
+    <div class="slide-shell slide-shell--practice">
+      <div class="practice-minimal">
+        <h2 class="practice-minimal-title">${escapeHtml(title)}</h2>
+      </div>
+    </div>`;
 }
 
 function renderProject(slide) {

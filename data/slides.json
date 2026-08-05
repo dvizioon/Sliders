@@ -1148,26 +1148,7 @@
       "active": true,
       "day": 1,
       "type": "practice",
-      "icon": "laptop",
-      "title": "Hora de praticar — Fundamentos",
-      "lead": "Pause os slides, abra a **IntelliJ** (ou sua IDE) e coloque em prática variáveis, tipos, built-ins e entrada de dados.",
-      "duration": "15 a 20 minutos",
-      "practiceFile": "material/pratica-1-fundamentos.txt",
-      "ideSteps": [
-        "Abra a **IntelliJ IDEA** (ou Eclipse / VS Code com Java).",
-        "**File → New → Project → Java** → nome `AulaJava-Fundamentos`.",
-        "Crie a classe `Main` com `public static void main(String[] args)`.",
-        "Abra o arquivo **`material/pratica-1-fundamentos.txt`** (na pasta do projeto Sliders) e siga os exercícios na ordem.",
-        "Rode com o botão **Run** ▶ e confira a saída no console da IDE."
-      ],
-      "topics": [
-        "Declarar variáveis (`int`, `double`, `boolean`, `String`, `char`)",
-        "Usar `System.out.println` e `Scanner` para ler do teclado",
-        "Métodos de `String`: `length()`, `trim()`, `toUpperCase()`",
-        "`Arrays.sort()` e `Arrays.toString()` com vetor de números",
-        "Desafio extra: pedir nome e idade e montar uma frase na saída"
-      ],
-      "note": "Não precisa copiar tudo perfeito — o importante é **digitar**, **errar** e **corrigir**. Chame o monitor se travar."
+      "title": "Hora de praticar"
     },
     {
       "id": 143,
@@ -1674,26 +1655,7 @@
       "active": true,
       "day": 1,
       "type": "practice",
-      "icon": "code-2",
-      "title": "Hora de praticar — OOP e controle de fluxo",
-      "lead": "Agora é na IDE de novo: **if/else**, laços, classes, objetos e tudo que vimos até lambdas.",
-      "duration": "20 a 25 minutos",
-      "practiceFile": "material/pratica-2-oop-fluxo.txt",
-      "ideSteps": [
-        "Na IntelliJ: **File → New → Project → Java** → `AulaJava-OOP` (ou use o mesmo projeto com pacotes novos).",
-        "Crie a classe `Carro` em um arquivo separado (`Carro.java`).",
-        "Abra **`material/pratica-2-oop-fluxo.txt`** e faça os exercícios um por um.",
-        "Teste cada etapa com `main` antes de passar para a próxima.",
-        "No final, mostre o código rodando para o colega ou para o monitor."
-      ],
-      "topics": [
-        "`if`, `else`, `else if` com nota e idade",
-        "`for` e `foreach` percorrendo vetor de nomes",
-        "`while` com contador ou saldo",
-        "Classe `Carro` com atributos, métodos e `new Carro()`",
-        "Getters/setters simples e um `ArrayList` de tarefas (opcional)"
-      ],
-      "note": "Use o slide como pausa. Quando terminar o roteiro, voltamos para **Spring Boot**."
+      "title": "Hora de praticar"
     },
     {
       "id": 39,

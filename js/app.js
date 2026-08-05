@@ -10,7 +10,7 @@ import { initDndActivities } from "./dnd-activity.js";
 async function init() {
   const container = document.getElementById("slides-container");
   const [slidesRes, booksRes, idesRes] = await Promise.all([
-    fetch("data/slides.json?v=82"),
+    fetch("data/slides.json?v=83"),
     fetch("data/books.json?v=7"),
     fetch("data/ides.json?v=3")
   ]);
