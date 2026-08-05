@@ -1,4 +1,4 @@
-import { state, canExecute } from "./state.js";
+import { state } from "./state.js";
 import { applyRunTemplate } from "./templates.js";
 import {
   executeJavaSource,
@@ -47,7 +47,7 @@ async function handleCodeRun(button) {
   } catch (err) {
     showTerminalOutput(runId, err.message || "Falha ao executar o código.", true);
   } finally {
-    button.disabled = !canExecute();
+    button.disabled = false;
     if (label) label.textContent = runLabel;
   }
 }
@@ -91,7 +91,7 @@ async function handleBuiltinRun(button) {
       !fallback
     );
   } finally {
-    button.disabled = !canExecute();
+    button.disabled = false;
     if (label) label.textContent = runLabel;
   }
 }

@@ -27,7 +27,7 @@ jobs:
       - name: Montar site estático
         run: |
           mkdir -p dist
-          cp index.html .nojekyll dist/
+          cp index.html dist/
           cp -r css js data images dist/
 
       - name: Configurar Pages

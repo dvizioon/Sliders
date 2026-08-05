@@ -1,7 +1,10 @@
 import { state } from "./state.js";
 import { prepareJavaForPiston } from "./java.js";
 
-const OFFLINE_NOTE = "\n\n(modo offline: resultado esperado)";
+function isLocalDevHost() {
+  const host = window.location.hostname;
+  return host === "localhost" || host === "127.0.0.1" || host === "[::1]";
+}
 
 export function formatRunOutput(result) {
   if (!result) return "";
@@ -34,12 +37,17 @@ export function getFallbackOutput(template, methodIndex) {
 }
 
 export function formatFallbackDisplay(fallback) {
-  if (!fallback) return "Sem conexão. Conecte à internet para executar o código ao vivo.";
-  return formatRunOutput(fallback) + OFFLINE_NOTE;
+  if (!fallback) return "";
+  return formatRunOutput(fallback);
 }
 
 export async function initExecution(config) {
   if (!config || !config.enabled) {
+    state.executionAvailable = false;
+    return false;
+  }
+
+  if (!isLocalDevHost()) {
     state.executionAvailable = false;
     return false;
   }
@@ -145,14 +153,5 @@ export async function runWithFallback({ template, methodIndex, runFn }) {
 }
 
 export function applyOfflineUi() {
-  document.body.classList.toggle("deck--offline", !state.executionAvailable);
   document.body.classList.toggle("deck--no-builtin-inputs", !state.builtinInputsEnabled);
-
-  document.querySelectorAll(".code-run-btn, .builtin-run-btn").forEach((btn) => {
-    if (!state.pistonConfig?.enabled) return;
-    btn.disabled = !state.executionAvailable;
-    btn.title = state.executionAvailable
-      ? ""
-      : "Sem conexão. O resultado esperado aparece ao clicar Executar.";
-  });
 }
