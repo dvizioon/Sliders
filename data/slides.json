@@ -2028,22 +2028,55 @@
       "day": 1,
       "type": "cards",
       "title": "JPA: anotações do Model",
-      "lead": "JPA mapeia classes Java para tabelas. Você anota a entidade e o Hibernate traduz para SQL.",
+      "lead": "As anotações ficam no **Model** (`Tarefa.java`). Cada uma diz ao JPA/Hibernate como mapear a classe para a tabela.",
+      "details": [
+        "Os `import jakarta.persistence.*` trazem as anotações do JPA (padrão Java para persistência).",
+        "Sem `@Entity`, o Spring não sabe que essa classe representa uma tabela."
+      ],
       "cards": [
         {
           "icon": "box",
           "heading": "@Entity",
-          "body": "Marca a classe como **entidade** do banco. Cada objeto `Tarefa` vira uma linha na tabela."
+          "body": "Marca a classe como **entidade** do banco. Cada objeto `Tarefa` vira uma linha na tabela `tarefa`."
         },
         {
           "icon": "key",
           "heading": "@Id",
-          "body": "Define a **chave primária**, identificador único de cada registro. Toda tabela precisa de um `@Id`."
+          "body": "Define a **chave primária**, o identificador único de cada linha. Toda tabela precisa de exatamente um campo `@Id`."
         },
         {
           "icon": "hash",
           "heading": "@GeneratedValue",
-          "body": "O banco **gera o id sozinho** ao salvar (`IDENTITY` = auto-incremento: 1, 2, 3...)."
+          "body": "Diz **quem gera** o valor do `@Id`. Com `strategy = GenerationType.IDENTITY`, o **banco** incrementa sozinho (1, 2, 3...)."
+        }
+      ]
+    },
+    {
+      "id": 163,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "GenerationType.IDENTITY",
+      "lead": "Ao salvar uma tarefa **sem `id`**, o banco cria o próximo número automaticamente. É o mesmo conceito de **auto incremento** no SQL.",
+      "details": [
+        "`IDENTITY` = o banco controla a sequência na coluna `id` no momento do `INSERT`.",
+        "No POST você envia só `nome`, `descricao`, `lembrete`. A resposta volta com `\"id\": 1` gerado pelo H2."
+      ],
+      "cards": [
+        {
+          "icon": "hash",
+          "heading": "O que significa",
+          "body": "`GenerationType.IDENTITY` informa ao JPA: *não invente o id no Java, deixe o banco gerar na inserção*."
+        },
+        {
+          "icon": "plus",
+          "heading": "Por que `Long id`",
+          "body": "Ids costumam ser `Long` porque podem crescer muito (milhões de registros). Em projetos pequenos `Integer` também serve."
+        },
+        {
+          "icon": "list-ordered",
+          "heading": "Na prática",
+          "body": "1ª tarefa salva {{arrow}} `id = 1`. 2ª {{arrow}} `id = 2`. Se apagar a 2, a próxima inserida normalmente **não reutiliza** o número 2."
         }
       ]
     },
@@ -2053,13 +2086,44 @@
       "day": 1,
       "type": "split",
       "title": "Model: classe Tarefa",
-      "lead": "Classe que espelha a tabela. Atributos `private` + getters/setters. Construtor vazio obrigatório para o JPA.",
-      "code": "@Entity\npublic class Tarefa {\n\n  @Id\n  @GeneratedValue(strategy = GenerationType.IDENTITY)\n  private Long id;\n\n  private String nome;\n  private String descricao;\n  private String lembrete;\n\n  public Tarefa() { }\n\n  // getters e setters...\n}",
+      "filename": "Tarefa.java",
+      "lead": "Arquivo em `model/Tarefa.java`. **Package** organiza o pacote; **imports** trazem as anotações JPA. Construtor vazio é obrigatório para o Hibernate.",
+      "code": "package com.br.aula.h2.model;\n\nimport jakarta.persistence.Entity;\nimport jakarta.persistence.GeneratedValue;\nimport jakarta.persistence.GenerationType;\nimport jakarta.persistence.Id;\n\n@Entity\npublic class Tarefa {\n\n  @Id\n  @GeneratedValue(strategy = GenerationType.IDENTITY)\n  private Long id;\n\n  private String nome;\n  private String descricao;\n  private String lembrete;\n\n  public Tarefa() { }\n\n  // getters e setters para cada campo\n}",
       "rules": [
-        "`@Entity` na classe {{arrow}} vira tabela no banco",
-        "`@Id` no campo `id` {{arrow}} chave primária",
-        "`@GeneratedValue` {{arrow}} id automático ao inserir",
-        "Cada atributo `private` vira uma coluna com o mesmo nome"
+        "`package` {{arrow}} pasta lógica do projeto (`com.br.aula.h2.model`)",
+        "`import jakarta.persistence.*` {{arrow}} anotações JPA (`@Entity`, `@Id`, `@GeneratedValue`)",
+        "`GenerationType.IDENTITY` {{arrow}} banco gera o `id` no `INSERT` (auto incremento)",
+        "`public Tarefa() { }` {{arrow}} construtor vazio exigido pelo JPA para criar objetos ao ler do banco",
+        "Cada atributo `private` vira uma **coluna** com o mesmo nome na tabela"
+      ]
+    },
+    {
+      "id": 164,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "Como o Repository ganha métodos",
+      "lead": "A interface parece **vazia**, mas `extends JpaRepository` já traz `findAll()`, `save()`, `deleteById()`... O Spring **cria a implementação** na subida da API.",
+      "details": [
+        "Você **não** escreve `class TarefaRepositoryImpl` nem SQL `SELECT * FROM tarefa`.",
+        "O Spring Data JPA lê sua interface, vê `JpaRepository<Tarefa, Long>` e gera uma classe que fala com o banco."
+      ],
+      "cards": [
+        {
+          "icon": "git-branch",
+          "heading": "extends herda métodos",
+          "body": "`JpaRepository` é uma interface **pai** com dezenas de métodos. Ao dar `extends`, sua interface **herda** tudo, mesmo sem declarar nada dentro."
+        },
+        {
+          "icon": "sparkles",
+          "heading": "Spring implementa na hora",
+          "body": "Na execução, o Spring cria um objeto real (proxy) que implementa `TarefaRepository` e executa SQL via Hibernate."
+        },
+        {
+          "icon": "plug",
+          "heading": "@Autowired conecta",
+          "body": "No Controller, `@Autowired` injeta essa implementação pronta. Por isso `tarefaRepository.findAll()` funciona **sem** `new TarefaRepository()`."
+        }
       ]
     },
     {
@@ -2067,14 +2131,15 @@
       "active": true,
       "day": 1,
       "type": "split",
-      "title": "Repository: acesso ao banco",
-      "lead": "Interface que o Spring **implementa sozinho**. Você não escreve SQL, usa métodos prontos.",
-      "code": "public interface TarefaRepository\n    extends JpaRepository<Tarefa, Long> {\n}",
+      "title": "Repository: TarefaRepository",
+      "filename": "TarefaRepository.java",
+      "lead": "Arquivo em `repository/TarefaRepository.java`. Só declara o **contrato** com o banco. O corpo da interface fica vazio de propósito.",
+      "code": "package com.br.aula.h2.repository;\n\nimport com.br.aula.h2.model.Tarefa;\nimport org.springframework.data.jpa.repository.JpaRepository;\n\n// Sem métodos aqui: herda tudo de JpaRepository\npublic interface TarefaRepository\n    extends JpaRepository<Tarefa, Long> {\n}",
       "rules": [
-        "`JpaRepository<Tarefa, Long>` {{arrow}} entidade `Tarefa`, id do tipo `Long`",
-        "`findAll()` {{arrow}} retorna todas as tarefas do banco",
-        "`save(tarefa)` {{arrow}} insere ou atualiza um registro",
-        "`findById(id)` / `deleteById(id)` {{arrow}} busca e apaga por id"
+        "`import com.br.aula.h2.model.Tarefa` {{arrow}} usa a entidade que você criou",
+        "`JpaRepository<Tarefa, Long>` {{arrow}} entidade `Tarefa`, tipo do `@Id` é `Long`",
+        "Métodos herdados que você já usa: `findAll()`, `save()`, `findById()`, `deleteById()`",
+        "O Spring registra essa interface como **bean** e gera a implementação automaticamente"
       ]
     },
     {
@@ -2108,16 +2173,18 @@
       "day": 1,
       "type": "split",
       "title": "Controller com banco",
-      "lead": "`@Autowired` injeta o Repository no Controller, você **não** faz `new TarefaRepository()`. O Spring cuida disso.",
-      "code": "@RestController\n@RequestMapping(\"/api/tarefa\")\npublic class TarefaController {\n\n  @Autowired\n  private TarefaRepository tarefaRepository;\n\n  @GetMapping\n  public List<Tarefa> getTarefas() {\n    return tarefaRepository.findAll();\n  }\n\n  @PostMapping\n  public Tarefa criarTarefa(@RequestBody Tarefa tarefa) {\n    return tarefaRepository.save(tarefa);\n  }\n}",
+      "filename": "TarefaController.java",
+      "lead": "Arquivo em `controller/TarefaController.java`. Os **imports** trazem anotações Spring, o Model, o Repository e `List`.",
+      "code": "package com.br.aula.h2.controller;\n\nimport com.br.aula.h2.model.Tarefa;\nimport com.br.aula.h2.repository.TarefaRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.web.bind.annotation.*;\nimport java.util.List;\n\n@RestController\n@RequestMapping(\"/api/tarefa\")\npublic class TarefaController {\n\n  @Autowired\n  private TarefaRepository tarefaRepository;\n\n  @GetMapping\n  public List<Tarefa> getTarefas() {\n    return tarefaRepository.findAll();\n  }\n\n  @PostMapping\n  public Tarefa criarTarefa(@RequestBody Tarefa tarefa) {\n    return tarefaRepository.save(tarefa);\n  }\n}",
       "rules": [
-        "`@Autowired` {{arrow}} Spring injeta o Repository automaticamente",
-        "`List<Tarefa>` no retorno {{arrow}} JSON array na resposta HTTP",
-        "`@RequestBody` {{arrow}} JSON do cliente vira objeto `Tarefa`",
-        "`save()` persiste no banco; `findAll()` lê tudo"
+        "`import ...Tarefa` e `...TarefaRepository` {{arrow}} classes do seu projeto",
+        "`import org.springframework...` {{arrow}} anotações e injeção do Spring (`@RestController`, `@Autowired`)",
+        "`import java.util.List` {{arrow}} tipo de retorno quando lista várias tarefas",
+        "`@Autowired` {{arrow}} Spring injeta o Repository (implementação gerada automaticamente)",
+        "`save()` persiste no banco; `findAll()` lê todas as linhas da tabela"
       ],
       "run": {
-        "expectedOutput": "GET /api/tarefa\n[{\"id\":1,\"nome\":\"Estudar JPA\",\"descricao\":\"...\",\"lembrete\":\"...\"}]\n\nPOST /api/tarefa\nBody: {\"nome\":\"Nova tarefa\",\"descricao\":\"...\",\"lembrete\":\"...\"}\nResposta: salvo com id gerado pelo banco"
+        "expectedOutput": "GET /api/tarefa\n[{\"id\":1,\"nome\":\"Estudar JPA\",\"descricao\":\"...\",\"lembrete\":\"...\"}]\n\nPOST /api/tarefa\nBody: {\"nome\":\"Nova tarefa\",\"descricao\":\"...\",\"lembrete\":\"...\"}\nResposta: salvo com id=3 gerado pelo banco (IDENTITY)"
       }
     },
     {
@@ -2151,8 +2218,8 @@
           "icon": "rocket",
           "topics": [
             "Spring Boot: API REST, JSON e camadas",
-            "Banco de dados, JPA, `@Id` e `application.properties`",
-            "`List<Tarefa>`, Repository e projeto completo no Dia 2"
+            "Banco de dados, JPA, `@Id`, `GenerationType.IDENTITY` e `application.properties`",
+            "`JpaRepository`, `List<Tarefa>` e projeto completo no Dia 2"
           ]
         }
       ],

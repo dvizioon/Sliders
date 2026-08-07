@@ -9,10 +9,10 @@ import { initDndActivities } from "./dnd-activity.js";
 
 async function init() {
   const container = document.getElementById("slides-container");
-  const deckRes = await fetch("data/deck.json?v=1");
+  const deckRes = await fetch("data/deck.json?v=2");
   const deck = await deckRes.json();
   const partResponses = await Promise.all(
-    deck.parts.map((part) => fetch(`${part}?v=1`))
+    deck.parts.map((part) => fetch(`${part}?v=2`))
   );
   const partData = await Promise.all(partResponses.map((r) => r.json()));
   const slidesFromDeck = partData.flatMap((part) => part.slides || []);

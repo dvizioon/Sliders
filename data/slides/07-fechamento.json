@@ -31,8 +31,8 @@
           "icon": "rocket",
           "topics": [
             "Spring Boot: API REST, JSON e camadas",
-            "Banco de dados, JPA, `@Id` e `application.properties`",
-            "`List<Tarefa>`, Repository e projeto completo no Dia 2"
+            "Banco de dados, JPA, `@Id`, `GenerationType.IDENTITY` e `application.properties`",
+            "`JpaRepository`, `List<Tarefa>` e projeto completo no Dia 2"
           ]
         }
       ],
