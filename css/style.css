@@ -741,6 +741,15 @@ html, body {
   color: #4ec9b0;
 }
 
+.inline-arrow {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  color: var(--accent);
+  margin: 0 0.2em;
+  line-height: 1;
+}
+
 .split-rules .inline-code,
 .detail-list .inline-code,
 .alert-card-body .inline-code,

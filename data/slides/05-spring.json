@@ -25,7 +25,7 @@
         {
           "icon": "braces",
           "heading": "JSON automático",
-          "body": "Você devolve um objeto Java (`Tarefa`, `Usuario`...) e o Spring transforma em JSON — e o contrário também."
+          "body": "Você devolve um objeto Java (`Tarefa`, `Usuario`...) e o Spring transforma em JSON, e o contrário também."
         }
       ]
     },
@@ -34,7 +34,7 @@
       "active": true,
       "day": 1,
       "type": "cards",
-      "title": "Spring Boot — REST e ecossistema",
+      "title": "Spring Boot: REST e ecossistema",
       "lead": "Com anotações você expõe rotas HTTP, organiza o código em camadas e usa ferramentas padrão do mercado.",
       "cards": [
         {
@@ -45,7 +45,7 @@
         {
           "icon": "layers",
           "heading": "Organização em camadas",
-          "body": "**Controller** (rotas) → **Service** (regras) → **Repository** (banco). Cada parte com uma responsabilidade."
+          "body": "**Controller** (rotas) {{arrow}} **Service** (regras) {{arrow}} **Repository** (banco). Cada parte com uma responsabilidade."
         },
         {
           "icon": "package",
@@ -80,7 +80,7 @@
         {
           "icon": "repeat",
           "heading": "Fluxo resumido",
-          "body": "1) Cliente chama `GET /api/tarefas` → 2) Spring acha o Controller certo → 3) Service busca no banco → 4) Spring devolve JSON na resposta."
+          "body": "1) Cliente chama `GET /api/tarefas` {{arrow}} 2) Spring acha o Controller certo {{arrow}} 3) Service busca no banco {{arrow}} 4) Spring devolve JSON na resposta."
         }
       ]
     },
@@ -90,7 +90,7 @@
       "day": 1,
       "type": "split",
       "title": "Spring: @GetMapping",
-      "lead": "`@GetMapping` expõe rotas **GET** — o cliente **só lê** dados. Não cria, não apaga, não altera nada no servidor.",
+      "lead": "`@GetMapping` expõe rotas **GET**, o cliente **só lê** dados. Não cria, não apaga, não altera nada no servidor.",
       "details": [
         "Use GET para **listar tudo** ou **buscar um item** pelo id na URL.",
         "Exemplo real: abrir a lista de tarefas no app = `GET /api/tarefas`."
@@ -99,14 +99,14 @@
       "rules": [
         "`@RestController` = esta classe responde HTTP com JSON",
         "`@RequestMapping(\"/api/tarefas\")` = prefixo de todas as rotas da classe",
-        "`@GetMapping` sem path → `GET /api/tarefas` (lista tudo)",
-        "`@GetMapping(\"/{id}\")` → `GET /api/tarefas/3` e `@PathVariable` pega o `3`"
+        "`@GetMapping` sem path {{arrow}} `GET /api/tarefas` (lista tudo)",
+        "`@GetMapping(\"/{id}\")` {{arrow}} `GET /api/tarefas/3` e `@PathVariable` pega o `3`"
       ],
       "cards": [
         {
           "icon": "lightbulb",
           "heading": "Analogia",
-          "body": "GET é como **consultar o cardápio** — você só olha, não pede para cozinhar nem apagar item."
+          "body": "GET é como **consultar o cardápio**, você só olha, não pede para cozinhar nem apagar item."
         }
       ],
       "run": {
@@ -119,23 +119,23 @@
       "day": 1,
       "type": "split",
       "title": "Spring: @PostMapping",
-      "lead": "`@PostMapping` **cria** um registro novo. O cliente envia os dados no **corpo** da requisição em JSON — o Spring converte com `@RequestBody`.",
+      "lead": "`@PostMapping` **cria** um registro novo. O cliente envia os dados no **corpo** da requisição em JSON, o Spring converte com `@RequestBody`.",
       "details": [
         "Status HTTP comum na resposta: **201 Created** (algo foi criado).",
-        "Exemplo: formulário de nova tarefa no app → `POST /api/tarefas` com `{\"titulo\":\"...\"}`."
+        "Exemplo: formulário de nova tarefa no app {{arrow}} `POST /api/tarefas` com `{\"titulo\":\"...\"}`."
       ],
       "code": "@RestController\n@RequestMapping(\"/api/tarefas\")\npublic class TarefaController {\n\n  @PostMapping\n  public Tarefa criar(@RequestBody Tarefa nova) {\n    return service.salvar(nova);\n  }\n}",
       "rules": [
         "`POST` = verbo HTTP para **criar** recurso novo",
         "`@RequestBody` lê o JSON e transforma em objeto `Tarefa`",
         "O método devolve o objeto salvo (com `id` gerado pelo banco)",
-        "O cliente envia no Postman: Body → raw → JSON"
+        "O cliente envia no Postman: Body {{arrow}} raw {{arrow}} JSON"
       ],
       "cards": [
         {
           "icon": "lightbulb",
           "heading": "Analogia",
-          "body": "POST é como **fazer um pedido novo** no garçom — você manda os dados e ele registra."
+          "body": "POST é como **fazer um pedido novo** no garçom, você manda os dados e ele registra."
         }
       ],
       "run": {
@@ -155,8 +155,8 @@
       ],
       "code": "@RestController\n@RequestMapping(\"/api/tarefas\")\npublic class TarefaController {\n\n  @PutMapping(\"/{id}\")\n  public Tarefa atualizar(@PathVariable Long id,\n                        @RequestBody Tarefa dados) {\n    return service.atualizar(id, dados);\n  }\n\n  @DeleteMapping(\"/{id}\")\n  public void remover(@PathVariable Long id) {\n    service.remover(id);\n  }\n}",
       "rules": [
-        "`PUT /api/tarefas/2` → atualiza a tarefa de id 2",
-        "`DELETE /api/tarefas/2` → apaga a tarefa de id 2",
+        "`PUT /api/tarefas/2` {{arrow}} atualiza a tarefa de id 2",
+        "`DELETE /api/tarefas/2` {{arrow}} apaga a tarefa de id 2",
         "DELETE costuma responder **204 No Content** (sucesso, sem corpo)",
         "PUT substitui/atualiza; não cria registro novo"
       ],
@@ -168,7 +168,7 @@
         }
       ],
       "run": {
-        "expectedOutput": "PUT /api/tarefas/2\nBody: {\"titulo\":\"Slide pronto\"}\n→ {\"id\":2,\"titulo\":\"Slide pronto\"}\n\nDELETE /api/tarefas/2\n→ 204 No Content"
+        "expectedOutput": "PUT /api/tarefas/2\nBody: {\"titulo\":\"Slide pronto\"}\nResposta: {\"id\":2,\"titulo\":\"Slide pronto\"}\n\nDELETE /api/tarefas/2\nResposta: 204 No Content"
       }
     },
     {
@@ -177,10 +177,10 @@
       "day": 1,
       "type": "cards",
       "title": "Spring: camadas do projeto",
-      "lead": "Um projeto Spring Boot **organizado** separa responsabilidades. Assim o código fica fácil de entender, testar e manter — padrão em empresas.",
+      "lead": "Um projeto Spring Boot **organizado** separa responsabilidades. Assim o código fica fácil de entender, testar e manter, padrão em empresas.",
       "details": [
         "Cada camada faz **uma coisa só**.",
-        "O **Controller** não acessa banco direto — chama o Repository."
+        "O **Controller** não acessa banco direto, chama o Repository."
       ],
       "cards": [
         {

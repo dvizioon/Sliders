@@ -1,8 +1,13 @@
 import { escapeHtml } from "./utils.js";
 import { highlightInlineCode } from "./highlight.js";
+import { icon } from "./icon.js";
 
 const INLINE_TOKEN =
-  /(`[^`]+`|\*\*[^*]+?\*\*|\*[^*]+?\*|\[[^\]]+\]\((https?:\/\/[^)\s]+)\))/g;
+  /(`[^`]+`|\*\*[^*]+?\*\*|\*[^*]+?\*|\{\{(?:arrow(?:-right)?|seta)\}\}|\[[^\]]+\]\((https?:\/\/[^)\s]+)\))/g;
+
+function inlineArrow() {
+  return `<span class="inline-arrow" aria-hidden="true">${icon("arrow-right", 16)}</span>`;
+}
 
 function formatPlain(text) {
   return escapeHtml(text);
@@ -26,6 +31,8 @@ export function formatText(str) {
       parts.push(`<strong>${formatPlain(token.slice(2, -2))}</strong>`);
     } else if (token.startsWith("*")) {
       parts.push(`<em>${formatPlain(token.slice(1, -1))}</em>`);
+    } else if (token.startsWith("{{")) {
+      parts.push(inlineArrow());
     } else if (token.startsWith("[")) {
       const labelEnd = token.indexOf("](");
       const label = token.slice(1, labelEnd);

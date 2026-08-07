@@ -59,7 +59,7 @@
         ]
       },
       "logical": {
-        "heading": "Lógicos — tabela da verdade",
+        "heading": "Lógicos: tabela da verdade",
         "columns": [
           "A",
           "B",
@@ -140,7 +140,7 @@
       "rules": [
         "`else` vem logo depois do bloco do `if`",
         "Não tem condição: é o caminho quando o `if` falha",
-        "É opcional — só use quando precisar da alternativa"
+        "É opcional, só use quando precisar da alternativa"
       ]
     },
     {

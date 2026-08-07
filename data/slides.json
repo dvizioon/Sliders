@@ -46,7 +46,7 @@
         {
           "title": "Formação e Atuação",
           "items": [
-            "Desenvolvedor — Grupo Ceuma",
+            "Desenvolvedor, Grupo Ceuma",
             "Técnico em análise e desenvolvimento de sistemas",
             "Graduação: Desenvolvimento de Back-End"
           ]
@@ -192,7 +192,7 @@
       "day": 1,
       "type": "cards",
       "title": "JDK, JRE e JVM",
-      "lead": "Para programar em Java você precisa do <strong>JDK</strong>. Ele reúne tudo para escrever, compilar e executar código.",
+      "lead": "Para programar em Java você precisa do **JDK**. Ele reúne tudo para escrever, compilar e executar código.",
       "details": [
         "Use JDK 17 ou 21 (versões LTS recomendadas para o curso).",
         "No terminal: `java -version` mostra a JVM; `javac -version` confirma o compilador.",
@@ -1294,7 +1294,7 @@
         ]
       },
       "logical": {
-        "heading": "Lógicos — tabela da verdade",
+        "heading": "Lógicos: tabela da verdade",
         "columns": [
           "A",
           "B",
@@ -1375,7 +1375,7 @@
       "rules": [
         "`else` vem logo depois do bloco do `if`",
         "Não tem condição: é o caminho quando o `if` falha",
-        "É opcional — só use quando precisar da alternativa"
+        "É opcional, só use quando precisar da alternativa"
       ]
     },
     {
@@ -1483,7 +1483,7 @@
       "day": 1,
       "type": "cards",
       "title": "Atributos e métodos",
-      "lead": "Toda classe em Java combina <strong>estado</strong> (atributos) e <strong>comportamento</strong> (métodos). É a base da Orientação a Objetos.",
+      "lead": "Toda classe em Java combina **estado** (atributos) e **comportamento** (métodos). É a base da Orientação a Objetos.",
       "cards": [
         {
           "icon": "database",
@@ -1806,7 +1806,7 @@
         {
           "icon": "braces",
           "heading": "JSON automático",
-          "body": "Você devolve um objeto Java (`Tarefa`, `Usuario`...) e o Spring transforma em JSON — e o contrário também."
+          "body": "Você devolve um objeto Java (`Tarefa`, `Usuario`...) e o Spring transforma em JSON, e o contrário também."
         }
       ]
     },
@@ -1815,7 +1815,7 @@
       "active": true,
       "day": 1,
       "type": "cards",
-      "title": "Spring Boot — REST e ecossistema",
+      "title": "Spring Boot: REST e ecossistema",
       "lead": "Com anotações você expõe rotas HTTP, organiza o código em camadas e usa ferramentas padrão do mercado.",
       "cards": [
         {
@@ -1826,7 +1826,7 @@
         {
           "icon": "layers",
           "heading": "Organização em camadas",
-          "body": "**Controller** (rotas) → **Service** (regras) → **Repository** (banco). Cada parte com uma responsabilidade."
+          "body": "**Controller** (rotas) {{arrow}} **Service** (regras) {{arrow}} **Repository** (banco). Cada parte com uma responsabilidade."
         },
         {
           "icon": "package",
@@ -1861,7 +1861,7 @@
         {
           "icon": "repeat",
           "heading": "Fluxo resumido",
-          "body": "1) Cliente chama `GET /api/tarefas` → 2) Spring acha o Controller certo → 3) Service busca no banco → 4) Spring devolve JSON na resposta."
+          "body": "1) Cliente chama `GET /api/tarefas` {{arrow}} 2) Spring acha o Controller certo {{arrow}} 3) Service busca no banco {{arrow}} 4) Spring devolve JSON na resposta."
         }
       ]
     },
@@ -1871,7 +1871,7 @@
       "day": 1,
       "type": "split",
       "title": "Spring: @GetMapping",
-      "lead": "`@GetMapping` expõe rotas **GET** — o cliente **só lê** dados. Não cria, não apaga, não altera nada no servidor.",
+      "lead": "`@GetMapping` expõe rotas **GET**, o cliente **só lê** dados. Não cria, não apaga, não altera nada no servidor.",
       "details": [
         "Use GET para **listar tudo** ou **buscar um item** pelo id na URL.",
         "Exemplo real: abrir a lista de tarefas no app = `GET /api/tarefas`."
@@ -1880,14 +1880,14 @@
       "rules": [
         "`@RestController` = esta classe responde HTTP com JSON",
         "`@RequestMapping(\"/api/tarefas\")` = prefixo de todas as rotas da classe",
-        "`@GetMapping` sem path → `GET /api/tarefas` (lista tudo)",
-        "`@GetMapping(\"/{id}\")` → `GET /api/tarefas/3` e `@PathVariable` pega o `3`"
+        "`@GetMapping` sem path {{arrow}} `GET /api/tarefas` (lista tudo)",
+        "`@GetMapping(\"/{id}\")` {{arrow}} `GET /api/tarefas/3` e `@PathVariable` pega o `3`"
       ],
       "cards": [
         {
           "icon": "lightbulb",
           "heading": "Analogia",
-          "body": "GET é como **consultar o cardápio** — você só olha, não pede para cozinhar nem apagar item."
+          "body": "GET é como **consultar o cardápio**, você só olha, não pede para cozinhar nem apagar item."
         }
       ],
       "run": {
@@ -1900,23 +1900,23 @@
       "day": 1,
       "type": "split",
       "title": "Spring: @PostMapping",
-      "lead": "`@PostMapping` **cria** um registro novo. O cliente envia os dados no **corpo** da requisição em JSON — o Spring converte com `@RequestBody`.",
+      "lead": "`@PostMapping` **cria** um registro novo. O cliente envia os dados no **corpo** da requisição em JSON, o Spring converte com `@RequestBody`.",
       "details": [
         "Status HTTP comum na resposta: **201 Created** (algo foi criado).",
-        "Exemplo: formulário de nova tarefa no app → `POST /api/tarefas` com `{\"titulo\":\"...\"}`."
+        "Exemplo: formulário de nova tarefa no app {{arrow}} `POST /api/tarefas` com `{\"titulo\":\"...\"}`."
       ],
       "code": "@RestController\n@RequestMapping(\"/api/tarefas\")\npublic class TarefaController {\n\n  @PostMapping\n  public Tarefa criar(@RequestBody Tarefa nova) {\n    return service.salvar(nova);\n  }\n}",
       "rules": [
         "`POST` = verbo HTTP para **criar** recurso novo",
         "`@RequestBody` lê o JSON e transforma em objeto `Tarefa`",
         "O método devolve o objeto salvo (com `id` gerado pelo banco)",
-        "O cliente envia no Postman: Body → raw → JSON"
+        "O cliente envia no Postman: Body {{arrow}} raw {{arrow}} JSON"
       ],
       "cards": [
         {
           "icon": "lightbulb",
           "heading": "Analogia",
-          "body": "POST é como **fazer um pedido novo** no garçom — você manda os dados e ele registra."
+          "body": "POST é como **fazer um pedido novo** no garçom, você manda os dados e ele registra."
         }
       ],
       "run": {
@@ -1936,8 +1936,8 @@
       ],
       "code": "@RestController\n@RequestMapping(\"/api/tarefas\")\npublic class TarefaController {\n\n  @PutMapping(\"/{id}\")\n  public Tarefa atualizar(@PathVariable Long id,\n                        @RequestBody Tarefa dados) {\n    return service.atualizar(id, dados);\n  }\n\n  @DeleteMapping(\"/{id}\")\n  public void remover(@PathVariable Long id) {\n    service.remover(id);\n  }\n}",
       "rules": [
-        "`PUT /api/tarefas/2` → atualiza a tarefa de id 2",
-        "`DELETE /api/tarefas/2` → apaga a tarefa de id 2",
+        "`PUT /api/tarefas/2` {{arrow}} atualiza a tarefa de id 2",
+        "`DELETE /api/tarefas/2` {{arrow}} apaga a tarefa de id 2",
         "DELETE costuma responder **204 No Content** (sucesso, sem corpo)",
         "PUT substitui/atualiza; não cria registro novo"
       ],
@@ -1949,7 +1949,7 @@
         }
       ],
       "run": {
-        "expectedOutput": "PUT /api/tarefas/2\nBody: {\"titulo\":\"Slide pronto\"}\n→ {\"id\":2,\"titulo\":\"Slide pronto\"}\n\nDELETE /api/tarefas/2\n→ 204 No Content"
+        "expectedOutput": "PUT /api/tarefas/2\nBody: {\"titulo\":\"Slide pronto\"}\nResposta: {\"id\":2,\"titulo\":\"Slide pronto\"}\n\nDELETE /api/tarefas/2\nResposta: 204 No Content"
       }
     },
     {
@@ -1958,10 +1958,10 @@
       "day": 1,
       "type": "cards",
       "title": "Spring: camadas do projeto",
-      "lead": "Um projeto Spring Boot **organizado** separa responsabilidades. Assim o código fica fácil de entender, testar e manter — padrão em empresas.",
+      "lead": "Um projeto Spring Boot **organizado** separa responsabilidades. Assim o código fica fácil de entender, testar e manter, padrão em empresas.",
       "details": [
         "Cada camada faz **uma coisa só**.",
-        "O **Controller** não acessa banco direto — chama o Repository."
+        "O **Controller** não acessa banco direto, chama o Repository."
       ],
       "cards": [
         {
@@ -1997,7 +1997,7 @@
         {
           "icon": "hard-drive",
           "heading": "H2 (desenvolvimento)",
-          "body": "Banco **em memória** embutido no Spring — zero instalação. Em produção: PostgreSQL, MySQL..."
+          "body": "Banco **em memória** embutido no Spring, zero instalação. Em produção: PostgreSQL, MySQL..."
         },
         {
           "icon": "table",
@@ -2012,14 +2012,14 @@
       "day": 1,
       "type": "split",
       "title": "application.properties",
-      "lead": "Arquivo em `src/main/resources/`. O Spring lê na subida — muda porta ou banco **sem recompilar**.",
+      "lead": "Arquivo em `src/main/resources/`. O Spring lê na subida, muda porta ou banco **sem recompilar**.",
       "code": "spring.application.name=h2\n\nspring.datasource.url=jdbc:h2:mem:techx\nspring.datasource.driverClassName=org.h2.Driver\nspring.datasource.username=daniel\nspring.datasource.password=1234\n\nspring.jpa.hibernate.ddl-auto=update\nspring.jpa.show-sql=true\n\nspring.h2.console.enabled=true\nspring.h2.console.path=/h2-console",
       "rules": [
-        "`spring.datasource.url` → endereço do banco (`jdbc:h2:mem:techx` = H2 na RAM)",
-        "`username` / `password` → credenciais de acesso ao banco",
-        "`spring.jpa.hibernate.ddl-auto=update` → JPA cria/atualiza tabelas automaticamente",
-        "`spring.jpa.show-sql=true` → exibe o SQL no console (ótimo para aprender)",
-        "`spring.h2.console.enabled=true` → painel web em `/h2-console` para ver as tabelas"
+        "`spring.datasource.url` {{arrow}} endereço do banco (`jdbc:h2:mem:techx` = H2 na RAM)",
+        "`username` / `password` {{arrow}} credenciais de acesso ao banco",
+        "`spring.jpa.hibernate.ddl-auto=update` {{arrow}} JPA cria/atualiza tabelas automaticamente",
+        "`spring.jpa.show-sql=true` {{arrow}} exibe o SQL no console (ótimo para aprender)",
+        "`spring.h2.console.enabled=true` {{arrow}} painel web em `/h2-console` para ver as tabelas"
       ]
     },
     {
@@ -2027,7 +2027,7 @@
       "active": true,
       "day": 1,
       "type": "cards",
-      "title": "JPA — anotações do Model",
+      "title": "JPA: anotações do Model",
       "lead": "JPA mapeia classes Java para tabelas. Você anota a entidade e o Hibernate traduz para SQL.",
       "cards": [
         {
@@ -2038,7 +2038,7 @@
         {
           "icon": "key",
           "heading": "@Id",
-          "body": "Define a **chave primária** — identificador único de cada registro. Toda tabela precisa de um `@Id`."
+          "body": "Define a **chave primária**, identificador único de cada registro. Toda tabela precisa de um `@Id`."
         },
         {
           "icon": "hash",
@@ -2056,9 +2056,9 @@
       "lead": "Classe que espelha a tabela. Atributos `private` + getters/setters. Construtor vazio obrigatório para o JPA.",
       "code": "@Entity\npublic class Tarefa {\n\n  @Id\n  @GeneratedValue(strategy = GenerationType.IDENTITY)\n  private Long id;\n\n  private String nome;\n  private String descricao;\n  private String lembrete;\n\n  public Tarefa() { }\n\n  // getters e setters...\n}",
       "rules": [
-        "`@Entity` na classe → vira tabela no banco",
-        "`@Id` no campo `id` → chave primária",
-        "`@GeneratedValue` → id automático ao inserir",
+        "`@Entity` na classe {{arrow}} vira tabela no banco",
+        "`@Id` no campo `id` {{arrow}} chave primária",
+        "`@GeneratedValue` {{arrow}} id automático ao inserir",
         "Cada atributo `private` vira uma coluna com o mesmo nome"
       ]
     },
@@ -2067,14 +2067,14 @@
       "active": true,
       "day": 1,
       "type": "split",
-      "title": "Repository — acesso ao banco",
-      "lead": "Interface que o Spring **implementa sozinho**. Você não escreve SQL — usa métodos prontos.",
+      "title": "Repository: acesso ao banco",
+      "lead": "Interface que o Spring **implementa sozinho**. Você não escreve SQL, usa métodos prontos.",
       "code": "public interface TarefaRepository\n    extends JpaRepository<Tarefa, Long> {\n}",
       "rules": [
-        "`JpaRepository<Tarefa, Long>` → entidade `Tarefa`, id do tipo `Long`",
-        "`findAll()` → retorna todas as tarefas do banco",
-        "`save(tarefa)` → insere ou atualiza um registro",
-        "`findById(id)` / `deleteById(id)` → busca e apaga por id"
+        "`JpaRepository<Tarefa, Long>` {{arrow}} entidade `Tarefa`, id do tipo `Long`",
+        "`findAll()` {{arrow}} retorna todas as tarefas do banco",
+        "`save(tarefa)` {{arrow}} insere ou atualiza um registro",
+        "`findById(id)` / `deleteById(id)` {{arrow}} busca e apaga por id"
       ]
     },
     {
@@ -2082,23 +2082,23 @@
       "active": true,
       "day": 1,
       "type": "cards",
-      "title": "List<Tarefa> — Generics e Collections",
+      "title": "List<Tarefa>: Generics e Collections",
       "lead": "`List<Tarefa>` é uma **lista** de objetos Tarefa. O `<Tarefa>` é **genérico**: diz ao Java *o que* a lista guarda.",
       "cards": [
         {
           "icon": "list",
           "heading": "O que é List<Tarefa>",
-          "body": "**Collection** do pacote `java.util`. Guarda vários objetos do mesmo tipo. Não é array — o tamanho **cresce** conforme você adiciona."
+          "body": "**Collection** do pacote `java.util`. Guarda vários objetos do mesmo tipo. Não é array, o tamanho **cresce** conforme você adiciona."
         },
         {
           "icon": "git-compare",
           "heading": "List vs Array",
-          "body": "**Array** (`Tarefa[]`) tem tamanho fixo. **List** (`ArrayList`) é flexível — ideal quando a API retorna quantidade variável de registros."
+          "body": "**Array** (`Tarefa[]`) tem tamanho fixo. **List** (`ArrayList`) é flexível, ideal quando a API retorna quantidade variável de registros."
         },
         {
           "icon": "braces",
           "heading": "No Controller",
-          "body": "`public List<Tarefa> getTarefas()` → Spring converte a lista em JSON array: `[{\"id\":1,\"nome\":\"...\"}, ...]`."
+          "body": "`public List<Tarefa> getTarefas()` {{arrow}} Spring converte a lista em JSON array: `[{\"id\":1,\"nome\":\"...\"}, ...]`."
         }
       ]
     },
@@ -2108,16 +2108,16 @@
       "day": 1,
       "type": "split",
       "title": "Controller com banco",
-      "lead": "`@Autowired` injeta o Repository no Controller — você **não** faz `new TarefaRepository()`. O Spring cuida disso.",
+      "lead": "`@Autowired` injeta o Repository no Controller, você **não** faz `new TarefaRepository()`. O Spring cuida disso.",
       "code": "@RestController\n@RequestMapping(\"/api/tarefa\")\npublic class TarefaController {\n\n  @Autowired\n  private TarefaRepository tarefaRepository;\n\n  @GetMapping\n  public List<Tarefa> getTarefas() {\n    return tarefaRepository.findAll();\n  }\n\n  @PostMapping\n  public Tarefa criarTarefa(@RequestBody Tarefa tarefa) {\n    return tarefaRepository.save(tarefa);\n  }\n}",
       "rules": [
-        "`@Autowired` → Spring injeta o Repository automaticamente",
-        "`List<Tarefa>` no retorno → JSON array na resposta HTTP",
-        "`@RequestBody` → JSON do cliente vira objeto `Tarefa`",
+        "`@Autowired` {{arrow}} Spring injeta o Repository automaticamente",
+        "`List<Tarefa>` no retorno {{arrow}} JSON array na resposta HTTP",
+        "`@RequestBody` {{arrow}} JSON do cliente vira objeto `Tarefa`",
         "`save()` persiste no banco; `findAll()` lê tudo"
       ],
       "run": {
-        "expectedOutput": "GET /api/tarefa\n[{\"id\":1,\"nome\":\"Estudar JPA\",\"descricao\":\"...\",\"lembrete\":\"...\"}]\n\nPOST /api/tarefa\nBody: {\"nome\":\"Nova tarefa\",\"descricao\":\"...\",\"lembrete\":\"...\"}\n→ salvo com id gerado pelo banco"
+        "expectedOutput": "GET /api/tarefa\n[{\"id\":1,\"nome\":\"Estudar JPA\",\"descricao\":\"...\",\"lembrete\":\"...\"}]\n\nPOST /api/tarefa\nBody: {\"nome\":\"Nova tarefa\",\"descricao\":\"...\",\"lembrete\":\"...\"}\nResposta: salvo com id gerado pelo banco"
       }
     },
     {

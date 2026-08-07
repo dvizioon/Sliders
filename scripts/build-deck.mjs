@@ -388,3 +388,5 @@ fs.writeFileSync(path.join(root, "data", "deck.json"), JSON.stringify(deck, null
 fs.writeFileSync(srcPath, JSON.stringify({ meta: data.meta, slides }, null, 2) + "\n");
 
 console.log(`Deck: ${slides.length} slides em ${partFiles.length} arquivos`);
+
+
