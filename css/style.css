@@ -446,7 +446,53 @@ html, body {
   grid-template-columns: repeat(2, 1fr);
   gap: 1.25rem;
   flex: 1;
-  align-content: stretch;
+  min-height: 0;
+  align-content: start;
+}
+
+.slide-main--cards-dense {
+  gap: 0.75rem;
+}
+
+.slide-main--cards-dense .slide-title {
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  margin-bottom: 0.35rem;
+}
+
+.slide-main--cards-dense .slide-lead {
+  font-size: 1.2rem;
+  margin-bottom: 0.35rem;
+}
+
+.slide-main--cards-dense .detail-list {
+  margin-bottom: 0.35rem;
+}
+
+.slide-main--cards-dense .detail-list li {
+  font-size: 1.05rem;
+  padding: 0.2rem 0;
+}
+
+.slide-main--cards-dense .cards-grid {
+  gap: 0.85rem;
+}
+
+.slide-main--cards-dense .card-item {
+  padding: 1.15rem 1.35rem;
+}
+
+.slide-main--cards-dense .card-item h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.4rem;
+}
+
+.slide-main--cards-dense .card-item p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.slide-main--cards-dense .card-icon {
+  margin-bottom: 0.5rem;
 }
 
 .card-item {

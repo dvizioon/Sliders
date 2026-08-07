@@ -414,23 +414,83 @@
       "title": "Exercício de Fixação: Tipos de variáveis",
       "zonesClass": "dnd-zones--types",
       "categories": [
-        { "id": "int", "label": "int", "icon": "hash" },
-        { "id": "double", "label": "double", "icon": "sigma" },
-        { "id": "boolean", "label": "boolean", "icon": "toggle-right" },
-        { "id": "string", "label": "String", "icon": "type" },
-        { "id": "char", "label": "char", "icon": "case-sensitive" }
+        {
+          "id": "int",
+          "label": "int",
+          "icon": "hash"
+        },
+        {
+          "id": "double",
+          "label": "double",
+          "icon": "sigma"
+        },
+        {
+          "id": "boolean",
+          "label": "boolean",
+          "icon": "toggle-right"
+        },
+        {
+          "id": "string",
+          "label": "String",
+          "icon": "type"
+        },
+        {
+          "id": "char",
+          "label": "char",
+          "icon": "case-sensitive"
+        }
       ],
       "items": [
-        { "id": "i1", "text": "3", "category": "int" },
-        { "id": "i2", "text": "42", "category": "int" },
-        { "id": "d1", "text": "23.6", "category": "double" },
-        { "id": "d2", "text": "9.99", "category": "double" },
-        { "id": "b1", "text": "true", "category": "boolean" },
-        { "id": "b2", "text": "false", "category": "boolean" },
-        { "id": "s1", "text": "\"Maria\"", "category": "string" },
-        { "id": "s2", "text": "\"Java\"", "category": "string" },
-        { "id": "c1", "text": "'T'", "category": "char" },
-        { "id": "c2", "text": "'A'", "category": "char" }
+        {
+          "id": "i1",
+          "text": "3",
+          "category": "int"
+        },
+        {
+          "id": "i2",
+          "text": "42",
+          "category": "int"
+        },
+        {
+          "id": "d1",
+          "text": "23.6",
+          "category": "double"
+        },
+        {
+          "id": "d2",
+          "text": "9.99",
+          "category": "double"
+        },
+        {
+          "id": "b1",
+          "text": "true",
+          "category": "boolean"
+        },
+        {
+          "id": "b2",
+          "text": "false",
+          "category": "boolean"
+        },
+        {
+          "id": "s1",
+          "text": "\"Maria\"",
+          "category": "string"
+        },
+        {
+          "id": "s2",
+          "text": "\"Java\"",
+          "category": "string"
+        },
+        {
+          "id": "c1",
+          "text": "'T'",
+          "category": "char"
+        },
+        {
+          "id": "c2",
+          "text": "'A'",
+          "category": "char"
+        }
       ]
     },
     {
@@ -981,14 +1041,46 @@
         "Exemplo"
       ],
       "rows": [
-        ["byte", "Byte", "Byte b = 10;"],
-        ["short", "Short", "Short s = 300;"],
-        ["int", "Integer", "Integer idade = 21;"],
-        ["long", "Long", "Long populacao = 1_000_000L;"],
-        ["float", "Float", "Float nota = 8.5f;"],
-        ["double", "Double", "Double preco = 19.90;"],
-        ["char", "Character", "Character letra = 'A';"],
-        ["boolean", "Boolean", "Boolean ativo = true;"]
+        [
+          "byte",
+          "Byte",
+          "Byte b = 10;"
+        ],
+        [
+          "short",
+          "Short",
+          "Short s = 300;"
+        ],
+        [
+          "int",
+          "Integer",
+          "Integer idade = 21;"
+        ],
+        [
+          "long",
+          "Long",
+          "Long populacao = 1_000_000L;"
+        ],
+        [
+          "float",
+          "Float",
+          "Float nota = 8.5f;"
+        ],
+        [
+          "double",
+          "Double",
+          "Double preco = 19.90;"
+        ],
+        [
+          "char",
+          "Character",
+          "Character letra = 'A';"
+        ],
+        [
+          "boolean",
+          "Boolean",
+          "Boolean ativo = true;"
+        ]
       ],
       "note": "Prefira primitivos em variáveis locais (mais rápido). Use wrapper quando a API ou coleção exigir objeto."
     },
@@ -1423,16 +1515,48 @@
       "title": "Exercício de Fixação: Classifique o Carro",
       "zonesClass": "dnd-zones--oop",
       "categories": [
-        { "id": "atributos", "label": "Atributos", "icon": "database" },
-        { "id": "metodos", "label": "Métodos", "icon": "zap" }
+        {
+          "id": "atributos",
+          "label": "Atributos",
+          "icon": "database"
+        },
+        {
+          "id": "metodos",
+          "label": "Métodos",
+          "icon": "zap"
+        }
       ],
       "items": [
-        { "id": "a1", "text": "cor", "category": "atributos" },
-        { "id": "a2", "text": "nome", "category": "atributos" },
-        { "id": "a3", "text": "idade", "category": "atributos" },
-        { "id": "m1", "text": "ligar", "category": "metodos" },
-        { "id": "m2", "text": "frear", "category": "metodos" },
-        { "id": "m3", "text": "acelerar", "category": "metodos" }
+        {
+          "id": "a1",
+          "text": "cor",
+          "category": "atributos"
+        },
+        {
+          "id": "a2",
+          "text": "nome",
+          "category": "atributos"
+        },
+        {
+          "id": "a3",
+          "text": "idade",
+          "category": "atributos"
+        },
+        {
+          "id": "m1",
+          "text": "ligar",
+          "category": "metodos"
+        },
+        {
+          "id": "m2",
+          "text": "frear",
+          "category": "metodos"
+        },
+        {
+          "id": "m3",
+          "text": "acelerar",
+          "category": "metodos"
+        }
       ]
     },
     {
@@ -1666,39 +1790,48 @@
       "lead": "Até aqui vocês rodaram `main()` no console. **Spring Boot** leva o Java para a web: você cria uma **API** que outros sistemas (site, app, Postman) consomem pela internet ou rede local.",
       "details": [
         "É o framework **mais usado** para backend corporativo no Brasil e no mundo.",
-        "Você cria o projeto em [start.spring.io](https://start.spring.io) ou pela IDE — já vem com servidor, JSON e estrutura prontos.",
-        "No **Dia 2** vocês montam um projeto completo de tarefas com Spring Boot."
+        "Você cria o projeto em [start.spring.io](https://start.spring.io) ou pela IDE."
       ],
       "cards": [
         {
           "icon": "rocket",
           "heading": "O que é",
-          "body": "Um conjunto de bibliotecas Java que **automatiza** o que seria chato de configurar na mão: servidor web, conversão JSON, injeção de dependências e conexão com banco."
+          "body": "Bibliotecas Java que **automatizam** servidor web, JSON, injeção de dependências e conexão com banco."
         },
         {
           "icon": "server",
           "heading": "Servidor embutido",
-          "body": "Não precisa instalar Tomcat separado. Ao rodar o projeto, a API sobe em `http://localhost:8080` (porta padrão)."
+          "body": "Não precisa instalar Tomcat. Ao rodar o projeto, a API sobe em `http://localhost:8080`."
         },
         {
           "icon": "braces",
           "heading": "JSON automático",
-          "body": "Você devolve um objeto Java (`Tarefa`, `Usuario`...) e o Spring transforma em JSON para o cliente. O contrário também: JSON do cliente vira objeto Java."
-        },
+          "body": "Você devolve um objeto Java (`Tarefa`, `Usuario`...) e o Spring transforma em JSON — e o contrário também."
+        }
+      ]
+    },
+    {
+      "id": 154,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "Spring Boot — REST e ecossistema",
+      "lead": "Com anotações você expõe rotas HTTP, organiza o código em camadas e usa ferramentas padrão do mercado.",
+      "cards": [
         {
           "icon": "route",
           "heading": "REST API",
-          "body": "Rotas HTTP com anotações: `@GetMapping` (buscar), `@PostMapping` (criar), `@PutMapping` (atualizar), `@DeleteMapping` (apagar)."
+          "body": "Rotas HTTP: `@GetMapping` (buscar), `@PostMapping` (criar), `@PutMapping` (atualizar), `@DeleteMapping` (apagar)."
         },
         {
           "icon": "layers",
           "heading": "Organização em camadas",
-          "body": "**Controller** (rotas) → **Service** (regras) → **Repository** (banco). Cada parte com uma responsabilidade clara."
+          "body": "**Controller** (rotas) → **Service** (regras) → **Repository** (banco). Cada parte com uma responsabilidade."
         },
         {
           "icon": "package",
           "heading": "Ecossistema",
-          "body": "Maven/Gradle gerenciam dependências. JUnit para testes. Padrão em vagas de Java backend, APIs e microsserviços."
+          "body": "Maven/Gradle, JUnit, Spring Data JPA. Padrão em vagas de Java backend, APIs e microsserviços."
         }
       ]
     },
@@ -1708,12 +1841,7 @@
       "day": 1,
       "type": "cards",
       "title": "Como uma API REST funciona",
-      "lead": "Pensa no backend como um **garçom digital**: o cliente faz um pedido numa URL, o Spring processa e devolve a resposta — geralmente em **JSON**.",
-      "details": [
-        "O **cliente** pode ser um site React, app mobile, outro sistema ou o Postman (ferramenta para testar APIs).",
-        "O **servidor** Spring fica escutando numa porta (`localhost:8080`).",
-        "Cada endereço (`/api/tarefas`) é atendido por um método no **Controller**."
-      ],
+      "lead": "Pensa no backend como um **garçom digital**: o cliente pede numa URL, o Spring processa e devolve **JSON**. O servidor escuta em `localhost:8080`.",
       "cards": [
         {
           "icon": "globe",
@@ -1832,37 +1960,165 @@
       "title": "Spring: camadas do projeto",
       "lead": "Um projeto Spring Boot **organizado** separa responsabilidades. Assim o código fica fácil de entender, testar e manter — padrão em empresas.",
       "details": [
-        "Cada camada faz **uma coisa só** (princípio da responsabilidade única).",
-        "O **Controller** não acessa banco direto; o **Service** não monta JSON HTTP.",
-        "No Dia 2 vocês criam essa estrutura no projeto Todoist."
+        "Cada camada faz **uma coisa só**.",
+        "O **Controller** não acessa banco direto — chama o Repository."
       ],
       "cards": [
         {
           "icon": "route",
           "heading": "Controller",
-          "body": "Porta de entrada HTTP. Recebe `GET /api/tarefas`, chama o Service e devolve JSON. Anotações `@GetMapping`, `@PostMapping` ficam aqui."
+          "body": "Porta de entrada HTTP. Recebe `GET /api/tarefa`, chama o Repository e devolve JSON."
         },
         {
           "icon": "cog",
-          "heading": "Service",
-          "body": "Regras de negócio: validar título vazio, marcar concluída, calcular prioridade. Se amanhã mudar a regra, mexe só aqui."
+          "heading": "Service (opcional)",
+          "body": "Regras de negócio: validar campos, calcular prioridade. Em projetos simples o Controller chama o Repository direto."
         },
         {
           "icon": "database",
           "heading": "Repository + Model",
-          "body": "`Tarefa` (model) = dados. `TarefaRepository` = salva/busca no banco com Spring Data JPA (`findAll()`, `save()`)."
-        },
-        {
-          "icon": "settings",
-          "heading": "application.properties",
-          "body": "Configurações fora do código: `server.port=8080`, URL do banco, usuário e senha. Troca de ambiente sem recompilar."
-        },
-        {
-          "icon": "play",
-          "heading": "Como rodar",
-          "body": "Classe `Application` com `main()` + `@SpringBootApplication`. Run na IDE → servidor sobe → teste no Postman ou no front."
+          "body": "`Tarefa` (model) = dados. `TarefaRepository` = salva e busca no banco com `save()`, `findAll()`."
         }
       ]
+    },
+    {
+      "id": 156,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "Introdução ao Banco de Dados",
+      "lead": "Sem banco, a API **perde tudo** ao reiniciar. O banco guarda tarefas, usuários e pedidos de forma **persistente**.",
+      "cards": [
+        {
+          "icon": "database",
+          "heading": "Para que serve",
+          "body": "Armazena dados em **tabelas** (linhas e colunas). A API grava com `save()` e lê com `findAll()`."
+        },
+        {
+          "icon": "hard-drive",
+          "heading": "H2 (desenvolvimento)",
+          "body": "Banco **em memória** embutido no Spring — zero instalação. Em produção: PostgreSQL, MySQL..."
+        },
+        {
+          "icon": "table",
+          "heading": "Tabela `tarefa`",
+          "body": "Cada linha = uma tarefa. Colunas: `id`, `nome`, `descricao`, `lembrete`. O JPA cria a tabela a partir da classe."
+        }
+      ]
+    },
+    {
+      "id": 157,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "application.properties",
+      "lead": "Arquivo em `src/main/resources/`. O Spring lê na subida — muda porta ou banco **sem recompilar**.",
+      "code": "spring.application.name=h2\n\nspring.datasource.url=jdbc:h2:mem:techx\nspring.datasource.driverClassName=org.h2.Driver\nspring.datasource.username=daniel\nspring.datasource.password=1234\n\nspring.jpa.hibernate.ddl-auto=update\nspring.jpa.show-sql=true\n\nspring.h2.console.enabled=true\nspring.h2.console.path=/h2-console",
+      "rules": [
+        "`spring.datasource.url` → endereço do banco (`jdbc:h2:mem:techx` = H2 na RAM)",
+        "`username` / `password` → credenciais de acesso ao banco",
+        "`spring.jpa.hibernate.ddl-auto=update` → JPA cria/atualiza tabelas automaticamente",
+        "`spring.jpa.show-sql=true` → exibe o SQL no console (ótimo para aprender)",
+        "`spring.h2.console.enabled=true` → painel web em `/h2-console` para ver as tabelas"
+      ]
+    },
+    {
+      "id": 158,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "JPA — anotações do Model",
+      "lead": "JPA mapeia classes Java para tabelas. Você anota a entidade e o Hibernate traduz para SQL.",
+      "cards": [
+        {
+          "icon": "box",
+          "heading": "@Entity",
+          "body": "Marca a classe como **entidade** do banco. Cada objeto `Tarefa` vira uma linha na tabela."
+        },
+        {
+          "icon": "key",
+          "heading": "@Id",
+          "body": "Define a **chave primária** — identificador único de cada registro. Toda tabela precisa de um `@Id`."
+        },
+        {
+          "icon": "hash",
+          "heading": "@GeneratedValue",
+          "body": "O banco **gera o id sozinho** ao salvar (`IDENTITY` = auto-incremento: 1, 2, 3...)."
+        }
+      ]
+    },
+    {
+      "id": 159,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Model: classe Tarefa",
+      "lead": "Classe que espelha a tabela. Atributos `private` + getters/setters. Construtor vazio obrigatório para o JPA.",
+      "code": "@Entity\npublic class Tarefa {\n\n  @Id\n  @GeneratedValue(strategy = GenerationType.IDENTITY)\n  private Long id;\n\n  private String nome;\n  private String descricao;\n  private String lembrete;\n\n  public Tarefa() { }\n\n  // getters e setters...\n}",
+      "rules": [
+        "`@Entity` na classe → vira tabela no banco",
+        "`@Id` no campo `id` → chave primária",
+        "`@GeneratedValue` → id automático ao inserir",
+        "Cada atributo `private` vira uma coluna com o mesmo nome"
+      ]
+    },
+    {
+      "id": 160,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Repository — acesso ao banco",
+      "lead": "Interface que o Spring **implementa sozinho**. Você não escreve SQL — usa métodos prontos.",
+      "code": "public interface TarefaRepository\n    extends JpaRepository<Tarefa, Long> {\n}",
+      "rules": [
+        "`JpaRepository<Tarefa, Long>` → entidade `Tarefa`, id do tipo `Long`",
+        "`findAll()` → retorna todas as tarefas do banco",
+        "`save(tarefa)` → insere ou atualiza um registro",
+        "`findById(id)` / `deleteById(id)` → busca e apaga por id"
+      ]
+    },
+    {
+      "id": 161,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "List<Tarefa> — Generics e Collections",
+      "lead": "`List<Tarefa>` é uma **lista** de objetos Tarefa. O `<Tarefa>` é **genérico**: diz ao Java *o que* a lista guarda.",
+      "cards": [
+        {
+          "icon": "list",
+          "heading": "O que é List<Tarefa>",
+          "body": "**Collection** do pacote `java.util`. Guarda vários objetos do mesmo tipo. Não é array — o tamanho **cresce** conforme você adiciona."
+        },
+        {
+          "icon": "git-compare",
+          "heading": "List vs Array",
+          "body": "**Array** (`Tarefa[]`) tem tamanho fixo. **List** (`ArrayList`) é flexível — ideal quando a API retorna quantidade variável de registros."
+        },
+        {
+          "icon": "braces",
+          "heading": "No Controller",
+          "body": "`public List<Tarefa> getTarefas()` → Spring converte a lista em JSON array: `[{\"id\":1,\"nome\":\"...\"}, ...]`."
+        }
+      ]
+    },
+    {
+      "id": 162,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Controller com banco",
+      "lead": "`@Autowired` injeta o Repository no Controller — você **não** faz `new TarefaRepository()`. O Spring cuida disso.",
+      "code": "@RestController\n@RequestMapping(\"/api/tarefa\")\npublic class TarefaController {\n\n  @Autowired\n  private TarefaRepository tarefaRepository;\n\n  @GetMapping\n  public List<Tarefa> getTarefas() {\n    return tarefaRepository.findAll();\n  }\n\n  @PostMapping\n  public Tarefa criarTarefa(@RequestBody Tarefa tarefa) {\n    return tarefaRepository.save(tarefa);\n  }\n}",
+      "rules": [
+        "`@Autowired` → Spring injeta o Repository automaticamente",
+        "`List<Tarefa>` no retorno → JSON array na resposta HTTP",
+        "`@RequestBody` → JSON do cliente vira objeto `Tarefa`",
+        "`save()` persiste no banco; `findAll()` lê tudo"
+      ],
+      "run": {
+        "expectedOutput": "GET /api/tarefa\n[{\"id\":1,\"nome\":\"Estudar JPA\",\"descricao\":\"...\",\"lembrete\":\"...\"}]\n\nPOST /api/tarefa\nBody: {\"nome\":\"Nova tarefa\",\"descricao\":\"...\",\"lembrete\":\"...\"}\n→ salvo com id gerado pelo banco"
+      }
     },
     {
       "id": 20,
@@ -1894,9 +2150,9 @@
           "label": "Próximos passos",
           "icon": "rocket",
           "topics": [
-            "Lambdas e Spring Boot (API REST, JSON, camadas)",
-            "@GetMapping, @PostMapping, PUT, DELETE e CRUD",
-            "Projeto completo no Dia 2 com Postman"
+            "Spring Boot: API REST, JSON e camadas",
+            "Banco de dados, JPA, `@Id` e `application.properties`",
+            "`List<Tarefa>`, Repository e projeto completo no Dia 2"
           ]
         }
       ],

@@ -1,0 +1,160 @@
+{
+  "slides": [
+    {
+      "id": 1,
+      "active": true,
+      "day": null,
+      "type": "cover",
+      "title": "Introdução ao Java",
+      "subtitle": "Fundamentos da linguagem e Orientação a Objetos",
+      "badge": "TechX · Dia 1",
+      "footer": "JDK, variáveis, controle de fluxo, OOP e Spring Boot"
+    },
+    {
+      "id": 101,
+      "active": true,
+      "day": null,
+      "type": "about",
+      "name": "Daniel Estevão",
+      "image": "images/monitores/daniel-estevao.jpg?v=3",
+      "imageAlt": "Daniel Estevão",
+      "imagePosition": "center top",
+      "logo": "images/presenter/oxygeni-hub.png",
+      "sections": [
+        {
+          "title": "Formação e Atuação",
+          "items": [
+            "Desenvolvedor — Grupo Ceuma",
+            "Técnico em análise e desenvolvimento de sistemas",
+            "Graduação: Desenvolvimento de Back-End"
+          ]
+        },
+        {
+          "title": "Área de Foco",
+          "items": [
+            "Desenvolvimento de sistemas e aplicativos, nativos e web",
+            "Automação de dados usando n8n e Python"
+          ]
+        },
+        {
+          "title": "Propósito",
+          "items": [
+            "Desenvolver sistemas fáceis de usar que automatizam tarefas repetitivas",
+            "Usar tecnologias de ponta com segurança e performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "active": true,
+      "day": null,
+      "type": "about",
+      "name": "Luís Gustavo",
+      "image": "images/monitores/luis-gustavo.jpg?v=2",
+      "imageAlt": "Luís Gustavo",
+      "imagePosition": "center top",
+      "sections": [
+        {
+          "title": "Formação e Atuação",
+          "items": [
+            "Desenvolvedor Back-End"
+          ]
+        },
+        {
+          "title": "Área de Foco",
+          "items": [
+            "Criação e manutenção de APIs REST",
+            "Integração com sistemas como TOTVS",
+            "Autenticação e autorização"
+          ]
+        },
+        {
+          "title": "Propósito",
+          "items": [
+            "Evolução contínua de aplicações corporativas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "active": true,
+      "day": 1,
+      "type": "origin",
+      "title": "Origem do Java",
+      "lead": "James Gosling liderou o time na Sun Microsystems que criou o Java. O objetivo era uma linguagem portátil para dispositivos embarcados, mas ela virou padrão em servidores, Android e sistemas corporativos.",
+      "details": [
+        "O projeto interno se chamava Green e depois Oak, antes de virar Java.",
+        "WORA significa Write Once, Run Anywhere: escreve uma vez, roda em qualquer lugar.",
+        "Hoje a Oracle mantém o Java, mas o ecossistema é gigante e open source em boa parte."
+      ],
+      "timeline": [
+        {
+          "year": "1991",
+          "event": "Projeto Green começa na Sun Microsystems"
+        },
+        {
+          "year": "1995",
+          "event": "Java 1.0 lançado com foco em applet e web"
+        },
+        {
+          "year": "2006",
+          "event": "Java passa a ser open source (OpenJDK)"
+        },
+        {
+          "year": "2010",
+          "event": "Oracle adquire a Sun e assume o Java"
+        },
+        {
+          "year": "Hoje",
+          "event": "Usado em bancos, Android, backends e cloud"
+        }
+      ],
+      "note": "O nome Java veio do café. O ícone da xícara virou símbolo mundial da linguagem."
+    },
+    {
+      "id": 3,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "Para que o Java foi criado?",
+      "lead": "Java resolve problemas reais de software que precisa rodar em ambientes diferentes, com segurança e manutenção a longo prazo.",
+      "cards": [
+        {
+          "icon": "globe",
+          "heading": "Multiplataforma",
+          "body": "O mesmo bytecode .class roda em Windows, Linux e macOS. Basta ter a JVM instalada na máquina."
+        },
+        {
+          "icon": "shield-check",
+          "heading": "Segurança",
+          "body": "Garbage collector gerencia memória. A JVM isola a execução e reduz acesso direto ao sistema."
+        },
+        {
+          "icon": "building-2",
+          "heading": "Enterprise",
+          "body": "Nubank, Spotify, Amazon e milhares de empresas usam Java em sistemas críticos de produção."
+        },
+        {
+          "icon": "layers",
+          "heading": "Ecossistema",
+          "body": "Spring Boot, Maven, Gradle, JUnit e bibliotecas prontas aceleram qualquer projeto backend."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "active": true,
+      "day": 1,
+      "type": "ides",
+      "title": "IDEs de desenvolvimento",
+      "lead": "IDE (Integrated Development Environment) é o programa onde você escreve, compila, executa e depura código Java. Ela economiza tempo com autocomplete, erros em tempo real e refatoração.",
+      "details": [
+        "Você pode compilar pelo terminal com javac, mas a IDE facilita muito o dia a dia.",
+        "Todas abaixo suportam Java moderno, Maven/Gradle e debug passo a passo.",
+        "Para o curso, qualquer uma serve. O importante é instalar o JDK antes."
+      ]
+    }
+  ]
+}

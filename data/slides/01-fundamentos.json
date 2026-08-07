@@ -1,0 +1,360 @@
+{
+  "slides": [
+    {
+      "id": 29,
+      "active": true,
+      "day": 1,
+      "type": "books",
+      "title": "Material de apoio",
+      "lead": "Livros recomendados para aprofundar os conceitos do dia."
+    },
+    {
+      "id": 30,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "JDK, JRE e JVM",
+      "lead": "Para programar em Java você precisa do **JDK**. Ele reúne tudo para escrever, compilar e executar código.",
+      "details": [
+        "Use JDK 17 ou 21 (versões LTS recomendadas para o curso).",
+        "No terminal: `java -version` mostra a JVM; `javac -version` confirma o compilador.",
+        "A IDE usa o JDK que você configurar nas preferências do projeto."
+      ],
+      "cards": [
+        {
+          "icon": "package",
+          "heading": "JDK",
+          "body": "Java Development Kit. Pacote completo para desenvolver: compilador `javac`, bibliotecas padrão e ferramentas (`jar`, `javadoc`)."
+        },
+        {
+          "icon": "play-circle",
+          "heading": "JRE",
+          "body": "Java Runtime Environment. Só executa programas já compilados. Não inclui `javac` para criar novos `.class`."
+        },
+        {
+          "icon": "cpu",
+          "heading": "JVM",
+          "body": "Java Virtual Machine. Lê o bytecode `.class` e roda no seu sistema. É o que torna o Java multiplataforma."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Variáveis",
+      "lead": "Variável é um espaço nomeado na memória que guarda um valor. Em Java, todo valor tem um tipo fixo que não muda depois da declaração.",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    int idade = 21;\n    double preco = 19.90;\n    boolean ativo = true;\n    String nome = \"Maria\";\n    char inicial = 'M';\n    final double PI = 3.14159;\n    System.out.println(nome + \", \" + idade + \" anos\");\n    System.out.println(\"Preço: \" + preco);\n    System.out.println(\"Ativo: \" + ativo);\n    System.out.println(\"Inicial: \" + inicial);\n    System.out.println(\"PI: \" + PI);\n  }\n}",
+        "expectedOutput": "Maria, 21 anos\nPreço: 19.9\nAtivo: true\nInicial: M\nPI: 3.14159"
+      },
+      "code": "int idade = 21;\ndouble preco = 19.90;\nboolean ativo = true;\nString nome = \"Maria\";\nchar inicial = 'M';\n\n// final = constante (não pode mudar)\nfinal double PI = 3.14159;",
+      "rules": [
+        "Declare sempre o tipo antes do nome: `int idade`",
+        "Use camelCase: `quantidadeTotal`, `nomeUsuario`",
+        "`String` é classe, não tipo primitivo",
+        "Use `final` quando o valor não deve mudar"
+      ],
+      "cards": [
+        {
+          "icon": "lock",
+          "heading": "Constantes com final",
+          "body": "`final` impede reatribuição depois da primeira atribuição. Use em valores fixos: `final double PI = 3.14159`, `final int MAX_TENTATIVAS = 3`."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "active": false,
+      "day": 1,
+      "type": "split",
+      "title": "Bits, bytes e sua aplicação",
+      "lead": "Quando você declara uma variável, a JVM reserva um pedaço da RAM para guardar aquele valor. Esse pedaço é medido em bytes. O tipo que você escolhe define quanto espaço ocupa e qual valor máximo cabe ali.",
+      "code": "byte nota = 85;            // 1 byte na RAM\nint populacao = 2100000;   // 4 bytes na RAM\n\nbyte[] buffer = new byte[1024];\n// 1024 posições = 1024 bytes\n\nbyte max = 127;\nmax++;  // overflow: vira -128",
+      "rules": [
+        "Bit é 0 ou 1. A JVM trabalha em bytes: cada byte guarda um valor pequeno (-128 a 127)",
+        "Cada variável, campo de objeto e posição de array consome bytes enquanto existir",
+        "Tipo menor economiza memória, mas limita o valor. Tipo maior aceita números maiores, mas gasta mais RAM",
+        "Em app pequena você quase não sente. Em lista com milhões de registros, o tipo impacta custo e performance"
+      ]
+    },
+    {
+      "id": 7,
+      "active": false,
+      "day": 1,
+      "type": "table",
+      "title": "Por que Java não tem ponteiros?",
+      "lead": "Em C e C++ você acessa endereços de memória com ponteiros. Java remove isso de propósito para deixar o código mais seguro e simples.",
+      "details": [
+        "Em Java você usa referências: `Usuario u = new Usuario();`",
+        "A referência aponta para o objeto, mas você não manipula endereço de memória.",
+        "O Garbage Collector libera memória automaticamente, sem `free()` manual."
+      ],
+      "columns": [
+        "C / C++",
+        "Java"
+      ],
+      "rows": [
+        [
+          "Ponteiros explícitos (*ptr)",
+          "Referências a objetos"
+        ],
+        [
+          "Liberar memória com free()",
+          "Garbage Collector automático"
+        ],
+        [
+          "Risco de acessar memória inválida",
+          "JVM bloqueia acesso perigoso"
+        ],
+        [
+          "Aritmética de ponteiro (ptr++)",
+          "Não existe em Java"
+        ]
+      ],
+      "note": "Menos bugs, menos memory leak e menos falha de segmentação. Você foca na lógica, não na memória."
+    },
+    {
+      "id": 8,
+      "active": true,
+      "day": 1,
+      "type": "table",
+      "title": "Tipos primitivos (inteiros)",
+      "lead": "Tipos para números inteiros. O mais usado no dia a dia é o int.",
+      "columns": [
+        "Tipo",
+        "Bits",
+        "Descrição",
+        "Exemplo"
+      ],
+      "rows": [
+        [
+          "byte",
+          "8",
+          "Número inteiro pequeno. Ocupa pouca memória, mas aceita só de -128 a 127.",
+          "byte b = 10;"
+        ],
+        [
+          "short",
+          "16",
+          "Inteiro médio. Pouco usado no dia a dia.",
+          "short s = 300;"
+        ],
+        [
+          "int",
+          "32",
+          "O mais usado para números inteiros. É o padrão quando você precisa contar, somar ou guardar idade.",
+          "int x = 42;"
+        ],
+        [
+          "long",
+          "64",
+          "Para números inteiros muito grandes. No final do valor, coloque L.",
+          "long l = 9_000_000_000L;"
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "active": true,
+      "day": 1,
+      "type": "table",
+      "title": "Tipos primitivos (outros)",
+      "lead": "Decimais, caractere único e valores lógicos. double e boolean são os mais comuns aqui.",
+      "columns": [
+        "Tipo",
+        "Bits",
+        "Descrição",
+        "Exemplo"
+      ],
+      "rows": [
+        [
+          "float",
+          "32",
+          "Número decimal com menos precisão. No final do valor, coloque f.",
+          "float f = 3.14f;"
+        ],
+        [
+          "double",
+          "64",
+          "Número decimal com mais precisão. É o padrão para preço, nota e medidas.",
+          "double d = 3.14159;"
+        ],
+        [
+          "char",
+          "16",
+          "Guarda um único caractere. Usa aspas simples.",
+          "char c = 'A';"
+        ],
+        [
+          "boolean",
+          "1",
+          "Guarda verdadeiro ou falso. Muito usado em if e validações.",
+          "boolean ok = true;"
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "String x char",
+      "lead": "char guarda um único caractere. String guarda texto completo.",
+      "filename": "Main.java",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    char letra = 'J';\n    String nome = \"Java\";\n    char primeiro = nome.charAt(0);\n    int tamanho = nome.length();\n    System.out.println(letra);\n    System.out.println(nome);\n    System.out.println(\"Primeiro: \" + primeiro);\n    System.out.println(\"Tamanho: \" + tamanho);\n  }\n}",
+        "expectedOutput": "J\nJava\nPrimeiro: J\nTamanho: 4"
+      },
+      "alert": {
+        "title": "String não é primitivo",
+        "text": "String é uma classe do pacote `java.lang`. Quando você escreve `String nome = \"Java\"`, o Java cria um objeto na memória (heap). Por isso String tem métodos como `length()` e `charAt()`. `char`, `int` e `boolean` são primitivos e ficam direto na stack."
+      },
+      "code": "char letra = 'J';\nString nome = \"Java\";\n\nchar primeiro = nome.charAt(0);\nint tamanho = nome.length();\n\nSystem.out.println(letra);\nSystem.out.println(nome);",
+      "rules": [
+        "`char` é primitivo: `char c = 'A';`",
+        "`String` é classe: `String texto = \"Olá\";`",
+        "Aspas simples para `char`, duplas para `String`",
+        "`String` tem métodos: `length()`, `charAt()`, `toUpperCase()`"
+      ],
+      "cards": [
+        {
+          "icon": "alert-triangle",
+          "heading": "Imutabilidade",
+          "body": "`String` é imutável: `toUpperCase()` retorna um texto novo, não altera o original. Para concatenar muito texto em loop, prefira `StringBuilder`. É mais eficiente."
+        }
+      ]
+    },
+    {
+      "id": 142,
+      "active": true,
+      "day": 1,
+      "type": "dnd-sort",
+      "title": "Exercício de Fixação: Tipos de variáveis",
+      "zonesClass": "dnd-zones--types",
+      "categories": [
+        {
+          "id": "int",
+          "label": "int",
+          "icon": "hash"
+        },
+        {
+          "id": "double",
+          "label": "double",
+          "icon": "sigma"
+        },
+        {
+          "id": "boolean",
+          "label": "boolean",
+          "icon": "toggle-right"
+        },
+        {
+          "id": "string",
+          "label": "String",
+          "icon": "type"
+        },
+        {
+          "id": "char",
+          "label": "char",
+          "icon": "case-sensitive"
+        }
+      ],
+      "items": [
+        {
+          "id": "i1",
+          "text": "3",
+          "category": "int"
+        },
+        {
+          "id": "i2",
+          "text": "42",
+          "category": "int"
+        },
+        {
+          "id": "d1",
+          "text": "23.6",
+          "category": "double"
+        },
+        {
+          "id": "d2",
+          "text": "9.99",
+          "category": "double"
+        },
+        {
+          "id": "b1",
+          "text": "true",
+          "category": "boolean"
+        },
+        {
+          "id": "b2",
+          "text": "false",
+          "category": "boolean"
+        },
+        {
+          "id": "s1",
+          "text": "\"Maria\"",
+          "category": "string"
+        },
+        {
+          "id": "s2",
+          "text": "\"Java\"",
+          "category": "string"
+        },
+        {
+          "id": "c1",
+          "text": "'T'",
+          "category": "char"
+        },
+        {
+          "id": "c2",
+          "text": "'A'",
+          "category": "char"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "active": true,
+      "day": 1,
+      "type": "flow",
+      "title": "Compilado, Bytecode e JVM",
+      "lead": "Diferente de Python ou JavaScript, Java é compilado antes de rodar. O código-fonte vira bytecode, e a JVM interpreta esse bytecode na sua máquina.",
+      "details": [
+        "Você escreve Main.java, código legível para humanos.",
+        "O javac compila e gera Main.class, bytecode portável.",
+        "A JVM lê o .class e executa no seu sistema operacional.",
+        "O mesmo .class funciona em Windows, Linux e Mac."
+      ],
+      "steps": [
+        {
+          "icon": "file-code",
+          "label": "Código-fonte",
+          "detail": "Arquivo .java que você escreve na IDE",
+          "file": "Main.java"
+        },
+        {
+          "icon": "cog",
+          "label": "Compilador",
+          "detail": "javac traduz o código Java para bytecode",
+          "file": "javac Main.java"
+        },
+        {
+          "icon": "binary",
+          "label": "Bytecode",
+          "detail": "Arquivo .class portável",
+          "file": "Main.class"
+        },
+        {
+          "icon": "cpu",
+          "label": "JVM",
+          "detail": "Executa o bytecode na sua máquina",
+          "file": "java Main"
+        }
+      ],
+      "terminal": "$ javac Main.java\n$ java Main\n> Olá, TechX!"
+    }
+  ]
+}

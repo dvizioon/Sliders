@@ -1,0 +1,204 @@
+{
+  "slides": [
+    {
+      "id": 39,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "Introdução ao Spring Boot",
+      "lead": "Até aqui vocês rodaram `main()` no console. **Spring Boot** leva o Java para a web: você cria uma **API** que outros sistemas (site, app, Postman) consomem pela internet ou rede local.",
+      "details": [
+        "É o framework **mais usado** para backend corporativo no Brasil e no mundo.",
+        "Você cria o projeto em [start.spring.io](https://start.spring.io) ou pela IDE."
+      ],
+      "cards": [
+        {
+          "icon": "rocket",
+          "heading": "O que é",
+          "body": "Bibliotecas Java que **automatizam** servidor web, JSON, injeção de dependências e conexão com banco."
+        },
+        {
+          "icon": "server",
+          "heading": "Servidor embutido",
+          "body": "Não precisa instalar Tomcat. Ao rodar o projeto, a API sobe em `http://localhost:8080`."
+        },
+        {
+          "icon": "braces",
+          "heading": "JSON automático",
+          "body": "Você devolve um objeto Java (`Tarefa`, `Usuario`...) e o Spring transforma em JSON — e o contrário também."
+        }
+      ]
+    },
+    {
+      "id": 154,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "Spring Boot — REST e ecossistema",
+      "lead": "Com anotações você expõe rotas HTTP, organiza o código em camadas e usa ferramentas padrão do mercado.",
+      "cards": [
+        {
+          "icon": "route",
+          "heading": "REST API",
+          "body": "Rotas HTTP: `@GetMapping` (buscar), `@PostMapping` (criar), `@PutMapping` (atualizar), `@DeleteMapping` (apagar)."
+        },
+        {
+          "icon": "layers",
+          "heading": "Organização em camadas",
+          "body": "**Controller** (rotas) → **Service** (regras) → **Repository** (banco). Cada parte com uma responsabilidade."
+        },
+        {
+          "icon": "package",
+          "heading": "Ecossistema",
+          "body": "Maven/Gradle, JUnit, Spring Data JPA. Padrão em vagas de Java backend, APIs e microsserviços."
+        }
+      ]
+    },
+    {
+      "id": 151,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "Como uma API REST funciona",
+      "lead": "Pensa no backend como um **garçom digital**: o cliente pede numa URL, o Spring processa e devolve **JSON**. O servidor escuta em `localhost:8080`.",
+      "cards": [
+        {
+          "icon": "globe",
+          "heading": "URL + verbo HTTP",
+          "body": "**GET** = buscar dados. **POST** = criar. **PUT** = atualizar. **DELETE** = apagar. O verbo diz *o que* fazer; a URL diz *em qual recurso*."
+        },
+        {
+          "icon": "braces",
+          "heading": "JSON",
+          "body": "Texto estruturado para trocar dados: `{\"id\":1,\"titulo\":\"Estudar Java\"}`. Legível para humanos e fácil para programas."
+        },
+        {
+          "icon": "tag",
+          "heading": "Anotações (@)",
+          "body": "`@RestController` diz: *esta classe é uma API*. `@GetMapping` diz: *este método responde GET*. O Spring lê as anotações e configura tudo."
+        },
+        {
+          "icon": "repeat",
+          "heading": "Fluxo resumido",
+          "body": "1) Cliente chama `GET /api/tarefas` → 2) Spring acha o Controller certo → 3) Service busca no banco → 4) Spring devolve JSON na resposta."
+        }
+      ]
+    },
+    {
+      "id": 147,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Spring: @GetMapping",
+      "lead": "`@GetMapping` expõe rotas **GET** — o cliente **só lê** dados. Não cria, não apaga, não altera nada no servidor.",
+      "details": [
+        "Use GET para **listar tudo** ou **buscar um item** pelo id na URL.",
+        "Exemplo real: abrir a lista de tarefas no app = `GET /api/tarefas`."
+      ],
+      "code": "@RestController\n@RequestMapping(\"/api/tarefas\")\npublic class TarefaController {\n\n  @GetMapping\n  public List<Tarefa> listar() {\n    return service.listarTodas();\n  }\n\n  @GetMapping(\"/{id}\")\n  public Tarefa buscar(@PathVariable Long id) {\n    return service.buscarPorId(id);\n  }\n}",
+      "rules": [
+        "`@RestController` = esta classe responde HTTP com JSON",
+        "`@RequestMapping(\"/api/tarefas\")` = prefixo de todas as rotas da classe",
+        "`@GetMapping` sem path → `GET /api/tarefas` (lista tudo)",
+        "`@GetMapping(\"/{id}\")` → `GET /api/tarefas/3` e `@PathVariable` pega o `3`"
+      ],
+      "cards": [
+        {
+          "icon": "lightbulb",
+          "heading": "Analogia",
+          "body": "GET é como **consultar o cardápio** — você só olha, não pede para cozinhar nem apagar item."
+        }
+      ],
+      "run": {
+        "expectedOutput": "GET /api/tarefas\n[{\"id\":1,\"titulo\":\"Estudar Java\"},{\"id\":2,\"titulo\":\"Revisar OOP\"}]\n\nGET /api/tarefas/1\n{\"id\":1,\"titulo\":\"Estudar Java\"}"
+      }
+    },
+    {
+      "id": 148,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Spring: @PostMapping",
+      "lead": "`@PostMapping` **cria** um registro novo. O cliente envia os dados no **corpo** da requisição em JSON — o Spring converte com `@RequestBody`.",
+      "details": [
+        "Status HTTP comum na resposta: **201 Created** (algo foi criado).",
+        "Exemplo: formulário de nova tarefa no app → `POST /api/tarefas` com `{\"titulo\":\"...\"}`."
+      ],
+      "code": "@RestController\n@RequestMapping(\"/api/tarefas\")\npublic class TarefaController {\n\n  @PostMapping\n  public Tarefa criar(@RequestBody Tarefa nova) {\n    return service.salvar(nova);\n  }\n}",
+      "rules": [
+        "`POST` = verbo HTTP para **criar** recurso novo",
+        "`@RequestBody` lê o JSON e transforma em objeto `Tarefa`",
+        "O método devolve o objeto salvo (com `id` gerado pelo banco)",
+        "O cliente envia no Postman: Body → raw → JSON"
+      ],
+      "cards": [
+        {
+          "icon": "lightbulb",
+          "heading": "Analogia",
+          "body": "POST é como **fazer um pedido novo** no garçom — você manda os dados e ele registra."
+        }
+      ],
+      "run": {
+        "expectedOutput": "POST /api/tarefas\nBody: {\"titulo\":\"Fazer slide Spring\"}\n\nResposta 201:\n{\"id\":3,\"titulo\":\"Fazer slide Spring\"}"
+      }
+    },
+    {
+      "id": 149,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Spring: @PutMapping e @DeleteMapping",
+      "lead": "**PUT** altera um registro que já existe. **DELETE** remove pelo `id`. Juntos fecham o CRUD básico de uma API.",
+      "details": [
+        "**CRUD** = Create (POST), Read (GET), Update (PUT), Delete (DELETE).",
+        "PUT precisa do id na URL **e** dos dados novos no body JSON."
+      ],
+      "code": "@RestController\n@RequestMapping(\"/api/tarefas\")\npublic class TarefaController {\n\n  @PutMapping(\"/{id}\")\n  public Tarefa atualizar(@PathVariable Long id,\n                        @RequestBody Tarefa dados) {\n    return service.atualizar(id, dados);\n  }\n\n  @DeleteMapping(\"/{id}\")\n  public void remover(@PathVariable Long id) {\n    service.remover(id);\n  }\n}",
+      "rules": [
+        "`PUT /api/tarefas/2` → atualiza a tarefa de id 2",
+        "`DELETE /api/tarefas/2` → apaga a tarefa de id 2",
+        "DELETE costuma responder **204 No Content** (sucesso, sem corpo)",
+        "PUT substitui/atualiza; não cria registro novo"
+      ],
+      "cards": [
+        {
+          "icon": "table",
+          "heading": "CRUD completo",
+          "body": "GET lista/busca · POST cria · PUT edita · DELETE apaga. É o padrão de quase toda API REST."
+        }
+      ],
+      "run": {
+        "expectedOutput": "PUT /api/tarefas/2\nBody: {\"titulo\":\"Slide pronto\"}\n→ {\"id\":2,\"titulo\":\"Slide pronto\"}\n\nDELETE /api/tarefas/2\n→ 204 No Content"
+      }
+    },
+    {
+      "id": 150,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "Spring: camadas do projeto",
+      "lead": "Um projeto Spring Boot **organizado** separa responsabilidades. Assim o código fica fácil de entender, testar e manter — padrão em empresas.",
+      "details": [
+        "Cada camada faz **uma coisa só**.",
+        "O **Controller** não acessa banco direto — chama o Repository."
+      ],
+      "cards": [
+        {
+          "icon": "route",
+          "heading": "Controller",
+          "body": "Porta de entrada HTTP. Recebe `GET /api/tarefa`, chama o Repository e devolve JSON."
+        },
+        {
+          "icon": "cog",
+          "heading": "Service (opcional)",
+          "body": "Regras de negócio: validar campos, calcular prioridade. Em projetos simples o Controller chama o Repository direto."
+        },
+        {
+          "icon": "database",
+          "heading": "Repository + Model",
+          "body": "`Tarefa` (model) = dados. `TarefaRepository` = salva e busca no banco com `save()`, `findAll()`."
+        }
+      ]
+    }
+  ]
+}

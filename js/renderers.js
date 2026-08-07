@@ -108,11 +108,16 @@ function renderOrigin(slide) {
 }
 
 function renderCards(slide) {
+  const cardCount = (slide.cards || []).length;
+  const dense = cardCount > 3 || (slide.details && slide.details.length > 2);
+  const mainClass = `slide-main${dense ? " slide-main--cards-dense" : ""}`;
+
   const main = `
-      <div class="slide-main">
+      <div class="${mainClass}">
         <h2 class="slide-title">${escapeHtml(slide.title)}</h2>
         <p class="slide-lead">${formatText(slide.lead)}</p>
-        ${renderCardItems(slide.cards)}
+        ${renderDetails(slide.details)}
+        ${renderCardItems(slide.cards, dense)}
       </div>`;
 
   return `<div class="slide-shell">${header(slide)}${layout(slide, main)}</div>`;

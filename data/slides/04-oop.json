@@ -1,0 +1,226 @@
+{
+  "slides": [
+    {
+      "id": 14,
+      "active": true,
+      "day": 1,
+      "type": "oop-intro",
+      "title": "O que é Orientação a Objetos?",
+      "lead": "OOP organiza o programa em objetos que representam coisas do mundo real. Cada objeto tem dados (atributos) e comportamentos (métodos). Java é 100% orientado a objetos.",
+      "concepts": [
+        {
+          "icon": "box",
+          "term": "Classe",
+          "def": "O molde. Define quais atributos e métodos os objetos daquele tipo terão. Exemplo: `class Carro`."
+        },
+        {
+          "icon": "circle-dot",
+          "term": "Objeto",
+          "def": "A instância criada a partir da classe. Exemplo: meu carro específico com marca Fiat e ano 2020."
+        },
+        {
+          "icon": "database",
+          "term": "Atributo",
+          "def": "Variável dentro da classe que guarda o estado do objeto. Exemplo: `String marca`, `int ano`."
+        },
+        {
+          "icon": "zap",
+          "term": "Método",
+          "def": "Função dentro da classe que define o comportamento. Exemplo: `void ligar()`, `void frear()`."
+        }
+      ],
+      "code": "public class Carro {\n  String marca;\n  int ano;\n\n  void ligar() {\n    System.out.println(marca + \" ligou!\");\n  }\n}\n\n// criar objeto (instância)\nCarro meuCarro = new Carro();\nmeuCarro.marca = \"Fiat\";\nmeuCarro.ligar();",
+      "run": {
+        "enabled": true,
+        "code": "public class Carro {\n  String marca;\n  int ano;\n\n  void ligar() {\n    System.out.println(marca + \" ligou!\");\n  }\n\n  public static void main(String[] args) {\n    Carro meuCarro = new Carro();\n    meuCarro.marca = \"Fiat\";\n    meuCarro.ligar();\n  }\n}",
+        "expectedOutput": "Fiat ligou!"
+      }
+    },
+    {
+      "id": 15,
+      "active": true,
+      "day": 1,
+      "type": "pillars",
+      "title": "Os 4 pilares da OOP",
+      "lead": "Toda programação orientada a objetos se apoia em quatro ideias. Entender cada uma é essencial para escrever Java de verdade.",
+      "pillars": [
+        {
+          "icon": "lock",
+          "name": "Encapsulamento",
+          "desc": "Esconde os dados internos do objeto e expõe só o necessário por métodos. Atributos private, acesso por get/set. Impede que código externo bagunce o estado do objeto."
+        },
+        {
+          "icon": "git-branch",
+          "name": "Herança",
+          "desc": "Uma classe filha herda atributos e métodos da classe pai com `extends`. Exemplo: `class Cachorro extends Animal`. Reutiliza código sem copiar e colar."
+        },
+        {
+          "icon": "shuffle",
+          "name": "Polimorfismo",
+          "desc": "Um mesmo tipo de referência pode apontar para objetos diferentes. `Animal a = new Cachorro();` `a.emitirSom();` cada subclasse executa seu próprio comportamento."
+        },
+        {
+          "icon": "eye-off",
+          "name": "Abstração",
+          "desc": "Mostra só o que importa e esconde a complexidade. Você usa List sem saber se por baixo é ArrayList ou LinkedList. Interfaces e classes abstratas servem para isso."
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "active": true,
+      "day": 1,
+      "type": "table",
+      "title": "Modificadores de acesso",
+      "lead": "public, private e protected definem quem pode ver e usar cada atributo ou método. É a base do encapsulamento: você expõe só o necessário e protege o resto.",
+      "details": [
+        "Regra prática: atributos `private`, acesso controlado com getters/setters `public`",
+        "`protected` entra quando você usa herança: a classe filha acessa o que o pai marcou como `protected`",
+        "Exemplo: `class Cachorro extends Animal` pode chamar `emitirSom()` se ele for `protected` na classe `Animal`"
+      ],
+      "columns": [
+        "Modificador",
+        "Quem acessa",
+        "Quando usar"
+      ],
+      "rows": [
+        [
+          "public",
+          "Qualquer classe",
+          "Métodos da API que outras classes precisam chamar"
+        ],
+        [
+          "private",
+          "Só a própria classe",
+          "Atributos internos que ninguém de fora deve mexer"
+        ],
+        [
+          "protected",
+          "Classe + pacote + subclasses",
+          "Campos e métodos que classes filhas vão herdar"
+        ],
+        [
+          "(default)",
+          "Só o mesmo pacote",
+          "Detalhes internos entre classes do pacote, sem expor fora"
+        ]
+      ],
+      "note": "`private` no atributo, `public` no getter/setter. Esse é o padrão mais usado em Java."
+    },
+    {
+      "id": 17,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Encapsulamento: Getters e Setters",
+      "lead": "Encapsulamento na prática: atributos private e métodos públicos para ler e alterar com controle. É o padrão mais usado em Java.",
+      "run": {
+        "enabled": true,
+        "code": "public class Usuario {\n  private String nome;\n\n  public String getNome() {\n    return nome;\n  }\n\n  public void setNome(String nome) {\n    if (nome != null && !nome.isBlank()) {\n      this.nome = nome;\n    }\n  }\n\n  public static void main(String[] args) {\n    Usuario u = new Usuario();\n    u.setNome(\"Maria\");\n    System.out.println(u.getNome());\n  }\n}",
+        "expectedOutput": "Maria"
+      },
+      "code": "public class Usuario {\n  private String nome;\n\n  public String getNome() {\n    return nome;\n  }\n\n  public void setNome(String nome) {\n    if (nome != null && !nome.isBlank()) {\n      this.nome = nome;\n    }\n  }\n}",
+      "rules": [
+        "`private` bloqueia acesso direto de fora da classe",
+        "`getNome()` retorna o valor do atributo",
+        "`setNome()` valida antes de alterar",
+        "`this.nome` diferencia atributo de parâmetro"
+      ],
+      "cards": [
+        {
+          "icon": "shield",
+          "heading": "Por que private?",
+          "body": "Se `nome` fosse `public`, qualquer classe poderia fazer `u.nome = \"\"` sem validação. Com `private`, o único caminho é o `setNome()`, onde você controla o que entra."
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Métodos, argumentos e construtor",
+      "lead": "Método é comportamento do objeto. Argumentos são os valores que ele recebe. Construtor é o método especial chamado automaticamente no `new`.",
+      "run": {
+        "enabled": true,
+        "code": "public class Calculadora {\n\n  public Calculadora() {\n    System.out.println(\"Instanciada!\");\n  }\n\n  public int somar(int a, int b) {\n    return a + b;\n  }\n\n  public static void main(String[] args) {\n    Calculadora calc = new Calculadora();\n    int total = calc.somar(10, 5);\n    System.out.println(\"Soma: \" + total);\n  }\n}",
+        "expectedOutput": "Instanciada!\nSoma: 15"
+      },
+      "code": "public class Calculadora {\n\n  public Calculadora() {\n    System.out.println(\"Instanciada!\");\n  }\n\n  public int somar(int a, int b) {\n    return a + b;\n  }\n}\n\nCalculadora calc = new Calculadora();\nint total = calc.somar(10, 5);\nSystem.out.println(\"Soma: \" + total);",
+      "rules": [
+        "Construtor tem o mesmo nome da classe",
+        "Parâmetros ficam entre parênteses: `somar(int a, int b)`",
+        "`void` significa que o método não retorna valor",
+        "`return` devolve um valor quando o tipo não é `void`"
+      ],
+      "cards": [
+        {
+          "icon": "hammer",
+          "heading": "Construtor",
+          "body": "É chamado automaticamente no `new Calculadora()`. Use para inicializar atributos obrigatórios: `public Usuario(String nome) { this.nome = nome; }`."
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Método static",
+      "lead": "Pensa assim: método normal precisa de um objeto criado com `new`. Método `static` você chama direto pelo nome da classe, sem criar objeto.",
+      "run": {
+        "enabled": true,
+        "code": "public class Calculadora {\n\n  static int somar(int a, int b) {\n    return a + b;\n  }\n\n  String dono;\n\n  void mostrarDono() {\n    System.out.println(\"Dono: \" + dono);\n  }\n\n  public static void main(String[] args) {\n    int total = Calculadora.somar(2, 3);\n    System.out.println(\"Static somar(2,3): \" + total);\n    Calculadora calc = new Calculadora();\n    calc.dono = \"Maria\";\n    calc.mostrarDono();\n  }\n}",
+        "expectedOutput": "Static somar(2,3): 5\nDono: Maria"
+      },
+      "filename": "Calculadora.java",
+      "code": "public class Calculadora {\n\n  static int somar(int a, int b) {\n    return a + b;\n  }\n\n  String dono;\n\n  void mostrarDono() {\n    System.out.println(\"Dono: \" + dono);\n  }\n}\n\n// static: sem new\nint total = Calculadora.somar(2, 3);\nSystem.out.println(\"Static somar(2,3): \" + total);\n\n// normal: com new\nCalculadora calc = new Calculadora();\ncalc.dono = \"Maria\";\ncalc.mostrarDono();",
+      "rules": [
+        "`static` = pertence à classe. Chama assim: `Calculadora.somar(2, 3)`",
+        "Sem `static` = pertence ao objeto. Chama assim: `calc.mostrarDono()`",
+        "`System.out.println` é static. Por isso funciona sem você criar um objeto `System`"
+      ],
+      "cards": [
+        {
+          "icon": "lightbulb",
+          "heading": "Quando usar?",
+          "body": "Use `static` quando o método não precisa dos dados de um objeto específico. Exemplos: `main`, `Math.max()` e `System.out.println`. Se o método usa `this` ou atributos do objeto (como `dono`), ele não pode ser `static`."
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Expressões lambda",
+      "lead": "Lambda é uma forma curta de escrever funções anônimas. Muito usada com coleções, streams e callbacks em Java moderno.",
+      "run": {
+        "enabled": true,
+        "code": "import java.util.Arrays;\nimport java.util.List;\n\npublic class Main {\n  public static void main(String[] args) {\n    List<String> nomes = Arrays.asList(\"Ana\", \"Carlos\", \"Maria\");\n    nomes.forEach(nome -> System.out.println(nome));\n    nomes.forEach(nome -> System.out.println(\"Aluno: \" + nome.toUpperCase()));\n  }\n}",
+        "expectedOutput": "Ana\nCarlos\nMaria\nAluno: ANA\nAluno: CARLOS\nAluno: MARIA"
+      },
+      "code": "import java.util.Arrays;\nimport java.util.List;\n\nList<String> nomes = Arrays.asList(\"Ana\", \"Carlos\", \"Maria\");\n\n// lambda: parâmetro -> ação\nnomes.forEach(nome -> System.out.println(nome));\n\n// equivalente com bloco\nnomes.forEach(nome -> {\n  System.out.println(\"Aluno: \" + nome.toUpperCase());\n});",
+      "rules": [
+        "Sintaxe básica: `(parametro) -> expressao`",
+        "Útil com `forEach`, `stream()`, comparadores e interfaces funcionais",
+        "Se o corpo tem uma linha, não precisa de `{ }`",
+        "Java infere o tipo do parâmetro em muitos casos"
+      ],
+      "cards": [
+        {
+          "icon": "sparkles",
+          "heading": "Por que usar?",
+          "body": "Deixa o código mais enxuto ao passar comportamento como argumento. Você verá muito isso em APIs modernas e Spring."
+        }
+      ]
+    },
+    {
+      "id": 153,
+      "active": true,
+      "day": 1,
+      "type": "practice",
+      "title": "Hora de praticar"
+    }
+  ]
+}

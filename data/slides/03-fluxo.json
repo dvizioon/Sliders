@@ -1,0 +1,328 @@
+{
+  "slides": [
+    {
+      "id": 152,
+      "active": true,
+      "day": 1,
+      "type": "practice",
+      "title": "Hora de praticar"
+    },
+    {
+      "id": 143,
+      "active": true,
+      "day": 1,
+      "type": "operators",
+      "title": "Operadores",
+      "lead": "Comparativos e lógicos entram em todo `if`, `while` e validação. O resultado é sempre `boolean`: `true` ou `false`.",
+      "details": [
+        "Comparativos retornam `boolean`: `true` ou `false`.",
+        "Lógicos combinam condições: `&&` (E), `||` (OU) e `!` (NÃO)."
+      ],
+      "comparison": {
+        "heading": "Comparativos",
+        "columns": [
+          "Operador",
+          "Significado",
+          "Exemplo"
+        ],
+        "rows": [
+          [
+            "`==`",
+            "Igual",
+            "`idade == 18`"
+          ],
+          [
+            "`!=`",
+            "Diferente",
+            "`status != \"ok\"`"
+          ],
+          [
+            "`>`",
+            "Maior",
+            "`nota > 7`"
+          ],
+          [
+            "`<`",
+            "Menor",
+            "`estoque < 5`"
+          ],
+          [
+            "`>=`",
+            "Maior ou igual",
+            "`nota >= 7`"
+          ],
+          [
+            "`<=`",
+            "Menor ou igual",
+            "`idade <= 17`"
+          ]
+        ]
+      },
+      "logical": {
+        "heading": "Lógicos — tabela da verdade",
+        "columns": [
+          "A",
+          "B",
+          "`&&` (E)",
+          "`||` (OU)",
+          "`!A` (NÃO)"
+        ],
+        "rows": [
+          [
+            "true",
+            "true",
+            "true",
+            "true",
+            "false"
+          ],
+          [
+            "true",
+            "false",
+            "false",
+            "true",
+            "false"
+          ],
+          [
+            "false",
+            "true",
+            "false",
+            "true",
+            "true"
+          ],
+          [
+            "false",
+            "false",
+            "false",
+            "false",
+            "true"
+          ]
+        ]
+      },
+      "code": "int idade = 18;\nSystem.out.println(idade == 18);   // true\nSystem.out.println(idade != 21);   // true\nSystem.out.println(idade >= 18);   // true\n\nboolean a = true;\nboolean b = false;\nSystem.out.println(a && b);        // false\nSystem.out.println(a || b);        // true\nSystem.out.println(!b);            // true",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    int idade = 18;\n    System.out.println(\"idade == 18: \" + (idade == 18));\n    System.out.println(\"idade != 21: \" + (idade != 21));\n    System.out.println(\"idade >= 18: \" + (idade >= 18));\n\n    boolean a = true;\n    boolean b = false;\n    System.out.println(\"a && b: \" + (a && b));\n    System.out.println(\"a || b: \" + (a || b));\n    System.out.println(\"!b: \" + (!b));\n  }\n}",
+        "expectedOutput": "idade == 18: true\nidade != 21: true\nidade >= 18: true\na && b: false\na || b: true\n!b: true"
+      }
+    },
+    {
+      "id": 32,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "if",
+      "lead": "Com `if` você executa um bloco **somente quando** a condição for verdadeira.",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    int nota = 8;\n    if (nota >= 7) {\n      System.out.println(\"Aprovado\");\n    }\n    int idade = 15;\n    if (idade >= 18) {\n      System.out.println(\"Maior de idade\");\n    }\n  }\n}",
+        "expectedOutput": "Aprovado"
+      },
+      "code": "int nota = 8;\nif (nota >= 7) {\n  System.out.println(\"Aprovado\");\n}\n\nint idade = 15;\nif (idade >= 18) {\n  System.out.println(\"Maior de idade\");\n}",
+      "rules": [
+        "A condição fica entre parênteses: `if (nota >= 7)`",
+        "Use chaves `{ }` para delimitar o bloco",
+        "Se a condição for falsa, o bloco é pulado"
+      ]
+    },
+    {
+      "id": 145,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "else",
+      "lead": "`else` executa um bloco alternativo quando a condição do `if` é **falsa**.",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    int nota = 5;\n    if (nota >= 7) {\n      System.out.println(\"Aprovado\");\n    } else {\n      System.out.println(\"Recuperação\");\n    }\n  }\n}",
+        "expectedOutput": "Recuperação"
+      },
+      "code": "int nota = 5;\nif (nota >= 7) {\n  System.out.println(\"Aprovado\");\n} else {\n  System.out.println(\"Recuperação\");\n}",
+      "rules": [
+        "`else` vem logo depois do bloco do `if`",
+        "Não tem condição: é o caminho quando o `if` falha",
+        "É opcional — só use quando precisar da alternativa"
+      ]
+    },
+    {
+      "id": 146,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "else if",
+      "lead": "`else if` testa **outra condição** quando a anterior falhou. Ideal para várias faixas ou categorias.",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    int nota = 6;\n    if (nota >= 7) {\n      System.out.println(\"Aprovado\");\n    } else if (nota >= 5) {\n      System.out.println(\"Recuperação\");\n    } else {\n      System.out.println(\"Reprovado\");\n    }\n  }\n}",
+        "expectedOutput": "Recuperação"
+      },
+      "code": "int nota = 6;\nif (nota >= 7) {\n  System.out.println(\"Aprovado\");\n} else if (nota >= 5) {\n  System.out.println(\"Recuperação\");\n} else {\n  System.out.println(\"Reprovado\");\n}",
+      "rules": [
+        "Pode encadear quantos `else if` precisar",
+        "Java testa de cima para baixo e para no primeiro `true`",
+        "O `else` final é opcional (caminho padrão)"
+      ]
+    },
+    {
+      "id": 33,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "switch",
+      "lead": "Quando há várias opções para o mesmo valor, `switch` deixa o código mais legível que vários `if` encadeados.",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    int dia = 3;\n    switch (dia) {\n      case 1:\n        System.out.println(\"Domingo\");\n        break;\n      case 2:\n        System.out.println(\"Segunda\");\n        break;\n      case 3:\n        System.out.println(\"Terça\");\n        break;\n      default:\n        System.out.println(\"Outro dia\");\n    }\n  }\n}",
+        "expectedOutput": "Terça"
+      },
+      "code": "int dia = 3;\nswitch (dia) {\n  case 1:\n    System.out.println(\"Domingo\");\n    break;\n  case 2:\n    System.out.println(\"Segunda\");\n    break;\n  case 3:\n    System.out.println(\"Terça\");\n    break;\n  default:\n    System.out.println(\"Outro dia\");\n}",
+      "rules": [
+        "Compara um valor com vários `case`",
+        "Use `break` para sair do switch após executar o case",
+        "Sem `break`, o Java continua no próximo case (fall-through)",
+        "`default` é o caso padrão quando nenhum case bate"
+      ]
+    },
+    {
+      "id": 34,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "for",
+      "lead": "O `for` repete um bloco um número conhecido de vezes. Ideal para contadores e percorrer índices.",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    for (int i = 1; i <= 5; i++) {\n      System.out.println(\"Contagem: \" + i);\n    }\n    int soma = 0;\n    for (int n = 1; n <= 4; n++) {\n      soma += n;\n    }\n    System.out.println(\"Soma: \" + soma);\n  }\n}",
+        "expectedOutput": "Contagem: 1\nContagem: 2\nContagem: 3\nContagem: 4\nContagem: 5\nSoma: 10"
+      },
+      "code": "for (int i = 1; i <= 5; i++) {\n  System.out.println(\"Contagem: \" + i);\n}\n\nint soma = 0;\nfor (int n = 1; n <= 4; n++) {\n  soma += n;\n}\nSystem.out.println(\"Soma: \" + soma);",
+      "rules": [
+        "Estrutura: `for (início; condição; incremento)`",
+        "A variável do `for` existe só dentro do loop",
+        "Use quando souber quantas repetições precisa",
+        "Cuidado com loop infinito: a condição precisa ficar falsa em algum momento"
+      ]
+    },
+    {
+      "id": 35,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "foreach",
+      "lead": "O enhanced for (`for-each`) percorre todos os itens de um array ou coleção sem índice manual.",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    String[] nomes = {\"Ana\", \"Carlos\", \"Maria\"};\n    for (String nome : nomes) {\n      System.out.println(nome);\n    }\n    int[] notas = {7, 9, 5, 10};\n    int total = 0;\n    for (int nota : notas) {\n      total += nota;\n    }\n    System.out.println(\"Total: \" + total);\n  }\n}",
+        "expectedOutput": "Ana\nCarlos\nMaria\nTotal: 31"
+      },
+      "code": "String[] nomes = {\"Ana\", \"Carlos\", \"Maria\"};\nfor (String nome : nomes) {\n  System.out.println(nome);\n}\n\nint[] notas = {7, 9, 5, 10};\nint total = 0;\nfor (int nota : notas) {\n  total += nota;\n}\nSystem.out.println(\"Total: \" + total);",
+      "rules": [
+        "Sintaxe: `for (Tipo item : colecao)`",
+        "Não precisa controlar índice manualmente",
+        "Funciona com arrays e coleções (`List`, `Set` etc.)",
+        "Não altere a coleção durante o foreach (pode dar erro)"
+      ]
+    },
+    {
+      "id": 36,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "while",
+      "lead": "O `while` repete enquanto a condição for verdadeira. Use quando não sabe de antemão quantas vezes vai repetir.",
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    int contador = 1;\n    while (contador <= 3) {\n      System.out.println(\"While: \" + contador);\n      contador++;\n    }\n    int saldo = 10;\n    while (saldo > 0) {\n      System.out.println(\"Saldo: \" + saldo);\n      saldo -= 3;\n    }\n  }\n}",
+        "expectedOutput": "While: 1\nWhile: 2\nWhile: 3\nSaldo: 10\nSaldo: 7\nSaldo: 4\nSaldo: 1"
+      },
+      "code": "int contador = 1;\nwhile (contador <= 3) {\n  System.out.println(\"While: \" + contador);\n  contador++;\n}\n\nint saldo = 10;\nwhile (saldo > 0) {\n  System.out.println(\"Saldo: \" + saldo);\n  saldo -= 3;\n}",
+      "rules": [
+        "Testa a condição antes de cada repetição",
+        "Se a condição já começar falsa, o bloco não executa nenhuma vez",
+        "Atualize a variável da condição dentro do loop para evitar infinito",
+        "`do-while` executa pelo menos uma vez (variação menos comum)"
+      ]
+    },
+    {
+      "id": 37,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "Atributos e métodos",
+      "lead": "Toda classe em Java combina **estado** (atributos) e **comportamento** (métodos). É a base da Orientação a Objetos.",
+      "cards": [
+        {
+          "icon": "database",
+          "heading": "Atributo",
+          "body": "Variável dentro da classe que guarda o estado do objeto. Exemplos: `String marca`, `int ano`, `boolean ligado`."
+        },
+        {
+          "icon": "zap",
+          "heading": "Método",
+          "body": "Função dentro da classe que define uma ação. Exemplos: `void ligar()`, `void frear()`, `int calcularIdade()`."
+        },
+        {
+          "icon": "box",
+          "heading": "Classe junta os dois",
+          "body": "A classe `Carro` define quais atributos existem e quais métodos o objeto pode executar. O objeto é a instância concreta."
+        }
+      ],
+      "details": [
+        "Atributos descrevem **o que o objeto tem**.",
+        "Métodos descrevem **o que o objeto faz**.",
+        "Na prática você acessa atributos via métodos quando usam `private` (encapsulamento)."
+      ]
+    },
+    {
+      "id": 141,
+      "active": true,
+      "day": 1,
+      "type": "dnd-sort",
+      "title": "Exercício de Fixação: Classifique o Carro",
+      "zonesClass": "dnd-zones--oop",
+      "categories": [
+        {
+          "id": "atributos",
+          "label": "Atributos",
+          "icon": "database"
+        },
+        {
+          "id": "metodos",
+          "label": "Métodos",
+          "icon": "zap"
+        }
+      ],
+      "items": [
+        {
+          "id": "a1",
+          "text": "cor",
+          "category": "atributos"
+        },
+        {
+          "id": "a2",
+          "text": "nome",
+          "category": "atributos"
+        },
+        {
+          "id": "a3",
+          "text": "idade",
+          "category": "atributos"
+        },
+        {
+          "id": "m1",
+          "text": "ligar",
+          "category": "metodos"
+        },
+        {
+          "id": "m2",
+          "text": "frear",
+          "category": "metodos"
+        },
+        {
+          "id": "m3",
+          "text": "acelerar",
+          "category": "metodos"
+        }
+      ]
+    }
+  ]
+}

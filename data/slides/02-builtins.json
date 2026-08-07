@@ -1,0 +1,705 @@
+{
+  "slides": [
+    {
+      "id": 12,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "Built-ins nativos",
+      "lead": "Java já traz classes prontas em java.lang e java.util. Nos próximos slides você vai ver os métodos de cada uma e testar ao vivo.",
+      "cards": [
+        {
+          "icon": "terminal",
+          "heading": "System",
+          "body": "Console e controle do programa: imprimir, ler variáveis de ambiente, encerrar a JVM."
+        },
+        {
+          "icon": "type",
+          "heading": "String",
+          "body": "Texto: medir tamanho, pegar caractere, limpar espaços, dividir e transformar maiúsculas/minúsculas."
+        },
+        {
+          "icon": "calculator",
+          "heading": "Math",
+          "body": "Cálculos: raiz, potência, arredondar `float` e gerar número aleatório."
+        },
+        {
+          "icon": "list-ordered",
+          "heading": "Arrays",
+          "body": "Trabalha com vetores: ordenar, buscar valor e comparar conteúdo."
+        },
+        {
+          "icon": "boxes",
+          "heading": "Collections",
+          "body": "Utilitários para List, Set e Map: ordenar, inverter e embaralhar."
+        },
+        {
+          "icon": "scan-line",
+          "heading": "Scanner",
+          "body": "Lê dados digitados no teclado: texto, inteiros e decimais."
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "active": true,
+      "day": 1,
+      "type": "builtin-demo",
+      "icon": "terminal",
+      "title": "System",
+      "lead": "Classe do pacote java.lang. Usada para interagir com o console e o ambiente onde o Java está rodando.",
+      "code": "System.out.println(\"TechX\");        // imprime linha\nSystem.out.print(\"Oi\");             // sem quebra\nString user = System.getenv(\"USER\"); // ambiente\nSystem.currentTimeMillis();         // hora em ms\nSystem.exit(0);                     // encerra",
+      "methods": [
+        {
+          "name": "out.println()",
+          "desc": "Imprime texto no console. O `println` já pula linha no final.",
+          "test": {
+            "fields": [
+              {
+                "var": "msg",
+                "label": "mensagem"
+              }
+            ],
+            "values": {
+              "msg": "Oi, TechX!"
+            },
+            "expectedOutput": "Oi, TechX!"
+          }
+        },
+        {
+          "name": "getenv()",
+          "desc": "Lê uma variável de ambiente do sistema, como nome de usuário ou pasta home.",
+          "test": {
+            "code": "public class Main {\n  public static void main(String[] args) {\n    String user = System.getenv(\"USER\");\n    String home = System.getenv(\"HOME\");\n    System.out.println(\"USER: \" + (user != null ? user : \"(nao definido)\"));\n    System.out.println(\"HOME: \" + (home != null ? home : \"(nao definido)\"));\n  }\n}"
+          }
+        },
+        {
+          "name": "exit()",
+          "desc": "Encerra o programa na hora. O número passado indica se terminou com erro (0 = ok).",
+          "test": {
+            "fields": [
+              {
+                "var": "msg",
+                "label": "mensagem"
+              }
+            ],
+            "values": {
+              "msg": "Simulando System.exit(0): o programa encerraria aqui."
+            },
+            "expectedOutput": "Simulando System.exit(0): o programa encerraria aqui."
+          }
+        },
+        {
+          "name": "out.print()",
+          "desc": "Igual ao `println`, mas **não** pula linha. Útil para montar saída em partes na mesma linha.",
+          "test": {
+            "fields": [
+              {
+                "var": "msg",
+                "label": "mensagem"
+              }
+            ],
+            "values": {
+              "msg": "TechX"
+            },
+            "code": "public class Main {\n  public static void main(String[] args) {\n    System.out.print(\"Olá, \");\n    System.out.print({{msg}});\n    System.out.print(\"!\");\n    System.out.println();\n    System.out.println(\"(tudo na mesma linha acima)\");\n  }\n}",
+            "expectedOutput": "Olá, TechX!\n(tudo na mesma linha acima)"
+          }
+        },
+        {
+          "name": "currentTimeMillis()",
+          "desc": "Retorna a hora atual em milissegundos. Útil para medir tempo de execução ou gerar valores únicos.",
+          "test": {
+            "code": "public class Main {\n  public static void main(String[] args) {\n    long agora = System.currentTimeMillis();\n    System.out.println(\"Millis: \" + agora);\n  }\n}"
+          }
+        }
+      ],
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    System.out.println({{msg}});\n    System.out.print(\"TechX\");\n    String user = System.getenv(\"USER\");\n    System.out.println(\"USER: \" + (user != null ? user : \"(nao definido)\"));\n    System.out.println(\"Millis: \" + System.currentTimeMillis());\n  }\n}",
+        "inputs": [
+          {
+            "var": "msg",
+            "label": "mensagem",
+            "default": "Oi, TechX!"
+          }
+        ],
+        "expectedOutput": "Oi, TechX!\nTechXUSER: (nao definido)\nMillis: 1704067200000"
+      }
+    },
+    {
+      "id": 23,
+      "active": true,
+      "day": 1,
+      "type": "builtin-demo",
+      "icon": "type",
+      "title": "String",
+      "lead": "Classe para texto. Diferente de `char`, String guarda vários caracteres e oferece dezenas de métodos.",
+      "code": "String msg = \"java\";\nmsg.length();                       // tamanho\nmsg.charAt(0);                      // caractere (posicao 0)\nmsg.trim();                         // remove espacos\nmsg.toUpperCase();                  // maiusculas\nmsg.isEmpty();                      // vazio?",
+      "methods": [
+        {
+          "name": "length()",
+          "desc": "Retorna quantos caracteres o texto tem, incluindo espaços.",
+          "test": {
+            "fields": [
+              {
+                "var": "texto",
+                "label": "texto"
+              }
+            ],
+            "values": {
+              "texto": "  java  "
+            },
+            "expectedOutput": "Original: [  java  ]\nlength: 8\ncharAt(0): ' '\ntrim: [java]\ntoUpperCase: JAVA"
+          }
+        },
+        {
+          "name": "charAt()",
+          "desc": "Pega um caractere pela posição. A primeira posição é 0.",
+          "test": {
+            "fields": [
+              {
+                "var": "texto",
+                "label": "texto"
+              }
+            ],
+            "values": {
+              "texto": "TechX"
+            },
+            "expectedOutput": "Original: [TechX]\nlength: 5\ncharAt(0): 'T'\ntrim: [TechX]\ntoUpperCase: TECHX"
+          }
+        },
+        {
+          "name": "trim()",
+          "desc": "Remove espaços no começo e no fim da String.",
+          "test": {
+            "fields": [
+              {
+                "var": "texto",
+                "label": "texto"
+              }
+            ],
+            "values": {
+              "texto": "  espacos  "
+            },
+            "expectedOutput": "Original: [  espacos  ]\nlength: 11\ncharAt(0): ' '\ntrim: [espacos]\ntoUpperCase: ESPACOS"
+          }
+        },
+        {
+          "name": "toUpperCase()",
+          "desc": "Transforma todas as letras em maiúsculas.",
+          "test": {
+            "fields": [
+              {
+                "var": "texto",
+                "label": "texto"
+              }
+            ],
+            "values": {
+              "texto": "hello"
+            },
+            "expectedOutput": "Original: [hello]\nlength: 5\ncharAt(0): 'h'\ntrim: [hello]\ntoUpperCase: HELLO\nisEmpty: false"
+          }
+        },
+        {
+          "name": "isEmpty()",
+          "desc": "Retorna `true` se a String não tiver nenhum caractere.",
+          "test": {
+            "fields": [
+              {
+                "var": "texto",
+                "label": "texto"
+              }
+            ],
+            "values": {
+              "texto": ""
+            },
+            "expectedOutput": "Original: []\nlength: 0\ncharAt(0): (vazio)\ntrim: []\ntoUpperCase: \nisEmpty: true"
+          }
+        }
+      ],
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    String msg = {{texto}};\n    System.out.println(\"Original: [\" + msg + \"]\");\n    System.out.println(\"length: \" + msg.length());\n    System.out.println(\"charAt(0): \" + (msg.isEmpty() ? \"(vazio)\" : \"'\" + msg.charAt(0) + \"'\"));\n    System.out.println(\"trim: [\" + msg.trim() + \"]\");\n    System.out.println(\"toUpperCase: \" + msg.trim().toUpperCase());\n    System.out.println(\"isEmpty: \" + msg.isEmpty());\n  }\n}",
+        "inputs": [
+          {
+            "var": "texto",
+            "label": "texto",
+            "default": "java"
+          }
+        ],
+        "expectedOutput": "Original: [java]\nlength: 4\ncharAt(0): 'j'\ntrim: [java]\ntoUpperCase: JAVA\nisEmpty: false"
+      }
+    },
+    {
+      "id": 24,
+      "active": true,
+      "day": 1,
+      "type": "builtin-demo",
+      "icon": "calculator",
+      "title": "Math",
+      "lead": "Classe com métodos estáticos para cálculos. Você não cria objeto: chama direto `Math.metodo()`.",
+      "code": "double nota = 7.67;\nMath.sqrt(144);                     // raiz quadrada\nMath.pow(2, 10);                    // potencia\nMath.round(nota);                   // arredonda\nMath.max(7, 9);                     // maior valor\nMath.min(7, 9);                     // menor valor",
+      "methods": [
+        {
+          "name": "sqrt()",
+          "desc": "Calcula a raiz quadrada de um número. Exemplo: `Math.sqrt(144)` retorna 12.",
+          "test": {
+            "fields": [
+              {
+                "var": "valor",
+                "label": "valor",
+                "type": "number"
+              }
+            ],
+            "values": {
+              "valor": "144"
+            },
+            "code": "public class Main {\n  public static void main(String[] args) {\n    double valor = {{valor}};\n    System.out.println(\"sqrt(\" + valor + \") = \" + Math.sqrt(valor));\n  }\n}",
+            "expectedOutput": "sqrt(144.0) = 12.0"
+          }
+        },
+        {
+          "name": "pow()",
+          "desc": "Calcula potência. O primeiro valor é a base, o segundo é o expoente. `Math.pow(2, 10)` = 1024.",
+          "test": {
+            "fields": [
+              {
+                "var": "base",
+                "label": "base",
+                "type": "number"
+              },
+              {
+                "var": "exp",
+                "label": "expoente",
+                "type": "number"
+              }
+            ],
+            "values": {
+              "base": "2",
+              "exp": "10"
+            },
+            "code": "public class Main {\n  public static void main(String[] args) {\n    double base = {{base}};\n    double exp = {{exp}};\n    System.out.println(\"pow(\" + base + \", \" + exp + \") = \" + Math.pow(base, exp));\n  }\n}",
+            "expectedOutput": "pow(2.0, 10.0) = 1024.0"
+          }
+        },
+        {
+          "name": "round()",
+          "desc": "Com `float` ou `double`, arredonda para o **inteiro** mais próximo: `Math.round(3.6)` vira `4`. Para **casas decimais**, multiplique, arredonde e divida: `Math.round(7.67 * 10) / 10.0` vira `7.7`. Com `casas` variável: `Math.round(valor * Math.pow(10, casas)) / Math.pow(10, casas)`.",
+          "test": {
+            "fields": [
+              {
+                "var": "valor",
+                "label": "decimal",
+                "type": "number"
+              },
+              {
+                "var": "casas",
+                "label": "casas",
+                "type": "number"
+              }
+            ],
+            "values": {
+              "valor": "7.67",
+              "casas": "1"
+            },
+            "code": "public class Main {\n  public static void main(String[] args) {\n    double valor = {{valor}};\n    int casas = (int) {{casas}};\n    System.out.println(\"Original: \" + valor);\n    System.out.println(\"round (inteiro): \" + Math.round(valor));\n    double fator = Math.pow(10, casas);\n    System.out.println(\"Com \" + casas + \" casa(s): \" + (Math.round(valor * fator) / fator));\n  }\n}",
+            "expectedOutput": "Original: 7.67\nround (inteiro): 8\nCom 1 casa(s): 7.7"
+          }
+        },
+        {
+          "name": "max()",
+          "desc": "Retorna o maior valor entre dois números. Exemplo: `Math.max(7, 9)` retorna 9.",
+          "test": {
+            "fields": [
+              {
+                "var": "a",
+                "label": "a",
+                "type": "number"
+              },
+              {
+                "var": "b",
+                "label": "b",
+                "type": "number"
+              }
+            ],
+            "values": {
+              "a": "7",
+              "b": "9"
+            },
+            "code": "public class Main {\n  public static void main(String[] args) {\n    double a = {{a}};\n    double b = {{b}};\n    System.out.println(\"max(\" + a + \", \" + b + \") = \" + Math.max(a, b));\n  }\n}",
+            "expectedOutput": "max(7.0, 9.0) = 9.0"
+          }
+        },
+        {
+          "name": "min()",
+          "desc": "Retorna o menor valor entre dois números. Exemplo: `Math.min(7, 9)` retorna 7.",
+          "test": {
+            "fields": [
+              {
+                "var": "a",
+                "label": "a",
+                "type": "number"
+              },
+              {
+                "var": "b",
+                "label": "b",
+                "type": "number"
+              }
+            ],
+            "values": {
+              "a": "7",
+              "b": "9"
+            },
+            "code": "public class Main {\n  public static void main(String[] args) {\n    double a = {{a}};\n    double b = {{b}};\n    System.out.println(\"min(\" + a + \", \" + b + \") = \" + Math.min(a, b));\n  }\n}",
+            "expectedOutput": "min(7.0, 9.0) = 7.0"
+          }
+        }
+      ],
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    double valor = {{valor}};\n    int casas = (int) {{casas}};\n    System.out.println(\"sqrt(144) = \" + Math.sqrt(144));\n    System.out.println(\"pow(2, 10) = \" + Math.pow(2, 10));\n    System.out.println(\"round(\" + valor + \") = \" + Math.round(valor));\n    System.out.println(\"max(7, 9) = \" + Math.max(7, 9));\n    System.out.println(\"min(7, 9) = \" + Math.min(7, 9));\n    double fator = Math.pow(10, casas);\n    double arredondado = Math.round(valor * fator) / fator;\n    System.out.println(\"Com \" + casas + \" casa(s): \" + arredondado);\n  }\n}",
+        "inputs": [
+          {
+            "var": "valor",
+            "label": "decimal",
+            "default": "7.67",
+            "type": "number"
+          },
+          {
+            "var": "casas",
+            "label": "casas",
+            "default": "1",
+            "type": "number"
+          }
+        ],
+        "expectedOutput": "sqrt(144) = 12.0\npow(2, 10) = 1024.0\nround(7.67) = 8\nmax(7, 9) = 9\nmin(7, 9) = 7\nCom 1 casa(s): 7.7"
+      }
+    },
+    {
+      "id": 25,
+      "active": true,
+      "day": 1,
+      "type": "builtin-demo",
+      "icon": "list-ordered",
+      "title": "Arrays",
+      "lead": "Classe utilitária para vetores (`int[]`, `String[]`, etc). Ajuda a ordenar e comparar sem escrever laço manual.",
+      "code": "int[] nums = {5, 2, 8, 1};\nArrays.sort(nums);                  // ordena\nArrays.binarySearch(nums, 5);       // busca\nArrays.toString(nums);              // texto\nArrays.equals(nums, nums);          // compara\nArrays.fill(nums, 0);               // preenche",
+      "methods": [
+        {
+          "name": "sort()",
+          "desc": "Ordena o vetor em ordem crescente. Modifica o array original.",
+          "test": {
+            "code": "import java.util.Arrays;\n\npublic class Main {\n  public static void main(String[] args) {\n    int[] nums = {5, 2, 8, 1};\n    System.out.println(\"Antes: \" + Arrays.toString(nums));\n    Arrays.sort(nums);\n    System.out.println(\"Depois: \" + Arrays.toString(nums));\n  }\n}",
+            "expectedOutput": "Antes: [5, 2, 8, 1]\nDepois: [1, 2, 5, 8]"
+          }
+        },
+        {
+          "name": "binarySearch()",
+          "desc": "Busca um valor em vetor já ordenado. Retorna a posição ou valor negativo se não achar.",
+          "test": {
+            "code": "import java.util.Arrays;\n\npublic class Main {\n  public static void main(String[] args) {\n    int[] nums = {1, 2, 5, 8};\n    System.out.println(\"Vetor: \" + Arrays.toString(nums));\n    System.out.println(\"Posicao do 5: \" + Arrays.binarySearch(nums, 5));\n    System.out.println(\"Posicao do 9: \" + Arrays.binarySearch(nums, 9));\n  }\n}",
+            "expectedOutput": "Vetor: [1, 2, 5, 8]\nPosicao do 5: 2\nPosicao do 9: -5"
+          }
+        },
+        {
+          "name": "equals()",
+          "desc": "Compara se dois vetores têm os mesmos valores na mesma ordem.",
+          "test": {
+            "code": "import java.util.Arrays;\n\npublic class Main {\n  public static void main(String[] args) {\n    int[] a = {1, 2, 3};\n    int[] b = {1, 2, 3};\n    int[] c = {1, 2, 4};\n    System.out.println(\"a == b: \" + Arrays.equals(a, b));\n    System.out.println(\"a == c: \" + Arrays.equals(a, c));\n  }\n}",
+            "expectedOutput": "a == b: true\na == c: false"
+          }
+        },
+        {
+          "name": "toString()",
+          "desc": "Converte o vetor em texto legível. Muito usado para debug: `Arrays.toString(nums)`.",
+          "test": {
+            "code": "import java.util.Arrays;\n\npublic class Main {\n  public static void main(String[] args) {\n    int[] nums = {5, 2, 8, 1};\n    System.out.println(Arrays.toString(nums));\n  }\n}",
+            "expectedOutput": "[5, 2, 8, 1]"
+          }
+        },
+        {
+          "name": "fill()",
+          "desc": "Preenche todas as posições do vetor com o mesmo valor.",
+          "test": {
+            "code": "import java.util.Arrays;\n\npublic class Main {\n  public static void main(String[] args) {\n    int[] nums = {5, 2, 8, 1};\n    System.out.println(\"Antes: \" + Arrays.toString(nums));\n    Arrays.fill(nums, 0);\n    System.out.println(\"Depois: \" + Arrays.toString(nums));\n  }\n}",
+            "expectedOutput": "Antes: [5, 2, 8, 1]\nDepois: [0, 0, 0, 0]"
+          }
+        }
+      ],
+      "run": {
+        "enabled": true,
+        "code": "import java.util.Arrays;\n\npublic class Main {\n  public static void main(String[] args) {\n    int[] nums = {5, 2, 8, 1};\n    System.out.println(\"Antes: \" + Arrays.toString(nums));\n    Arrays.sort(nums);\n    System.out.println(\"Ordenado: \" + Arrays.toString(nums));\n    System.out.println(\"Posicao do 5: \" + Arrays.binarySearch(nums, 5));\n    System.out.println(\"Iguais: \" + Arrays.equals(nums, nums));\n    Arrays.fill(nums, 0);\n    System.out.println(\"Preenchido: \" + Arrays.toString(nums));\n  }\n}",
+        "expectedOutput": "Antes: [5, 2, 8, 1]\nOrdenado: [1, 2, 5, 8]\nPosicao do 5: 2\nIguais: true\nPreenchido: [0, 0, 0, 0]"
+      }
+    },
+    {
+      "id": 26,
+      "active": true,
+      "day": 1,
+      "type": "builtin-demo",
+      "icon": "boxes",
+      "title": "Collections",
+      "lead": "Utilitários estáticos para `List`, `Set` e outras coleções. Muito usado com `ArrayList` para ordenar, inverter, embaralhar e achar maior ou menor valor.",
+      "code": "ArrayList<String> nomes = new ArrayList<>(Arrays.asList(\"Ana\", \"Carlos\", \"Marcos\"));\nCollections.sort(nomes);            // ordena\nCollections.reverse(nomes);         // inverte\nCollections.shuffle(nomes);         // embaralha\n\nArrayList<Integer> notas = new ArrayList<>(Arrays.asList(7, 9, 5, 10));\nCollections.max(notas);             // maior valor\nCollections.min(notas);             // menor valor",
+      "methods": [
+        {
+          "name": "sort()",
+          "desc": "Ordena uma lista em ordem natural (alfabética para String, crescente para números).",
+          "test": {
+            "code": "import java.util.*;\n\npublic class Main {\n  public static void main(String[] args) {\n    ArrayList<String> nomes = new ArrayList<>(Arrays.asList(\"Ana\", \"Carlos\", \"Marcos\"));\n    System.out.println(\"Antes: \" + nomes);\n    Collections.sort(nomes);\n    System.out.println(\"Ordenado: \" + nomes);\n  }\n}",
+            "expectedOutput": "Antes: [Ana, Carlos, Marcos]\nOrdenado: [Ana, Carlos, Marcos]"
+          }
+        },
+        {
+          "name": "reverse()",
+          "desc": "Inverte a ordem dos itens da lista.",
+          "test": {
+            "code": "import java.util.*;\n\npublic class Main {\n  public static void main(String[] args) {\n    ArrayList<String> nomes = new ArrayList<>(Arrays.asList(\"Ana\", \"Carlos\", \"Marcos\"));\n    System.out.println(\"Antes: \" + nomes);\n    Collections.reverse(nomes);\n    System.out.println(\"Depois: \" + nomes);\n  }\n}",
+            "expectedOutput": "Antes: [Ana, Carlos, Marcos]\nDepois: [Marcos, Carlos, Ana]"
+          }
+        },
+        {
+          "name": "shuffle()",
+          "desc": "Embaralha os itens de forma aleatória.",
+          "test": {
+            "code": "import java.util.*;\n\npublic class Main {\n  public static void main(String[] args) {\n    ArrayList<String> nomes = new ArrayList<>(Arrays.asList(\"Ana\", \"Carlos\", \"Marcos\"));\n    System.out.println(\"Antes: \" + nomes);\n    Collections.shuffle(nomes);\n    System.out.println(\"Embaralhado: \" + nomes);\n  }\n}"
+          }
+        },
+        {
+          "name": "max()",
+          "desc": "Retorna o maior elemento de uma coleção de números comparáveis.",
+          "test": {
+            "code": "import java.util.*;\n\npublic class Main {\n  public static void main(String[] args) {\n    ArrayList<Integer> notas = new ArrayList<>(Arrays.asList(7, 9, 5, 10));\n    System.out.println(\"Notas: \" + notas);\n    System.out.println(\"Maior: \" + Collections.max(notas));\n  }\n}",
+            "expectedOutput": "Notas: [7, 9, 5, 10]\nMaior: 10"
+          }
+        },
+        {
+          "name": "min()",
+          "desc": "Retorna o menor elemento de uma coleção de números comparáveis.",
+          "test": {
+            "code": "import java.util.*;\n\npublic class Main {\n  public static void main(String[] args) {\n    ArrayList<Integer> notas = new ArrayList<>(Arrays.asList(7, 9, 5, 10));\n    System.out.println(\"Notas: \" + notas);\n    System.out.println(\"Menor: \" + Collections.min(notas));\n  }\n}",
+            "expectedOutput": "Notas: [7, 9, 5, 10]\nMenor: 5"
+          }
+        }
+      ],
+      "run": {
+        "enabled": true,
+        "code": "import java.util.*;\n\npublic class Main {\n  public static void main(String[] args) {\n    ArrayList<String> nomes = new ArrayList<>(Arrays.asList(\"Ana\", \"Carlos\", \"Marcos\"));\n    System.out.println(\"Nomes: \" + nomes);\n    Collections.sort(nomes);\n    System.out.println(\"Ordenado: \" + nomes);\n    Collections.reverse(nomes);\n    System.out.println(\"Invertido: \" + nomes);\n    ArrayList<Integer> notas = new ArrayList<>(Arrays.asList(7, 9, 5, 10));\n    System.out.println(\"Notas: \" + notas);\n    System.out.println(\"Maior: \" + Collections.max(notas));\n    System.out.println(\"Menor: \" + Collections.min(notas));\n  }\n}",
+        "expectedOutput": "Nomes: [Ana, Carlos, Marcos]\nOrdenado: [Ana, Carlos, Marcos]\nInvertido: [Marcos, Carlos, Ana]\nNotas: [7, 9, 5, 10]\nMaior: 10\nMenor: 5"
+      }
+    },
+    {
+      "id": 31,
+      "active": true,
+      "day": 1,
+      "type": "table",
+      "title": "Classes Wrapper",
+      "lead": "Cada tipo primitivo tem uma classe correspondente no pacote `java.lang`. Wrappers permitem usar primitivos em coleções como `ArrayList<Integer>`, APIs e métodos que exigem objetos.",
+      "details": [
+        "Autoboxing: Java converte `int` para `Integer` automaticamente.",
+        "Unboxing: `Integer` volta para `int` quando necessário.",
+        "Por isso `Collections.max(notas)` funciona com `ArrayList<Integer>` e não com `ArrayList<int>`."
+      ],
+      "columns": [
+        "Primitivo",
+        "Wrapper",
+        "Exemplo"
+      ],
+      "rows": [
+        [
+          "byte",
+          "Byte",
+          "Byte b = 10;"
+        ],
+        [
+          "short",
+          "Short",
+          "Short s = 300;"
+        ],
+        [
+          "int",
+          "Integer",
+          "Integer idade = 21;"
+        ],
+        [
+          "long",
+          "Long",
+          "Long populacao = 1_000_000L;"
+        ],
+        [
+          "float",
+          "Float",
+          "Float nota = 8.5f;"
+        ],
+        [
+          "double",
+          "Double",
+          "Double preco = 19.90;"
+        ],
+        [
+          "char",
+          "Character",
+          "Character letra = 'A';"
+        ],
+        [
+          "boolean",
+          "Boolean",
+          "Boolean ativo = true;"
+        ]
+      ],
+      "note": "Prefira primitivos em variáveis locais (mais rápido). Use wrapper quando a API ou coleção exigir objeto."
+    },
+    {
+      "id": 27,
+      "active": true,
+      "day": 1,
+      "type": "builtin-demo",
+      "icon": "scan-line",
+      "title": "Scanner",
+      "lead": "Classe para ler dados do teclado. Muito usada em programas de console e exercícios de entrada de dados.",
+      "code": "Scanner sc = new Scanner(System.in);\nString nome = sc.nextLine();        // texto\nint idade = sc.nextInt();           // inteiro\ndouble preco = sc.nextDouble();     // decimal\nboolean tem = sc.hasNext();         // tem dado?\nsc.close();                         // fecha",
+      "methods": [
+        {
+          "name": "nextLine()",
+          "desc": "Lê uma linha inteira de texto, incluindo espaços.",
+          "test": {
+            "fields": [
+              {
+                "var": "nome",
+                "label": "nome"
+              }
+            ],
+            "values": {
+              "nome": "Maria Silva"
+            },
+            "expectedOutput": "Voce digitou: Maria Silva"
+          }
+        },
+        {
+          "name": "nextInt()",
+          "desc": "Lê um número inteiro digitado pelo usuário.",
+          "test": {
+            "fields": [
+              {
+                "var": "nome",
+                "label": "idade",
+                "type": "number"
+              }
+            ],
+            "values": {
+              "nome": "21"
+            },
+            "code": "public class Main {\n  public static void main(String[] args) {\n    int idade = (int) {{nome}};\n    System.out.println(\"Idade lida: \" + idade);\n  }\n}"
+          }
+        },
+        {
+          "name": "hasNext()",
+          "desc": "Verifica se ainda existe dado para ler antes de chamar o próximo método.",
+          "test": {
+            "fields": [
+              {
+                "var": "nome",
+                "label": "nome"
+              }
+            ],
+            "values": {
+              "nome": "TechX"
+            }
+          }
+        },
+        {
+          "name": "nextDouble()",
+          "desc": "Lê um número decimal digitado pelo usuário, como preço ou nota.",
+          "test": {
+            "fields": [
+              {
+                "var": "nome",
+                "label": "preço",
+                "type": "number"
+              }
+            ],
+            "values": {
+              "nome": "19.90"
+            },
+            "code": "public class Main {\n  public static void main(String[] args) {\n    double preco = {{nome}};\n    System.out.println(\"Preço lido: R$ \" + preco);\n  }\n}",
+            "expectedOutput": "Preço lido: R$ 19.9"
+          }
+        },
+        {
+          "name": "close()",
+          "desc": "Fecha o Scanner e libera os recursos. Boa prática ao terminar a leitura.",
+          "test": {
+            "fields": [
+              {
+                "var": "nome",
+                "label": "nome"
+              }
+            ],
+            "values": {
+              "nome": "Marcos"
+            },
+            "expectedOutput": "Nome: Marcos\nScanner fechado com sucesso."
+          }
+        }
+      ],
+      "run": {
+        "enabled": true,
+        "code": "public class Main {\n  public static void main(String[] args) {\n    String nome = {{nome}};\n    int idade = 21;\n    double preco = 19.90;\n    System.out.println(\"Nome: \" + nome);\n    System.out.println(\"Idade: \" + idade);\n    System.out.println(\"Preco: R$ \" + preco);\n    System.out.println(\"Tem proximo: true\");\n    System.out.println(\"Scanner fechado com sucesso.\");\n  }\n}",
+        "inputs": [
+          {
+            "var": "nome",
+            "label": "nome",
+            "default": "Marcos"
+          }
+        ],
+        "expectedOutput": "Nome: Marcos\nIdade: 21\nPreco: R$ 19.9\nTem proximo: true\nScanner fechado com sucesso."
+      }
+    },
+    {
+      "id": 28,
+      "active": false,
+      "day": 1,
+      "type": "builtins-table",
+      "title": "Built-ins: métodos e exemplos",
+      "lead": "Resumo em tabela (substituido pelos slides interativos).",
+      "columns": [
+        "Classe",
+        "Métodos principais",
+        "Exemplo de código"
+      ],
+      "rows": [
+        [
+          "System",
+          "out.println(), getenv(), exit()",
+          "System.out.println(\"TechX\");"
+        ],
+        [
+          "String",
+          "length(), charAt(), trim(), split()",
+          "msg.trim().toUpperCase();"
+        ],
+        [
+          "Math",
+          "sqrt(), pow(), round(), max()",
+          "Math.pow(2, 10);"
+        ],
+        [
+          "Arrays",
+          "sort(), binarySearch(), equals()",
+          "Arrays.sort(numeros);"
+        ],
+        [
+          "Collections",
+          "sort(), reverse(), shuffle()",
+          "Collections.sort(nomes);"
+        ],
+        [
+          "Scanner",
+          "nextLine(), nextInt(), hasNext()",
+          "String nome = sc.nextLine();"
+        ]
+      ]
+    }
+  ]
+}

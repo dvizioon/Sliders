@@ -1,0 +1,79 @@
+{
+  "slides": [
+    {
+      "id": 20,
+      "active": true,
+      "day": 1,
+      "type": "recap",
+      "title": "Resumo do Dia 1",
+      "days": [
+        {
+          "label": "Fundamentos",
+          "icon": "book-open",
+          "topics": [
+            "Origem do Java, JDK/JRE/JVM e IDEs",
+            "Variáveis, tipos primitivos, wrappers e String x char",
+            "Bytecode e built-ins"
+          ]
+        },
+        {
+          "label": "Controle de fluxo",
+          "icon": "git-branch",
+          "topics": [
+            "Operadores, if, else e else if",
+            "switch, for, foreach e while",
+            "Atributos, métodos e exercício do Carro",
+            "Encapsulamento, pilares, getters/setters e static"
+          ]
+        },
+        {
+          "label": "Próximos passos",
+          "icon": "rocket",
+          "topics": [
+            "Spring Boot: API REST, JSON e camadas",
+            "Banco de dados, JPA, `@Id` e `application.properties`",
+            "`List<Tarefa>`, Repository e projeto completo no Dia 2"
+          ]
+        }
+      ],
+      "cta": "Revise cada slide e pratique criando suas próprias classes. Nos vemos no projeto Spring Boot!"
+    },
+    {
+      "id": 21,
+      "active": false,
+      "day": 2,
+      "type": "project",
+      "title": "Dia 2: Projeto Todoist",
+      "lead": "API REST com Spring Boot para gerenciar tarefas.",
+      "stack": [
+        "Spring Boot 3",
+        "REST API",
+        "JSON",
+        "Maven"
+      ],
+      "structure": [
+        "TodoistApplication.java (ponto de entrada)",
+        "Todo.java (modelo da tarefa)",
+        "TodoController.java (rotas HTTP)",
+        "TodoService.java (regras de negócio)"
+      ]
+    },
+    {
+      "id": 22,
+      "active": false,
+      "day": 2,
+      "type": "code-tabs",
+      "title": "Rotas GET e POST",
+      "tabs": [
+        {
+          "name": "GET /todos",
+          "code": "@GetMapping(\"/todos\")\npublic List<Todo> listar() {\n  return todoService.listarTodos();\n}"
+        },
+        {
+          "name": "POST /todos",
+          "code": "@PostMapping(\"/todos\")\npublic Todo criar(@RequestBody Todo todo) {\n  return todoService.salvar(todo);\n}"
+        }
+      ]
+    }
+  ]
+}

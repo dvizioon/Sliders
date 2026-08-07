@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "title": "Introdução ao Java",
+    "subtitle": "TechX · Dia 1",
+    "author": "StackUp",
+    "showDayTag": false,
+    "piston": {
+      "enabled": true,
+      "url": "",
+      "executePath": "/execute",
+      "healthPath": "/health",
+      "language": "java",
+      "version": "15.0.2",
+      "timeout": 3000,
+      "button": {
+        "label": "Executar",
+        "icon": "play",
+        "loadingLabel": "Executando...",
+        "clearLabel": "Limpar",
+        "clearIcon": "eraser"
+      }
+    }
+  },
+  "parts": [
+    "data/slides/00-intro.json",
+    "data/slides/01-fundamentos.json",
+    "data/slides/02-builtins.json",
+    "data/slides/03-fluxo.json",
+    "data/slides/04-oop.json",
+    "data/slides/05-spring.json",
+    "data/slides/06-database.json",
+    "data/slides/07-fechamento.json"
+  ]
+}

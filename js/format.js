@@ -2,7 +2,7 @@ import { escapeHtml } from "./utils.js";
 import { highlightInlineCode } from "./highlight.js";
 
 const INLINE_TOKEN =
-  /(`[^`]+`|\*\*[^*]+?\*\*|\[[^\]]+\]\((https?:\/\/[^)\s]+)\))/g;
+  /(`[^`]+`|\*\*[^*]+?\*\*|\*[^*]+?\*|\[[^\]]+\]\((https?:\/\/[^)\s]+)\))/g;
 
 function formatPlain(text) {
   return escapeHtml(text);
@@ -24,6 +24,8 @@ export function formatText(str) {
       parts.push(`<code class="inline-code">${highlightInlineCode(code)}</code>`);
     } else if (token.startsWith("**")) {
       parts.push(`<strong>${formatPlain(token.slice(2, -2))}</strong>`);
+    } else if (token.startsWith("*")) {
+      parts.push(`<em>${formatPlain(token.slice(1, -1))}</em>`);
     } else if (token.startsWith("[")) {
       const labelEnd = token.indexOf("](");
       const label = token.slice(1, labelEnd);

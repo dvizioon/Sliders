@@ -1,0 +1,143 @@
+{
+  "slides": [
+    {
+      "id": 156,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "Introdução ao Banco de Dados",
+      "lead": "Sem banco, a API **perde tudo** ao reiniciar. O banco guarda tarefas, usuários e pedidos de forma **persistente**.",
+      "cards": [
+        {
+          "icon": "database",
+          "heading": "Para que serve",
+          "body": "Armazena dados em **tabelas** (linhas e colunas). A API grava com `save()` e lê com `findAll()`."
+        },
+        {
+          "icon": "hard-drive",
+          "heading": "H2 (desenvolvimento)",
+          "body": "Banco **em memória** embutido no Spring — zero instalação. Em produção: PostgreSQL, MySQL..."
+        },
+        {
+          "icon": "table",
+          "heading": "Tabela `tarefa`",
+          "body": "Cada linha = uma tarefa. Colunas: `id`, `nome`, `descricao`, `lembrete`. O JPA cria a tabela a partir da classe."
+        }
+      ]
+    },
+    {
+      "id": 157,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "application.properties",
+      "lead": "Arquivo em `src/main/resources/`. O Spring lê na subida — muda porta ou banco **sem recompilar**.",
+      "code": "spring.application.name=h2\n\nspring.datasource.url=jdbc:h2:mem:techx\nspring.datasource.driverClassName=org.h2.Driver\nspring.datasource.username=daniel\nspring.datasource.password=1234\n\nspring.jpa.hibernate.ddl-auto=update\nspring.jpa.show-sql=true\n\nspring.h2.console.enabled=true\nspring.h2.console.path=/h2-console",
+      "rules": [
+        "`spring.datasource.url` → endereço do banco (`jdbc:h2:mem:techx` = H2 na RAM)",
+        "`username` / `password` → credenciais de acesso ao banco",
+        "`spring.jpa.hibernate.ddl-auto=update` → JPA cria/atualiza tabelas automaticamente",
+        "`spring.jpa.show-sql=true` → exibe o SQL no console (ótimo para aprender)",
+        "`spring.h2.console.enabled=true` → painel web em `/h2-console` para ver as tabelas"
+      ]
+    },
+    {
+      "id": 158,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "JPA — anotações do Model",
+      "lead": "JPA mapeia classes Java para tabelas. Você anota a entidade e o Hibernate traduz para SQL.",
+      "cards": [
+        {
+          "icon": "box",
+          "heading": "@Entity",
+          "body": "Marca a classe como **entidade** do banco. Cada objeto `Tarefa` vira uma linha na tabela."
+        },
+        {
+          "icon": "key",
+          "heading": "@Id",
+          "body": "Define a **chave primária** — identificador único de cada registro. Toda tabela precisa de um `@Id`."
+        },
+        {
+          "icon": "hash",
+          "heading": "@GeneratedValue",
+          "body": "O banco **gera o id sozinho** ao salvar (`IDENTITY` = auto-incremento: 1, 2, 3...)."
+        }
+      ]
+    },
+    {
+      "id": 159,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Model: classe Tarefa",
+      "lead": "Classe que espelha a tabela. Atributos `private` + getters/setters. Construtor vazio obrigatório para o JPA.",
+      "code": "@Entity\npublic class Tarefa {\n\n  @Id\n  @GeneratedValue(strategy = GenerationType.IDENTITY)\n  private Long id;\n\n  private String nome;\n  private String descricao;\n  private String lembrete;\n\n  public Tarefa() { }\n\n  // getters e setters...\n}",
+      "rules": [
+        "`@Entity` na classe → vira tabela no banco",
+        "`@Id` no campo `id` → chave primária",
+        "`@GeneratedValue` → id automático ao inserir",
+        "Cada atributo `private` vira uma coluna com o mesmo nome"
+      ]
+    },
+    {
+      "id": 160,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Repository — acesso ao banco",
+      "lead": "Interface que o Spring **implementa sozinho**. Você não escreve SQL — usa métodos prontos.",
+      "code": "public interface TarefaRepository\n    extends JpaRepository<Tarefa, Long> {\n}",
+      "rules": [
+        "`JpaRepository<Tarefa, Long>` → entidade `Tarefa`, id do tipo `Long`",
+        "`findAll()` → retorna todas as tarefas do banco",
+        "`save(tarefa)` → insere ou atualiza um registro",
+        "`findById(id)` / `deleteById(id)` → busca e apaga por id"
+      ]
+    },
+    {
+      "id": 161,
+      "active": true,
+      "day": 1,
+      "type": "cards",
+      "title": "List<Tarefa> — Generics e Collections",
+      "lead": "`List<Tarefa>` é uma **lista** de objetos Tarefa. O `<Tarefa>` é **genérico**: diz ao Java *o que* a lista guarda.",
+      "cards": [
+        {
+          "icon": "list",
+          "heading": "O que é List<Tarefa>",
+          "body": "**Collection** do pacote `java.util`. Guarda vários objetos do mesmo tipo. Não é array — o tamanho **cresce** conforme você adiciona."
+        },
+        {
+          "icon": "git-compare",
+          "heading": "List vs Array",
+          "body": "**Array** (`Tarefa[]`) tem tamanho fixo. **List** (`ArrayList`) é flexível — ideal quando a API retorna quantidade variável de registros."
+        },
+        {
+          "icon": "braces",
+          "heading": "No Controller",
+          "body": "`public List<Tarefa> getTarefas()` → Spring converte a lista em JSON array: `[{\"id\":1,\"nome\":\"...\"}, ...]`."
+        }
+      ]
+    },
+    {
+      "id": 162,
+      "active": true,
+      "day": 1,
+      "type": "split",
+      "title": "Controller com banco",
+      "lead": "`@Autowired` injeta o Repository no Controller — você **não** faz `new TarefaRepository()`. O Spring cuida disso.",
+      "code": "@RestController\n@RequestMapping(\"/api/tarefa\")\npublic class TarefaController {\n\n  @Autowired\n  private TarefaRepository tarefaRepository;\n\n  @GetMapping\n  public List<Tarefa> getTarefas() {\n    return tarefaRepository.findAll();\n  }\n\n  @PostMapping\n  public Tarefa criarTarefa(@RequestBody Tarefa tarefa) {\n    return tarefaRepository.save(tarefa);\n  }\n}",
+      "rules": [
+        "`@Autowired` → Spring injeta o Repository automaticamente",
+        "`List<Tarefa>` no retorno → JSON array na resposta HTTP",
+        "`@RequestBody` → JSON do cliente vira objeto `Tarefa`",
+        "`save()` persiste no banco; `findAll()` lê tudo"
+      ],
+      "run": {
+        "expectedOutput": "GET /api/tarefa\n[{\"id\":1,\"nome\":\"Estudar JPA\",\"descricao\":\"...\",\"lembrete\":\"...\"}]\n\nPOST /api/tarefa\nBody: {\"nome\":\"Nova tarefa\",\"descricao\":\"...\",\"lembrete\":\"...\"}\n→ salvo com id gerado pelo banco"
+      }
+    }
+  ]
+}

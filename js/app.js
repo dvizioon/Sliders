@@ -9,23 +9,29 @@ import { initDndActivities } from "./dnd-activity.js";
 
 async function init() {
   const container = document.getElementById("slides-container");
-  const [slidesRes, booksRes, idesRes] = await Promise.all([
-    fetch("data/slides.json?v=83"),
+  const deckRes = await fetch("data/deck.json?v=1");
+  const deck = await deckRes.json();
+  const partResponses = await Promise.all(
+    deck.parts.map((part) => fetch(`${part}?v=1`))
+  );
+  const partData = await Promise.all(partResponses.map((r) => r.json()));
+  const slidesFromDeck = partData.flatMap((part) => part.slides || []);
+
+  const [booksRes, idesRes] = await Promise.all([
     fetch("data/books.json?v=7"),
     fetch("data/ides.json?v=3")
   ]);
-  const data = await slidesRes.json();
   const booksData = await booksRes.json();
   const idesData = await idesRes.json();
 
-  state.pistonConfig = data.meta.piston || null;
-  state.showDayTag = data.meta.showDayTag === true;
+  state.pistonConfig = deck.meta.piston || null;
+  state.showDayTag = deck.meta.showDayTag === true;
 
   await initExecution(state.pistonConfig);
 
   const bookList = booksData.books || [];
   const ideList = idesData.ides || [];
-  const slides = activeSlides(data.slides).map((slide) => {
+  const slides = activeSlides(slidesFromDeck).map((slide) => {
     if (slide.type === "books") return { ...slide, books: bookList };
     if (slide.type === "ides") return { ...slide, ides: ideList };
     return slide;
@@ -33,11 +39,11 @@ async function init() {
   const total = slides.length;
 
   state.slides = slides;
-  state.meta = data.meta;
+  state.meta = deck.meta;
   state.runSources.clear();
   state.builtinTemplates.clear();
 
-  document.title = `${data.meta.title} | ${data.meta.subtitle}`;
+  document.title = `${deck.meta.title} | ${deck.meta.subtitle}`;
   container.innerHTML = slides.map((s, i) => renderSlide(s, i, total)).join("");
 
   bindTabs();
@@ -70,7 +76,7 @@ async function init() {
     pdfSeparateFragments: false
   });
 
-  initExportMenu(data.meta, slides);
+  initExportMenu(deck.meta, slides);
   updateDeckPageBadge(slides);
   Reveal.on("slidechanged", () => updateDeckPageBadge(slides));
 }
